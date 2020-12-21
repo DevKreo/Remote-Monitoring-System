@@ -3,7 +3,47 @@
     <table class="table table-striped table-sm">
         <thead>
             <tr>
+                <th></th>
+                <th>
+                <select class="form-control">
+                    <option selected>Статус</option>
+                      <option>Бла</option>
+                      <option>2</option>
+                      <option>3</option>
+                </select>
+                </th>
+                <th><input type="text" class="form-control" id="inputPassword2" placeholder="Фильтр1"></th>
+                <th><input type="text" class="form-control" id="inputPassword2" placeholder="Фильтр1"></th>
+                <th><input id="timepicker" width="100" /></th>
+                <th><input id="timepicker1" width="100"/></th>
+                <th>
+                <select class="form-control">
+                    <option selected>Рубежи</option>
+                      <option>Бла</option>
+                      <option>2</option>
+                      <option>3</option>
+                </select>
+                </th>
+                <th>
+                <select class="form-control">
+                    <option selected>Ответственные</option>
+                      <option>Бла</option>
+                      <option>2</option>
+                      <option>3</option>
+                </select>
+                </th>
+                <th>
+                    <button type="button" class="btn btn-light">Очистить</button>
+                </th>
+            </tr>
+        </thead>
+        <thead>
+            <tr>
                 <th>#</th>
+                <th>Header</th>
+                <th>Header</th>
+                <th>Header</th>
+                <th>Header</th>
                 <th>Header</th>
                 <th>Header</th>
                 <th>Header</th>
@@ -17,6 +57,10 @@
                 <td>ipsum</td>
                 <td>dolor</td>
                 <td>sit</td>
+                <td>dolor</td>
+                <td>dolor</td>
+                <td>sit</td>
+                <td>dolor</td>
             </tr>
             <tr>
                 <td>1,002</td>
@@ -24,6 +68,10 @@
                 <td>consectetur</td>
                 <td>adipiscing</td>
                 <td>elit</td>
+                <td>adipiscing</td>
+                <td>dolor</td>
+                <td>sit</td>
+                <td>dolor</td>
             </tr>
             <tr>
                 <td>1,003</td>
@@ -31,6 +79,10 @@
                 <td>nec</td>
                 <td>odio</td>
                 <td>Praesent</td>
+                <td>odio</td>
+                <td>dolor</td>
+                <td>sit</td>
+                <td>dolor</td>
             </tr>
             <tr>
                 <td>1,003</td>
@@ -38,6 +90,10 @@
                 <td>Sed</td>
                 <td>cursus</td>
                 <td>ante</td>
+                <td>cursus</td>
+                <td>dolor</td>
+                <td>sit</td>
+                <td>dolor</td>
             </tr>
             <tr>
                 <td>1,004</td>
@@ -45,6 +101,10 @@
                 <td>diam</td>
                 <td>Sed</td>
                 <td>nisi</td>
+                <td>Sed</td>
+                <td>dolor</td>
+                <td>sit</td>
+                <td>dolor</td>
             </tr>
             <tr>
                 <td>1,005</td>
@@ -52,6 +112,10 @@
                 <td>quis</td>
                 <td>sem</td>
                 <td>at</td>
+                <td>sem</td>
+                <td>dolor</td>
+                <td>sit</td>
+                <td>dolor</td>
             </tr>
             <tr>
                 <td>1,006</td>
@@ -59,6 +123,10 @@
                 <td>elementum</td>
                 <td>imperdiet</td>
                 <td>Duis</td>
+                <td>imperdiet</td>
+                <td>dolor</td>
+                <td>sit</td>
+                <td>dolor</td>
             </tr>
             <tr>
                 <td>1,007</td>
@@ -66,6 +134,10 @@
                 <td>ipsum</td>
                 <td>Praesent</td>
                 <td>mauris</td>
+                <td>Praesent</td>
+                <td>dolor</td>
+                <td>sit</td>
+                <td>dolor</td>
             </tr>
             <tr>
                 <td>1,008</td>
@@ -73,6 +145,10 @@
                 <td>nec</td>
                 <td>tellus</td>
                 <td>sed</td>
+                <td>tellus</td>
+                <td>dolor</td>
+                <td>sit</td>
+                <td>dolor</td>
             </tr>
             <tr>
                 <td>1,009</td>
@@ -80,6 +156,10 @@
                 <td>semper</td>
                 <td>porta</td>
                 <td>Mauris</td>
+                <td>porta</td>
+                <td>dolor</td>
+                <td>sit</td>
+                <td>dolor</td>
             </tr>
             <tr>
                 <td>1,010</td>
@@ -87,6 +167,10 @@
                 <td>Vestibulum</td>
                 <td>lacinia</td>
                 <td>arcu</td>
+                <td>lacinia</td>
+                <td>dolor</td>
+                <td>sit</td>
+                <td>dolor</td>
             </tr>
             <tr>
                 <td>1,011</td>
@@ -94,6 +178,10 @@
                 <td>nulla</td>
                 <td>Class</td>
                 <td>aptent</td>
+                <td>Class</td>
+                <td>dolor</td>
+                <td>sit</td>
+                <td>dolor</td>
             </tr>
             <tr>
                 <td>1,012</td>
@@ -101,6 +189,10 @@
                 <td>sociosqu</td>
                 <td>ad</td>
                 <td>litora</td>
+                <td>ad</td>
+                <td>dolor</td>
+                <td>sit</td>
+                <td>dolor</td>
             </tr>
             <tr>
                 <td>1,013</td>
@@ -108,6 +200,10 @@
                 <td>per</td>
                 <td>conubia</td>
                 <td>nostra</td>
+                <td>conubia</td>
+                <td>dolor</td>
+                <td>sit</td>
+                <td>dolor</td>
             </tr>
             <tr>
                 <td>1,014</td>
@@ -115,6 +211,10 @@
                 <td>inceptos</td>
                 <td>himenaeos</td>
                 <td>Curabitur</td>
+                <td>himenaeos</td>
+                <td>dolor</td>
+                <td>sit</td>
+                <td>dolor</td>
             </tr>
             <tr>
                 <td>1,015</td>
@@ -122,6 +222,10 @@
                 <td>ligula</td>
                 <td>in</td>
                 <td>libero</td>
+                <td>in</td>
+                <td>dolor</td>
+                <td>sit</td>
+                <td>dolor</td>
             </tr>
         </tbody>
     </table>
