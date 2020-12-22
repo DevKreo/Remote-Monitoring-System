@@ -91,11 +91,6 @@
           </main>
       </div>
     </div>
-    <script>
-        $('.timepicker').timepicker({
-            uiLibrary: 'bootstrap4'
-        });
-    </script>
     <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
     <script>
       feather.replace()

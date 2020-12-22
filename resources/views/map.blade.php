@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -12,6 +13,10 @@
 
     
 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -44,36 +49,40 @@
     
     <!-- Custom styles for this template -->
     <link href="css/album.css" rel="stylesheet">
-    </head>
-<body>
-    
-  @include('layouts.nav')
+  </head>
 
+  <body>
+    @include('layouts.nav')
     <div class="container-fluid">
       <div class="row">
-          @include('layouts.sidebar')
-          <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-                <button type="button" class="btn btn-dark">Добавить обращение</button>
-
-                <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                    <label class="custom-control-label" for="customSwitch1">с удаленными</label>
-                </div>
-                    
-              </div>
-                  <div class="my-4 w-100">
-                      @include('layouts.table')
-                  </div>
-          </main>
+        @include('layouts.sidebar')
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            @include('layouts.tabsForMap')
+            @include('layouts.mapCard')
+            <div class="my-lg-2">
+                <p class="text-right ">Выровненный справа текст во всех размерах видового экрана.</p>
+            </div>
+            @include('layouts.mapForm')
+            @include('layouts.mapCanvas')
+            
+        </main>
       </div>
     </div>
-    
-    
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+
     <!-- Icons -->
     <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
     <script>
       feather.replace()
-    </script>  
-</body>
+    </script>
+
+    <!-- Graphs -->
+  </body>
 </html>

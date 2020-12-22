@@ -1,21 +1,21 @@
 <h2>Section title</h2>
 <div class="table-responsive">
-    <table class="table table-striped table-sm">
+    <table class="table table-striped table-bordered table-sm">
         <thead>
             <tr>
                 <th></th>
                 <th>
                 <select class="form-control">
-                    <option selected>Статус</option>
-                      <option>Бла</option>
-                      <option>2</option>
-                      <option>3</option>
+                        <option selected>Статус</option>
+                        <option>Бла</option>
+                        <option>2</option>
+                        <option>3</option>
                 </select>
                 </th>
                 <th><input type="text" class="form-control" id="inputPassword2" placeholder="Фильтр1"></th>
                 <th><input type="text" class="form-control" id="inputPassword2" placeholder="Фильтр1"></th>
-                <th><input class="timepicker" width="100" /></th>
-                <th><input class="timepicker" width="100"/></th>
+                <th><input class="timepicker form-control" id="timepicker1" type="text"></th>
+                <th><input class="timepicker form-control" id="timepicker2" type="text"></th>
                 <th>
                 <select class="form-control">
                     <option selected>Рубежи</option>
@@ -228,18 +228,27 @@
                 <td>dolor</td>
             </tr>
         </tbody>
+        
     </table>
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
           <li class="page-item disabled">
             <a class="page-link" href="#" tabindex="-1">Previous</a>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item">
-            <a class="page-link" href="#">Next</a>
-          </li>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
         </ul>
-      </nav>
+    </nav>
+    <script>
+        $('#timepicker1').timepicker({
+            uiLibrary: 'bootstrap4'
+        });
+        $('#timepicker2').timepicker({
+            uiLibrary: 'bootstrap4'
+        });
+    </script>
 </div>

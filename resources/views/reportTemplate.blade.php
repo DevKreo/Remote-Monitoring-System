@@ -154,101 +154,140 @@
                                     </button>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>1,007</td>
-                                <td>sagittis</td>
-                                <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
-                            <tr>
-                                <td>1,008</td>
-                                <td>Fusce</td>
-                                <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,009</td>
-                                <td>augue</td>
-                                <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,010</td>
-                                <td>massa</td>
-                                <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,011</td>
-                                <td>eget</td>
-                                <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,012</td>
-                                <td>taciti</td>
-                                <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,013</td>
-                                <td>torquent</td>
-                                <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,014</td>
-                                <td>per</td>
-                                <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,015</td>
-                                <td>sodales</td>
-                                <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h1 class="h2">Редактирование шаблона отчета</h1>
+                    </div>
+
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputEmail4">Наименование шаблона для отчета*</label>
+                                <input type="Text" class="form-control" id="inputEmail4">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputPassword4">Параметр для построения отчета</label>
+                                <select class="form-control">
+                                        <option selected>Нарушения</option>
+                                        <option>Бла</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <label for="inputEmail4">Выберите объект по которому строится отчет</label>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <select class="form-control">
+                                        <option selected>Рубежи</option>
+                                        <option>Бла</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <select class="form-control">
+                                        <option selected>Регион</option>
+                                        <option>Бла</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <select class="form-control">
+                                        <option selected>Выберите группу рубежей</option>
+                                        <option>Бла</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="card">
+                                <div class="card-body">
+                                    <h3 class="card-title">
+                                        Все рубежи
+                                    </h3>
+                                    <div class="container">
+                                        <input class="form-control" id="listSearch" type="text" placeholder="Type something to search list items">
+                                        <br>
+                                        <ul class="list-group" id="myList">
+                                            <li class="list-group-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                        <label class="form-check-label" for="flexCheckDefault">
+                                                            Жора
+                                                        </label>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                        <label class="form-check-label" for="flexCheckDefault">
+                                                            Петя
+                                                        </label>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                        <label class="form-check-label" for="flexCheckDefault">
+                                                            Гриша
+                                                        </label>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                        <label class="form-check-label" for="flexCheckDefault">
+                                                            Гога
+                                                        </label>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="card">
+                                <div class="card-body">
+                                    <h3 class="card-title">
+                                        Выбранные рубежи
+                                    </h3>
+                                    
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+            
                 </div>
+                </div>
+
               </main>
       </div>
     </div>
+    <script src="js/search.js"></script>
     <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
     <script>
       feather.replace()

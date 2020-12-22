@@ -32,3 +32,7 @@ Route::get('/apealsList', function () {
 Route::get('/report', function () {
     return view('pages.reportTemplatePage');
 });
+
+Route::get('/map', function () {
+    return view('pages.mapPage');
+});
