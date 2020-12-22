@@ -28,3 +28,7 @@ Route::get('/login', function () {
 Route::get('/apealsList', function () {
     return view('pages.apealsListPage');
 });
+
+Route::get('/report', function () {
+    return view('pages.reportTemplatePage');
+});

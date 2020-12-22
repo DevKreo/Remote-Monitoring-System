@@ -14,8 +14,8 @@
                 </th>
                 <th><input type="text" class="form-control" id="inputPassword2" placeholder="Фильтр1"></th>
                 <th><input type="text" class="form-control" id="inputPassword2" placeholder="Фильтр1"></th>
-                <th><input id="timepicker" width="100" /></th>
-                <th><input id="timepicker1" width="100"/></th>
+                <th><input class="timepicker" width="100" /></th>
+                <th><input class="timepicker" width="100"/></th>
                 <th>
                 <select class="form-control">
                     <option selected>Рубежи</option>
@@ -229,4 +229,17 @@
             </tr>
         </tbody>
     </table>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">Previous</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
 </div>

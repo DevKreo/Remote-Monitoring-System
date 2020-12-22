@@ -16,11 +16,11 @@
         <li class="nav-item">
             <a class="nav-link" href="apealsList">
                 <span data-feather="shopping-cart"></span>
-                список обращений
+                Список обращений
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="report">
                 <span data-feather="users"></span>
                 Конструктор отчетов
             </a>

@@ -47,7 +47,7 @@
     </head>
 <body>
     @include('layouts.nav')
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center" id="content">
       <div class="row">
         <form>
             <div class="form-group" >

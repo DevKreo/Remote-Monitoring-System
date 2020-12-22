@@ -54,7 +54,7 @@
     <div class="container-fluid">
       <div class="row">
           @include('layouts.sidebar')
-          <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+          <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
                 <ul class="nav nav-tabs">
                   <li class="nav-item">
@@ -92,12 +92,13 @@
       </div>
     </div>
     <script>
-        $('#timepicker').timepicker({
-            uiLibrary: 'bootstrap4'
-        });
-        $('#timepicker1').timepicker({
+        $('.timepicker').timepicker({
             uiLibrary: 'bootstrap4'
         });
     </script>
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script>
+      feather.replace()
+    </script> 
 </body>
 </html>
