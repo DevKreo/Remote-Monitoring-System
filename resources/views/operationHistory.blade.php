@@ -20,13 +20,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-    <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-    <link rel="manifest" href="/docs/5.0/assets/img/favicons/manifest.json">
-    <link rel="mask-icon" href="/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
-    <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
-    <meta name="theme-color" content="#7952b3">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 
 
     <style>
@@ -48,6 +42,7 @@
     
     <!-- Custom styles for this template -->
     <link href="css/album.css" rel="stylesheet">
+    <link href="js/timePicker.js" rel="text/javascript">
 </head>
 <body>
     @include('layouts.nav')
@@ -58,7 +53,17 @@
             <table class="table table-striped table-bordered table-sm">
                 <thead>
                     <th></th>
-                    
+                    <th>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" id="inputPassword2" placeholder="Тут должен быть ваш тайм пикер">
+                            </div>
+
+                            <div class="col">
+                                <input type="text" class="form-control" id="inputPassword2" placeholder="Тут должен быть ваш тайм пикер">
+                            </div>
+                        </div>
+                    </th>
                     <th>
                     <select class="form-control">
                             <option selected>Статус</option>
@@ -87,7 +92,7 @@
                         <th>Header</th>
                         <th>Header</th>
                         <th>Header</th>
-                        <th>Header</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -97,7 +102,12 @@
                         <td>Sed</td>
                         <td>cursus</td>
                         <td>ante</td>
-                        <td>cursus</td>
+                        <td>
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn btn-dark btn-circle"><i class="fa fa-eye"></i>
+                                </button>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td>1,004</td>
@@ -105,7 +115,12 @@
                         <td>diam</td>
                         <td>Sed</td>
                         <td>nisi</td>
-                        <td>Sed</td>
+                        <td>
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn btn-dark btn-circle"><i class="fa fa-eye"></i>
+                                </button>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td>1,006</td>
@@ -113,7 +128,12 @@
                         <td>elementum</td>
                         <td>imperdiet</td>
                         <td>Duis</td>
-                        <td>imperdiet</td>
+                        <td>
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn btn-dark btn-circle"><i class="fa fa-eye"></i>
+                                </button>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td>1,007</td>
@@ -121,7 +141,12 @@
                         <td>ipsum</td>
                         <td>Praesent</td>
                         <td>mauris</td>
-                        <td>Praesent</td>
+                        <td>
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn btn-dark btn-circle"><i class="fa fa-eye"></i>
+                                </button>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td>1,008</td>
@@ -129,7 +154,12 @@
                         <td>nec</td>
                         <td>tellus</td>
                         <td>sed</td>
-                        <td>tellus</td>
+                        <td>
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn btn-dark btn-circle"><i class="fa fa-eye"></i>
+                                </button>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td>1,009</td>
@@ -137,7 +167,12 @@
                         <td>semper</td>
                         <td>porta</td>
                         <td>Mauris</td>
-                        <td>porta</td>
+                        <td>
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn btn-dark btn-circle"><i class="fa fa-eye"></i>
+                                </button>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td>1,010</td>
@@ -145,7 +180,12 @@
                         <td>Vestibulum</td>
                         <td>lacinia</td>
                         <td>arcu</td>
-                        <td>lacinia</td>
+                        <td>
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn btn-dark btn-circle"><i class="fa fa-eye"></i>
+                                </button>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td>1,011</td>
@@ -153,7 +193,12 @@
                         <td>nulla</td>
                         <td>Class</td>
                         <td>aptent</td>
-                        <td>Class</td>
+                        <td>
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn btn-dark btn-circle"><i class="fa fa-eye"></i>
+                                </button>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td>1,012</td>
@@ -161,7 +206,12 @@
                         <td>sociosqu</td>
                         <td>ad</td>
                         <td>litora</td>
-                        <td>ad</td>
+                        <td>
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn btn-dark btn-circle"><i class="fa fa-eye"></i>
+                                </button>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td>1,013</td>
@@ -169,7 +219,12 @@
                         <td>per</td>
                         <td>conubia</td>
                         <td>nostra</td>
-                        <td>conubia</td>
+                        <td>
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn btn-dark btn-circle"><i class="fa fa-eye"></i>
+                                </button>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td>1,014</td>
@@ -177,7 +232,12 @@
                         <td>inceptos</td>
                         <td>himenaeos</td>
                         <td>Curabitur</td>
-                        <td>himenaeos</td>
+                        <td>
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn btn-dark btn-circle"><i class="fa fa-eye"></i>
+                                </button>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td>1,015</td>
@@ -185,10 +245,28 @@
                         <td>ligula</td>
                         <td>in</td>
                         <td>libero</td>
-                        <td>in</td>
+                        <td>
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn btn-dark btn-circle"><i class="fa fa-eye"></i>
+                                </button>
+                            </div>
+                        </td>
                     </tr>
                 </tbody>
             </table>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
           </main>
       </div>
     </div>
