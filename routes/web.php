@@ -54,3 +54,7 @@ Route::get('/referenceBooks', function () {
 Route::get('/users', function () {
     return view('pages.usersPage');
 });
+
+Route::get('/operationalSummary', function () {
+    return view('pages.operationalSummaryPage');
+});
