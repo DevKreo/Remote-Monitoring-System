@@ -50,3 +50,7 @@ Route::get('/devices', function () {
 Route::get('/referenceBooks', function () {
     return view('pages.referenceBooksPage');
 });
+
+Route::get('/users', function () {
+    return view('pages.usersPage');
+});
