@@ -42,3 +42,7 @@ Route::get('/consolidatedReport', function () {
 Route::get('/boundary', function () {
     return view('pages.BoundaryPage');
 });
+
+Route::get('/devices', function () {
+    return view('pages.DevicesPage');
+});
