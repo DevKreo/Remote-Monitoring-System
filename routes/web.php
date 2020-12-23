@@ -36,3 +36,6 @@ Route::get('/report', function () {
 Route::get('/map', function () {
     return view('pages.mapPage');
 });
+Route::get('/consolidatedReport', function () {
+    return view('pages.ConsReportPage');
+});
