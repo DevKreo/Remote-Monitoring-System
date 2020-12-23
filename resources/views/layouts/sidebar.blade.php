@@ -50,7 +50,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="boundary">
+            <a class="nav-link" href="#">
                 <span data-feather="layers"></span>
                 Рубежи
             </a>
@@ -62,7 +62,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="consolidatedReport">
+            <a class="nav-link" href="#">
                 <span data-feather="layers"></span>
                 Сводный отчет
             </a>
