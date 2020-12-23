@@ -36,3 +36,7 @@ Route::get('/report', function () {
 Route::get('/map', function () {
     return view('pages.mapPage');
 });
+
+Route::get('/operationHistory', function () {
+    return view('pages.operationHistoryPage');
+});
