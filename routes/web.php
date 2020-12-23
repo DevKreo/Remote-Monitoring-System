@@ -46,3 +46,7 @@ Route::get('/boundary', function () {
 Route::get('/devices', function () {
     return view('pages.DevicesPage');
 });
+
+Route::get('/referenceBooks', function () {
+    return view('pages.referenceBooksPage');
+});
