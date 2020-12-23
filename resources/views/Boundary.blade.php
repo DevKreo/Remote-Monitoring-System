@@ -54,13 +54,16 @@
             @include('layouts.sidebar')
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-                    <h3>Список рассылаемых отчетов</h3>
-
-                    <div class="custom-control custom-switch">
+                    <h3>Рубежи</h3>
+                </div>
+                <div class="d-flex bd-highlight mb-3">
+                    <div class="mr-auto p-2 bd-highlight">
+                        <button type="button" class="btn btn-dark">Добавить рубеж</button>
+                    </div>
+                    <div class="custom-control custom-switch p-2 bd-highlight">
                         <input type="checkbox" class="custom-control-input" id="customSwitch1">
                         <label class="custom-control-label" for="customSwitch1">с удаленными</label>
                     </div>
-
                 </div>
                 <div class="my-4 w-100">
                     <table class="table table-striped table-sm">
@@ -71,17 +74,28 @@
                                     <input type="text" class="form-control" placeholder="Поиск">
                                 </th>
                                 <th>
+                                    <div class="col-md-10">
+                                        <select class="form-control">
+                                            <option value="" disabled selected>Выберать адресатов</option>
+                                            <option>Первый</option>
+                                            <option>Второй</option>
+                                            <option>Третий</option>
+                                            <option>Четвертый</option>
+                                        </select>
+                                    </div>
+                                </th>
+                                <th>
                                     <button type="button" class="btn btn-light">Очистить</button>
                                 </th>
                             </tr>
                         </thead>
                         <thead>
                             <tr>
-                                <th>№</th>
-                                <th>Название отчета</th>
-                                <th>Регулярность</th>
-                                <th>Период</th>
-                                <th>Адресат</th>
+                                <th>#</th>
+                                <th>Наименование</th>
+                                <th>Регион</th>
+                                <th>Устройства</th>
+                                <th>Активность</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -91,10 +105,10 @@
                                 <td>Lorem</td>
                                 <td>Lorem</td>
                                 <td>Lorem</td>
-                                <td>Lorem</td>
                                 <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-envelope"></i>
-                                    </button>
+                                    <button type="button" class="btn btn-success">Активно</button>
+                                </td>
+                                <td>
                                     <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
                                     </button>
                                     <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
@@ -107,10 +121,10 @@
                                 <td>Lorem</td>
                                 <td>Lorem</td>
                                 <td>Lorem</td>
-                                <td>Lorem</td>
                                 <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-envelope"></i>
-                                    </button>
+                                    <button type="button" class="btn btn-success">Активно</button>
+                                </td>
+                                <td>
                                     <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
                                     </button>
                                     <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
@@ -123,10 +137,10 @@
                                 <td>Lorem</td>
                                 <td>Lorem</td>
                                 <td>Lorem</td>
-                                <td>Lorem</td>
                                 <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-envelope"></i>
-                                    </button>
+                                    <button type="button" class="btn btn-success">Активно</button>
+                                </td>
+                                <td>
                                     <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
                                     </button>
                                     <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
@@ -139,10 +153,10 @@
                                 <td>Lorem</td>
                                 <td>Lorem</td>
                                 <td>Lorem</td>
-                                <td>Lorem</td>
                                 <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-envelope"></i>
-                                    </button>
+                                    <button type="button" class="btn btn-success">Активно</button>
+                                </td>
+                                <td>
                                     <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
                                     </button>
                                     <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
@@ -154,10 +168,10 @@
                                 <td>Lorem</td>
                                 <td>Lorem</td>
                                 <td>Lorem</td>
-                                <td>Lorem</td>
                                 <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-envelope"></i>
-                                    </button>
+                                    <button type="button" class="btn btn-success">Активно</button>
+                                </td>
+                                <td>
                                     <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
                                     </button>
                                     <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
@@ -169,10 +183,10 @@
                                 <td>Lorem</td>
                                 <td>Lorem</td>
                                 <td>Lorem</td>
-                                <td>Lorem</td>
                                 <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-envelope"></i>
-                                    </button>
+                                    <button type="button" class="btn btn-success">Активно</button>
+                                </td>
+                                <td>
                                     <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
                                     </button>
                                     <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
@@ -184,10 +198,10 @@
                                 <td>Lorem</td>
                                 <td>Lorem</td>
                                 <td>Lorem</td>
-                                <td>Lorem</td>
                                 <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-envelope"></i>
-                                    </button>
+                                    <button type="button" class="btn btn-success">Активно</button>
+                                </td>
+                                <td>
                                     <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
                                     </button>
                                     <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
@@ -196,72 +210,21 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="row align-items-end">
-                        <div class="col align-self-start">
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination justify-content-center">
-                                    <li class="page-item disabled">
-                                        <a class="page-link" href="#" tabindex="-1">Previous</a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">Next</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                        <div class="col align-self-end">
-                            <button type="button" class="btn btn-dark">Создать новый отчет</button>
-                            <button type="button" class="btn btn-dark">Добавить автоматическую отправку отчетов на почту</button>
-                        </div>
-                    </div>
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1">Previous</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
 
-                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h1 class="h2">Сводный отчет</h1>
-                    </div>
-
-                    <form>
-                        <div class="form-row">
-                            <div class="form-group col-md-12">
-                                <select class="form-control">
-                                <option value="" disabled selected>Выберите отчет</option>
-                                    <option>Первый</option>
-                                    <option>Второй</option>
-                                    <option>Третий</option>
-                                    <option>Четвертый</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="custom-control custom-switch">
-                                <input type="checkbox" class="custom-control-input" id="customSwitch">
-                                <label class="custom-control-label" for="customSwitch">Отправить на почту</label>
-                            </div>
-                            <div class="form-group col-md-10">
-                                <select class="form-control" >
-                                    <option value="" disabled selected>Выберать адресатов</option>
-                                    <option >Первый</option>
-                                    <option>Второй</option>
-                                    <option>Третий</option>
-                                    <option>Четвертый</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <select class="form-control">
-                                    <option value="" disabled selected>Период</option>
-                                    <option>Первый</option>
-                                    <option>Второй</option>
-                                    <option>Третий</option>
-                                </select>
-                            </div>
-                            <button type="button" class="btn btn-dark">Сформировать</button>
-                        </div>
-
-                    </form>
+                 
 
 
                 </div>
