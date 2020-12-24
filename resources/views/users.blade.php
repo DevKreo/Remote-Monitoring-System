@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +10,7 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
 
-
+    
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -27,38 +26,37 @@
 
 
     <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
 
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
         }
+      }
     </style>
 
-
+    
     <!-- Custom styles for this template -->
     <link href="css/album.css" rel="stylesheet">
 </head>
-
 <body>
     @include('layouts.nav')
     <div class="container-fluid">
         <div class="row">
-            @include('layouts.sidebar')
+          @include('layouts.sidebar')
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-                    <h3>Рубежи</h3>
+                    <h3>Пользователи</h3>     
                 </div>
                 <div class="d-flex bd-highlight mb-3">
                     <div class="mr-auto p-2 bd-highlight">
-                        <button type="button" class="btn btn-dark">Добавить рубеж</button>
+                        <button type="button" class="btn btn-dark">Добавить пользователя</button>
                     </div>
                     <div class="custom-control custom-switch p-2 bd-highlight">
                         <input type="checkbox" class="custom-control-input" id="customSwitch1">
@@ -74,15 +72,25 @@
                                     <input type="text" class="form-control" placeholder="Поиск">
                                 </th>
                                 <th>
-                                    <div class="col-md-10">
-                                        <select class="form-control">
-                                            <option value="" disabled selected>Регион</option>
-                                            <option>Первый</option>
-                                            <option>Второй</option>
-                                            <option>Третий</option>
-                                            <option>Четвертый</option>
-                                        </select>
-                                    </div>
+                                    <input type="text" class="form-control" placeholder="Поиск">
+                                </th>
+                                <th>
+                                    <select class="form-control">
+                                        <option value="" disabled selected>Группы устройств</option>
+                                        <option>Первый</option>
+                                        <option>Второй</option>
+                                        <option>Третий</option>
+                                        <option>Четвертый</option>
+                                    </select>
+                                </th>
+                                <th>
+                                    <select class="form-control">
+                                        <option value="" disabled selected>Роли</option>
+                                        <option>Первый</option>
+                                        <option>Второй</option>
+                                        <option>Третий</option>
+                                        <option>Четвертый</option>
+                                    </select>
                                 </th>
                                 <th>
                                     <button type="button" class="btn btn-light">Очистить</button>
@@ -92,10 +100,10 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Наименование</th>
-                                <th>Регион</th>
-                                <th>Устройства</th>
-                                <th>Активность</th>
+                                <th>Пользователи</th>
+                                <th>Email</th>
+                                <th>Группы устройств</th>
+                                <th>Роли</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -105,9 +113,7 @@
                                 <td>Lorem</td>
                                 <td>Lorem</td>
                                 <td>Lorem</td>
-                                <td>
-                                    <button type="button" class="btn btn-success">Активно</button>
-                                </td>
+                                <td>Lorem</td>
                                 <td>
                                     <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
                                     </button>
@@ -121,9 +127,7 @@
                                 <td>Lorem</td>
                                 <td>Lorem</td>
                                 <td>Lorem</td>
-                                <td>
-                                    <button type="button" class="btn btn-success">Активно</button>
-                                </td>
+                                <td>Lorem</td>
                                 <td>
                                     <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
                                     </button>
@@ -137,9 +141,7 @@
                                 <td>Lorem</td>
                                 <td>Lorem</td>
                                 <td>Lorem</td>
-                                <td>
-                                    <button type="button" class="btn btn-success">Активно</button>
-                                </td>
+                                <td>Lorem</td>
                                 <td>
                                     <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
                                     </button>
@@ -153,9 +155,7 @@
                                 <td>Lorem</td>
                                 <td>Lorem</td>
                                 <td>Lorem</td>
-                                <td>
-                                    <button type="button" class="btn btn-success">Активно</button>
-                                </td>
+                                <td>Lorem</td>
                                 <td>
                                     <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
                                     </button>
@@ -168,9 +168,7 @@
                                 <td>Lorem</td>
                                 <td>Lorem</td>
                                 <td>Lorem</td>
-                                <td>
-                                    <button type="button" class="btn btn-success">Активно</button>
-                                </td>
+                                <td>Lorem</td>
                                 <td>
                                     <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
                                     </button>
@@ -183,9 +181,7 @@
                                 <td>Lorem</td>
                                 <td>Lorem</td>
                                 <td>Lorem</td>
-                                <td>
-                                    <button type="button" class="btn btn-success">Активно</button>
-                                </td>
+                                <td>Lorem</td>
                                 <td>
                                     <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
                                     </button>
@@ -198,9 +194,7 @@
                                 <td>Lorem</td>
                                 <td>Lorem</td>
                                 <td>Lorem</td>
-                                <td>
-                                    <button type="button" class="btn btn-success">Активно</button>
-                                </td>
+                                <td>Lorem</td>
                                 <td>
                                     <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
                                     </button>
@@ -212,8 +206,8 @@
                     </table>
                     <nav aria-label="Page navigation example">
                         <ul class="pagination justify-content-center">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1">Previous</a>
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Previous</a>
                             </li>
                             <li class="page-item"><a class="page-link" href="#">1</a></li>
                             <li class="page-item"><a class="page-link" href="#">2</a></li>
@@ -223,21 +217,16 @@
                             </li>
                         </ul>
                     </nav>
-
-                 
-
-
                 </div>
-        </div>
+                </div>
 
-        </main>
-    </div>
+              </main>
+      </div>
     </div>
     <script src="js/search.js"></script>
     <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
     <script>
-        feather.replace()
-    </script>
+      feather.replace()
+    </script> 
 </body>
-
 </html>

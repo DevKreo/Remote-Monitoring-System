@@ -54,17 +54,23 @@
             @include('layouts.sidebar')
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-                    <h3>Рубежи</h3>
+                    <h3>Устройства</h3>
                 </div>
                 <div class="d-flex bd-highlight mb-3">
-                    <div class="mr-auto p-2 bd-highlight">
-                        <button type="button" class="btn btn-dark">Добавить рубеж</button>
+                    <div class="p-2 bd-highlight">
+                        <button type="button" class="btn btn-dark">Добавить устройство</button>
                     </div>
-                    <div class="custom-control custom-switch p-2 bd-highlight">
+                    <div class="p-2 bd-highlight">
+                        <button type="button" class="btn btn-light">Выгрузка из файла</button>
+                    </div>
+                    <div class="custom-control custom-switch ml-auto p-2 bd-highlight">
                         <input type="checkbox" class="custom-control-input" id="customSwitch1">
                         <label class="custom-control-label" for="customSwitch1">с удаленными</label>
                     </div>
                 </div>
+
+
+
                 <div class="my-4 w-100">
                     <table class="table table-striped table-sm">
                         <thead>
@@ -74,16 +80,33 @@
                                     <input type="text" class="form-control" placeholder="Поиск">
                                 </th>
                                 <th>
-                                    <div class="col-md-10">
-                                        <select class="form-control">
-                                            <option value="" disabled selected>Регион</option>
-                                            <option>Первый</option>
-                                            <option>Второй</option>
-                                            <option>Третий</option>
-                                            <option>Четвертый</option>
-                                        </select>
-                                    </div>
+                                    <select class="form-control">
+                                        <option value="" disabled selected>Тип устройства</option>
+                                        <option>Первый</option>
+                                        <option>Второй</option>
+                                        <option>Третий</option>
+                                        <option>Четвертый</option>
+                                    </select>
                                 </th>
+                                <th>
+                                    <select class="form-control">
+                                        <option value="" disabled selected>Группы устройств</option>
+                                        <option>Первый</option>
+                                        <option>Второй</option>
+                                        <option>Третий</option>
+                                        <option>Четвертый</option>
+                                    </select>
+                                </th>
+                                <th>
+                                    <select class="form-control">
+                                        <option value="" disabled selected>Рубежи</option>
+                                        <option>Первый</option>
+                                        <option>Второй</option>
+                                        <option>Третий</option>
+                                        <option>Четвертый</option>
+                                    </select>
+                                </th>
+                                <th></th>
                                 <th>
                                     <button type="button" class="btn btn-light">Очистить</button>
                                 </th>
@@ -92,9 +115,10 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Наименование</th>
-                                <th>Регион</th>
-                                <th>Устройства</th>
+                                <th>Серийный номер</th>
+                                <th>Тип устройства</th>
+                                <th>Группы устройств</th>
+                                <th>Рубеж</th>
                                 <th>Активность</th>
                                 <th></th>
                             </tr>
@@ -105,10 +129,15 @@
                                 <td>Lorem</td>
                                 <td>Lorem</td>
                                 <td>Lorem</td>
+                                <td>Lorem</td>
                                 <td>
                                     <button type="button" class="btn btn-success">Активно</button>
                                 </td>
                                 <td>
+                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-book"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-eye"></i>
+                                    </button>
                                     <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
                                     </button>
                                     <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
@@ -121,10 +150,15 @@
                                 <td>Lorem</td>
                                 <td>Lorem</td>
                                 <td>Lorem</td>
+                                <td>Lorem</td>
                                 <td>
                                     <button type="button" class="btn btn-success">Активно</button>
                                 </td>
                                 <td>
+                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-book"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-eye"></i>
+                                    </button>
                                     <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
                                     </button>
                                     <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
@@ -137,10 +171,15 @@
                                 <td>Lorem</td>
                                 <td>Lorem</td>
                                 <td>Lorem</td>
+                                <td>Lorem</td>
                                 <td>
                                     <button type="button" class="btn btn-success">Активно</button>
                                 </td>
                                 <td>
+                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-book"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-eye"></i>
+                                    </button>
                                     <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
                                     </button>
                                     <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
@@ -153,10 +192,15 @@
                                 <td>Lorem</td>
                                 <td>Lorem</td>
                                 <td>Lorem</td>
+                                <td>Lorem</td>
                                 <td>
                                     <button type="button" class="btn btn-success">Активно</button>
                                 </td>
                                 <td>
+                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-book"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-eye"></i>
+                                    </button>
                                     <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
                                     </button>
                                     <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
@@ -168,10 +212,15 @@
                                 <td>Lorem</td>
                                 <td>Lorem</td>
                                 <td>Lorem</td>
+                                <td>Lorem</td>
                                 <td>
                                     <button type="button" class="btn btn-success">Активно</button>
                                 </td>
                                 <td>
+                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-book"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-eye"></i>
+                                    </button>
                                     <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
                                     </button>
                                     <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
@@ -183,10 +232,15 @@
                                 <td>Lorem</td>
                                 <td>Lorem</td>
                                 <td>Lorem</td>
+                                <td>Lorem</td>
                                 <td>
                                     <button type="button" class="btn btn-success">Активно</button>
                                 </td>
                                 <td>
+                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-book"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-eye"></i>
+                                    </button>
                                     <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
                                     </button>
                                     <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
@@ -198,10 +252,15 @@
                                 <td>Lorem</td>
                                 <td>Lorem</td>
                                 <td>Lorem</td>
+                                <td>Lorem</td>
                                 <td>
                                     <button type="button" class="btn btn-success">Активно</button>
                                 </td>
                                 <td>
+                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-book"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-eye"></i>
+                                    </button>
                                     <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
                                     </button>
                                     <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
@@ -223,9 +282,6 @@
                             </li>
                         </ul>
                     </nav>
-
-                 
-
 
                 </div>
         </div>

@@ -26,25 +26,25 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="operationalSummary">
                 <span data-feather="bar-chart-2"></span>
                 Оперативная сводка
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="users">
                 <span data-feather="layers"></span>
                 Пользователи
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="referenceBooks">
                 <span data-feather="layers"></span>
                 Справочники
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="devices">
                 <span data-feather="layers"></span>
                 Устройства
             </a>

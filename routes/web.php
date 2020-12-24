@@ -28,19 +28,33 @@ Route::get('/login', function () {
 Route::get('/apealsList', function () {
     return view('pages.apealsListPage');
 });
+
 Route::get('/report', function () {
     return view('pages.reportTemplatePage');
 });
+
 Route::get('/map', function () {
     return view('pages.mapPage');
-});
-Route::get('/operationHistory', function () {
-    return view('pages.operationHistoryPage');
 });
 Route::get('/consolidatedReport', function () {
     return view('pages.ConsReportPage');
 });
 Route::get('/boundary', function () {
     return view('pages.BoundaryPage');
+});
 
+Route::get('/devices', function () {
+    return view('pages.DevicesPage');
+});
+
+Route::get('/referenceBooks', function () {
+    return view('pages.referenceBooksPage');
+});
+
+Route::get('/users', function () {
+    return view('pages.usersPage');
+});
+
+Route::get('/operationalSummary', function () {
+    return view('pages.operationalSummaryPage');
 });
