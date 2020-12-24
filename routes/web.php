@@ -58,3 +58,7 @@ Route::get('/users', function () {
 Route::get('/operationalSummary', function () {
     return view('pages.operationalSummaryPage');
 });
+
+Route::get('/history', function () {
+    return view('pages.operationHistoryPage');
+});

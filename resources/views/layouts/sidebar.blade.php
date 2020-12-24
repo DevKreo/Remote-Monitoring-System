@@ -56,7 +56,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="operationHistory">
+            <a class="nav-link" href="history">
                 <span data-feather="layers"></span>
                 История операций
             </a>
