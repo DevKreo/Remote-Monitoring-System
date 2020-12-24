@@ -44,7 +44,7 @@ Route::get('/boundary', function () {
 });
 
 Route::get('/devices', function () {
-    return view('pages.DevicesPage');
+    return view('pages.devicesPage');
 });
 
 Route::get('/referenceBooks', function () {
