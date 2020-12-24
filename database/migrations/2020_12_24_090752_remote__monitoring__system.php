@@ -34,20 +34,21 @@ class RemoteMonitoringSystem extends Migration
             $table->string('device_bound_neme');
             $table->boolean('active');
             $table->integer('region');
-            $table->foreign('region')->references('region_id')->on('regions');
             $table->integer('speed_mode');
             $table->boolean('mobile');
             $table->integer('bound_group');
-            $table->foreign('bound_group')->references('bg_id')->on('boundary_group');
         });
+
+       
+
+
 
         Schema::create('device_boundary_violation_type', function (Blueprint $table) {
             $table->increments('DBVT_id');
-            $table->integer('dev_bound_id');
-            $table->foreign('dev_bound_id')->references('device_bound_id')->on('device_boundaries');
-            $table->integer('vio_id');
-            $table->foreign('vio_id')->references('violation_id')->on('violation_type');
+            $table->integer('dev_bound_id')->unsigned();
+            $table->integer('vio_id')->unsigned();
         });
+
 
         Schema::create('SNMP_branch', function (Blueprint $table) {
             $table->increments('branch_id');
@@ -74,12 +75,12 @@ class RemoteMonitoringSystem extends Migration
 
         Schema::create('errors', function (Blueprint $table) {
             $table->increments('errors_id');
-            $table->integer('error_type_id');
-            $table->foreign('error_type_id')->references('type_id')->on('errors_type');
-            $table->integer('error_message_id');
-            $table->foreign('error_message_id')->references('message_id')->on('error_messages');
-            $table->integer('user_error_message_id');
-            $table->foreign('user_error_message_id')->references('user_message_id')->on('error_messages_for_users');
+            $table->integer('error_type_id')->unsigned();
+            
+            $table->integer('error_message_id')->unsigned();
+            
+            $table->integer('user_error_message_id')->unsigned();
+            
             $table->boolean('active');
         });
 
@@ -121,10 +122,8 @@ class RemoteMonitoringSystem extends Migration
 
         Schema::create('roles_previlegies', function (Blueprint $table) {
             $table->increments('roles_previlegies_id');
-            $table->integer('roles_id');
-            $table->foreign('roles_id')->references('role_id')->on('roles');
-            $table->integer('previleg_id');
-            $table->foreign('previleg_id')->references('previleg_id')->on('previlegies');
+            $table->integer('roles_id')->unsigned();
+            $table->integer('previleg_id')->unsigned();
         });
 
         Schema::create('users', function (Blueprint $table) {
@@ -132,68 +131,65 @@ class RemoteMonitoringSystem extends Migration
             $table->string('name');
             $table->string('password');
             $table->string('email');
-            $table->integer('device_group_ip');
-            $table->foreign('device_group_ip')->references('group_id')->on('device_groups');
-            $table->integer('roles_id');
-            $table->foreign('roles_id')->references('role_id')->on('roles');
-            $table->timestamp('registration_date');
+            $table->integer('device_group_ip')->unsigned();  
+            $table->integer('roles_id')->unsigned();
+            $table->dateTime('registration_date');
         });
 
         Schema::create('devices', function (Blueprint $table) {
             $table->increments('device_id');
             $table->string('serial_number');
             $table->boolean('active');
-            $table->integer('device_groups_id');
-            $table->foreign('device_groups_id')->references('group_id')->on('device_groups');
+            $table->integer('device_groups_id')->unsigned();
+            
             $table->point('cord');
             $table->float('cord_latitude');
             $table->float('cord_longtitude');
-            $table->integer('device_type_id');
-            $table->foreign('device_type_id')->references('type_id')->on('device_type');
+            $table->integer('device_type_id')->unsigned();
+            
             $table->string('adress');
-            $table->integer('device_boundaries_id');
-            $table->foreign('device_boundaries_d')->references('device_bound_id')->on('device_boundaries');
-            $table->timestamp('created');
-            $table->timestamp('deleted');
-            $table->integer('device_developer_id');
-            $table->foreign('device_developer_id')->references('developer_id')->on('device_developer');
+            $table->integer('device_boundaries_id')->unsigned();
+            
+            $table->dateTime('created');
+            $table->dateTime('deleted');
+            $table->integer('device_developer_id')->unsigned();
+
             $table->boolean('mobile');
             $table->decimal('performance');
         });
 
         Schema::create('device_polls', function (Blueprint $table) {
             $table->increments('device_polls_id');
-            $table->timestamp('date');
-            $table->integer('devices_id');
-            $table->foreign('devices_id')->references('device_id')->on('devices');
+            $table->dateTime('date');
+            $table->integer('devices_id')->unsigned();
             $table->integer('violation_quantity');
             $table->integer('transition');
         });
 
         Schema::create('logs', function (Blueprint $table) {
             $table->increments('log_id');
-            $table->timestamp('log_time');
-            $table->integer('devices_id');
-            $table->foreign('devices_id')->references('device_id')->on('devices');
-            $table->integer('users_id');
-            $table->foreign('users_id')->references('user_id')->on('users');
-            $table->integer('operation_type_id');
-            $table->foreign('operation_type_id')->references('operation_id')->on('operation_type');
+            $table->dateTime('log_time');
+            $table->integer('devices_id')->unsigned();
+            
+            $table->integer('users_id')->unsigned();
+            
+            $table->integer('operation_type_id')->unsigned();
+            
         });
 
 
         Schema::create('requests', function (Blueprint $table) {
             $table->increments('request_id');
-            $table->integer('r_status_id');
-            $table->foreign('r_status_id')->references('request_id')->on('request_status');
-            $table->integer('operators_id');
-            $table->foreign('operators_id')->references('user_id')->on('users');
-            $table->integer('devices_id');
-            $table->foreign('devices_id')->references('device_id')->on('devices');
-            $table->integer('responsible_user_id');
-            $table->foreign('responsible_user_id')->references('user_id')->on('users');
-            $table->timestamp('opend');
-            $table->timestamp('closed');
+            $table->integer('r_status_id')->unsigned();
+            
+            $table->integer('operators_id')->unsigned();
+
+            $table->integer('devices_id')->unsigned();
+            
+            $table->integer('responsible_user_id')->unsigned();
+
+            $table->dateTime('opend');
+            $table->dateTime('closed');
             $table->string('description');
         });
 
@@ -215,26 +211,85 @@ class RemoteMonitoringSystem extends Migration
         Schema::create('reports_template', function (Blueprint $table) {
             $table->increments('template_id');
             $table->string('template_name');
-            $table->integer('devices_id');
-            $table->foreign('devices_id')->references('user_id')->on('devices');
-            $table->integer('parametrs_id');
-            $table->foreign('parametrs_id')->references('parametr_id')->on('parametrs');
+            $table->integer('devices_id')->unsigned();
+            
+            $table->integer('parametrs_id')->unsigned();
+            
         });
 
         Schema::create('sending_reports', function (Blueprint $table) {
             $table->increments('reports_id');
-            $table->integer('reports_template_id');
-            $table->foreign('reports_template_id')->references('template_id')->on('reports_template');
-            $table->integer('reg_id');
-            $table->foreign('reg_id')->references('regularity_id')->on('regularity');
-            $table->integer('report_periods_id');
-            $table->foreign('report_periods_id')->references('report_period_id')->on('report_periods');
+            $table->integer('reports_template_id')->unsigned();
+            
+            $table->integer('reg_id')->unsigned();
+            
+            $table->integer('report_periods_id')->unsigned();
+            
             $table->string('destination');
+        });
+
+        Schema::table('device_boundaries', function($table){
+            $table->foreign('region')->references('region_id')->on('regions');
+            $table->foreign('bound_group')->references('bg_id')->on('boundary_group');
+        });
+
+        Schema::table('device_boundary_violation_type', function($table){
+            $table->foreign('dev_bound_id')->references('device_bound_id')->on('device_boundaries');
+            $table->foreign('vio_id')->references('violation_id')->on('violation_type');
+        });
+
+        Schema::table('errors', function($table){
+            $table->foreign('error_type_id')->references('type_id')->on('errors_type');
+            $table->foreign('error_message_id')->references('message_id')->on('error_messages');
+            $table->foreign('user_error_message_id')->references('user_message_id')->on('error_messages_for_users');
         });
 
 
 
+        Schema::table('roles_previlegies', function($table){
+            $table->foreign('roles_id')->references('role_id')->on('roles');
+            $table->foreign('previleg_id')->references('previleg_id')->on('previlegies');
+        });
 
+        Schema::table('users', function($table){
+            $table->foreign('device_group_ip')->references('group_id')->on('device_groups');
+            $table->foreign('roles_id')->references('role_id')->on('roles');
+        });
+
+        Schema::table('devices', function($table){
+            $table->foreign('device_developer_id')->references('developer_id')->on('device_developer');
+            $table->foreign('device_groups_id')->references('group_id')->on('device_groups');
+            $table->foreign('device_boundaries_d')->references('device_bound_id')->on('device_boundaries');
+            $table->foreign('device_type_id')->references('type_id')->on('device_type');
+        });
+
+        Schema::table('device_polls', function($table){
+            $table->foreign('devices_id')->references('device_id')->on('devices');
+        });
+
+        Schema::table('logs', function($table){
+            $table->foreign('users_id')->references('user_id')->on('users');
+            $table->foreign('devices_id')->references('device_id')->on('devices');
+            $table->foreign('operation_type_id')->references('operation_id')->on('operation_type');
+        });
+
+        Schema::table('requests', function($table){
+            $table->foreign('operators_id')->references('user_id')->on('users');
+            $table->foreign('r_status_id')->references('request_id')->on('request_status');
+            $table->foreign('devices_id')->references('device_id')->on('devices');
+            $table->foreign('responsible_user_id')->references('user_id')->on('users');
+        });
+
+        Schema::table('reports_template', function($table){
+            $table->foreign('parametrs_id')->references('parametr_id')->on('parametrs');
+            $table->foreign('devices_id')->references('user_id')->on('devices');
+        });
+
+        Schema::table('sending_reports', function($table){
+            $table->foreign('report_periods_id')->references('report_period_id')->on('report_periods');
+            $table->foreign('reports_template_id')->references('template_id')->on('reports_template');
+            $table->foreign('reg_id')->references('regularity_id')->on('regularity');
+        });
     }
 
     /**
