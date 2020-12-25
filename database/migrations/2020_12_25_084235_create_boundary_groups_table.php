@@ -17,7 +17,7 @@ class CreateBoundaryGroupsTable extends Migration
             $table->id();
             $table->string('group_name');
             $table->timestamps();
-        });
+        }); 
     }
 
     /**
