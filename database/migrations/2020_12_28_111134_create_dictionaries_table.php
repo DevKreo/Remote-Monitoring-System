@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOperationTypesTable extends Migration
+class CreateDictionariesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateOperationTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('operation_types', function (Blueprint $table) {
+        Schema::create('dictionaries', function (Blueprint $table) {
             $table->id();
-            $table->string('operation_type_name');
+            $table->string('name');
+            $table->unsignedBigInteger('dict_type_id');
+            $table->foreign('dict_type_id')->references('id')->on('dictionaries_types');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateOperationTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('operation_types');
+        Schema::dropIfExists('dictionaries');
     }
 }

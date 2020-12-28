@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateErrorMessagesForUsersTable extends Migration
+class CreateSNMPBranchesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateErrorMessagesForUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('error_messages_for_users', function (Blueprint $table) {
+        Schema::create('s_n_m_p_branches', function (Blueprint $table) {
             $table->id();
-            $table->string('message_error_for_users');
+            $table->string('branch_name');
+            $table->string('OID');
+            $table->integer('min_value')->default(0);
+            $table->integer('max_value')->default(0);
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ class CreateErrorMessagesForUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('error_messages_for_users');
+        Schema::dropIfExists('s_n_m_p_branches');
     }
 }

@@ -18,10 +18,10 @@ class CreateSendingReportsTable extends Migration
             $table->unsignedBigInteger('reports_template_id');
             $table->unsignedBigInteger('reg_id');
             $table->unsignedBigInteger('report_periods_id');
-            $table->string('destination');
-            $table->foreign('report_periods_id')->references('id')->on('report_periods');
+            $table->string('destination')->comment('email');
+            $table->foreign('report_periods_id')->references('id')->on('dictionaries');
             $table->foreign('reports_template_id')->references('id')->on('report_templates');
-            $table->foreign('reg_id')->references('id')->on('regularities');
+            $table->foreign('reg_id')->references('id')->on('dictionaries');
             $table->timestamps();
         });
     }

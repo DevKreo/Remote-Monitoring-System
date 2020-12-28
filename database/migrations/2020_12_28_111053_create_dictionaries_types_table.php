@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateErrorsTypesTable extends Migration
+class CreateDictionariesTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateErrorsTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('errors_types', function (Blueprint $table) {
+        Schema::create('dictionaries_types', function (Blueprint $table) {
             $table->id();
-            $table->string('error_name');
+            $table->string('dict_type_name');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateErrorsTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('errors_types');
+        Schema::dropIfExists('dictionaries_types');
     }
 }

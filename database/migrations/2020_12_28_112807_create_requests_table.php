@@ -21,9 +21,9 @@ class CreateRequestsTable extends Migration
             $table->unsignedBigInteger('responsible_user_id');
             $table->dateTime('opend');
             $table->dateTime('closed');
-            $table->string('description');
+            $table->text('description');
             $table->foreign('operators_id')->references('id')->on('users');
-            $table->foreign('r_status_id')->references('id')->on('request_statuses');
+            $table->foreign('r_status_id')->references('id')->on('dictionaries');
             $table->foreign('devices_id')->references('id')->on('devices');
             $table->foreign('responsible_user_id')->references('id')->on('users');
             $table->timestamps();

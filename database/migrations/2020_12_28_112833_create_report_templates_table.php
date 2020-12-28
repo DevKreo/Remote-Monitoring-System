@@ -18,7 +18,7 @@ class CreateReportTemplatesTable extends Migration
             $table->string('template_name');
             $table->unsignedBigInteger('devices_id');
             $table->unsignedBigInteger('parametrs_id');
-            $table->foreign('parametrs_id')->references('id')->on('parametrs');
+            $table->foreign('parametrs_id')->references('id')->on('dictionaries');
             $table->foreign('devices_id')->references('id')->on('devices');
             $table->timestamps();
         });

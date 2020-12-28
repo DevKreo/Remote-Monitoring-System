@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDevicePollsTable extends Migration
+class CreateErrorMessagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateDevicePollsTable extends Migration
      */
     public function up()
     {
-        Schema::create('device_polls', function (Blueprint $table) {
+        Schema::create('error_messages', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('date');
-            $table->unsignedBigInteger('devices_id');
-            $table->foreign('devices_id')->references('id')->on('devices');
-            $table->integer('violation_quantity');
-            $table->integer('transition');
+            $table->text('message_error');
+            $table->string('message_for_user');
+            $table->unsignedBigInteger('error_type_id');
+            $table->foreign('error_type_id')->references('id')->on('dictionaries');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateDevicePollsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('device_polls');
+        Schema::dropIfExists('error_messages');
     }
 }

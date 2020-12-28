@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateRolesPrivelegiesDictionariesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,12 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('roles_privelegies_dictionaries', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('password');
-            $table->string('email');
-            $table->unsignedBigInteger('device_group_ip');  
             $table->unsignedBigInteger('roles_id');
-            $table->timestamp('registration_date');
-            $table->foreign('device_group_ip')->references('id')->on('device_groups');
+            $table->unsignedBigInteger('previleg_id');
             $table->foreign('roles_id')->references('id')->on('roles');
+            $table->foreign('previleg_id')->references('id')->on('dictionaries');
             $table->timestamps();
         });
     }
@@ -34,6 +30,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('roles_privelegies_dictionaries');
     }
 }

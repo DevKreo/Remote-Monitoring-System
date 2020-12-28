@@ -17,11 +17,9 @@ class CreateErrorsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('error_type_id');
             $table->unsignedBigInteger('error_message_id');
-            $table->unsignedBigInteger('user_error_message_id');
-            $table->boolean('active');
-            $table->foreign('error_type_id')->references('id')->on('errors_types');
-            $table->foreign('error_message_id')->references('id')->on('error_messages');
-            $table->foreign('user_error_message_id')->references('id')->on('error_messages_for_users');
+            $table->boolean('active')->default(true);
+            $table->foreign('error_type_id')->references('id')->on('dictionaries');
+            $table->foreign('error_message_id')->references('id')->on('dictionaries');
             $table->timestamps();
         });
     }

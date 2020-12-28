@@ -16,13 +16,13 @@ class CreateDeviceBoundariesTable extends Migration
         Schema::create('device_boundaries', function (Blueprint $table) {
             $table->id();
             $table->string('device_bound_neme');
-            $table->boolean('active');
+            $table->boolean('active')->default(true);
             $table->unsignedBigInteger('region_id');
-            $table->foreign('region_id')->references('id')->on('regions');
-            $table->integer('speed_mode');
-            $table->boolean('mobile');
+            $table->foreign('region_id')->references('id')->on('dictionaries');
+            $table->integer('speed_mode')->default(0);
+            $table->enum('movement_states',['moveble','mobile']);
             $table->unsignedBigInteger('bound_group_id');
-            $table->foreign('bound_group_id')->references('id')->on('boundary_groups');
+            $table->foreign('bound_group_id')->references('id')->on('dictionaries');
             $table->timestamps();
         });
     }

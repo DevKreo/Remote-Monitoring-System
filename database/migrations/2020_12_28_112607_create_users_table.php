@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRolesPrevilegiesTable extends Migration
+class CreateUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,16 @@ class CreateRolesPrevilegiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('roles_previlegies', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('password');
+            $table->string('email');
+            $table->unsignedBigInteger('device_group_ip');  
             $table->unsignedBigInteger('roles_id');
-            $table->unsignedBigInteger('previleg_id');
+            $table->timestamp('registration_date');
+            $table->foreign('device_group_ip')->references('id')->on('dictionaries');
             $table->foreign('roles_id')->references('id')->on('roles');
-            $table->foreign('previleg_id')->references('id')->on('previlegies');
             $table->timestamps();
         });
     }
@@ -30,6 +34,6 @@ class CreateRolesPrevilegiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roles_previlegies');
+        Schema::dropIfExists('users');
     }
 }
