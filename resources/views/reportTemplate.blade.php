@@ -76,7 +76,7 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Header</th>
+                                <th>Наименование отчета</th>
                                 <th></th>
                             </tr>
                         </thead>

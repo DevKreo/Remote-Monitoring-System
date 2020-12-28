@@ -40,8 +40,8 @@
             <table class="table table-striped table-sm">
             <thead>
                 <tr>
-                    <th>Header</th>
-                    <th>Header</th>
+                    <th>Серийный номер</th>
+                    <th>Рубеж</th>
                 </tr>
             </thead>
             <tbody>

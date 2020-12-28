@@ -88,10 +88,10 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Header</th>
-                        <th>Header</th>
-                        <th>Header</th>
-                        <th>Header</th>
+                        <th>Дата операции</th>
+                        <th>Тип операции</th>
+                        <th>Объект</th>
+                        <th>Пользователь</th>
                         <th></th>
                     </tr>
                 </thead>

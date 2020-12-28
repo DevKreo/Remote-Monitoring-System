@@ -8,6 +8,12 @@
              </a>
         </li>
         <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">
+                <span data-feather="home"></span>
+                Рабочий стол
+             </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="calendarPage">
                 <span data-feather="file"></span>
                 Календарь-расписание
