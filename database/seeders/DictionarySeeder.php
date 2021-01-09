@@ -17,7 +17,6 @@ class DictionarySeeder extends Seeder
      */
     public function run()
     {
-        $faker= Faker::create('App\Article');
         $Dictionaries_type_id=DB::table('dictionaries_types')->pluck('id');
         $dict_type_names =array('Группы рубежей','Регионы','Тип ошибки','Состояние запроса','Статус обращения','Тип операции','Привилегии','Производитель устройств','Тип устройства','Группы устройств','Регулярность','Параметры','Период запрашиваемого отчета');
         foreach($Dictionaries_type_id as $id){

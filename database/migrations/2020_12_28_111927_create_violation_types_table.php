@@ -16,7 +16,7 @@ class CreateViolationTypesTable extends Migration
         Schema::create('violation_types', function (Blueprint $table) {
             $table->id();
             $table->string('violation_neme');
-            $table->string('description');
+            $table->text('description');
             $table->timestamps();
         });
     }
