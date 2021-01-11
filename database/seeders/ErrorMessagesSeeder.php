@@ -4,6 +4,7 @@ namespace Database\Seeders;
 use App\Models\Error_message;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
 
 class ErrorMessagesSeeder extends Seeder
 {
@@ -14,10 +15,20 @@ class ErrorMessagesSeeder extends Seeder
      */
     public function run()
     {
+        $faker= Faker::create('App\Article');
         //$Dictionaries_type_id=DB::table('dictionaries')->pluck('id');
         $error_table_fill=array("Грязь на камере", "6", "SNMP:нет связи", "HTTP:пустой ответ", "HTTP:нет связи");
+
+        
+        $type_error = DB::table('dictionaries')->where('dict_type_id', '30')->pluck('id');
+
+
         foreach($error_table_fill as $value){
-            Error_message::create(['message_error'=>$value, 'message_for_user'=>$value]);
+            Error_message::create(['message_error'=>$value, 
+            'message_for_user'=>$value, 
+            'error_type_id'=>$faker->randomElement($type_error)]);
         }
+
     }
 }
+
