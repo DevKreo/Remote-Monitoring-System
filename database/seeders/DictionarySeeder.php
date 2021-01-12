@@ -49,62 +49,62 @@ class DictionarySeeder extends Seeder
             //     'dict_type_id' =>$faker->randomElement($Dictionaries_type_id)
             // ]);
             switch ($id) {
-                case 28:
+                case 1:
                     foreach ($boundaries_groups as $value) {
                         Dictionary::create(['name' => $value, 'dict_type_id' => $id]);
                     }
                     break;
-                case 29:
+                case 2:
                     foreach ($regions as $value) {
                         Dictionary::create(['name' => $value, 'dict_type_id' => $id]);
                     }
                     break;
-                case 30:
+                case 3:
                     foreach ($errors_types as $value) {
                         Dictionary::create(['name' => $value, 'dict_type_id' => $id]);
                     }
                     break;
-                case 32:
+                case 5:
                     foreach ($request_states as $value) {
                         Dictionary::create(['name' => $value, 'dict_type_id' => $id]);
                     }
                     break;
-                case 33:
+                case 6:
                     foreach ($operation_types as $value) {
                         Dictionary::create(['name' => $value, 'dict_type_id' => $id]);
                     }
                     break;
-                case 34:
+                case 7:
                     foreach ($privileges as $value) {
                         Dictionary::create(['name' => $value, 'dict_type_id' => $id]);
                     }
                     break;
-                case 35:
+                case 8:
                     foreach ($device_developers as $value) {
                         Dictionary::create(['name' => $value, 'dict_type_id' => $id]);
                     }
                     break;
-                case 36:
+                case 9:
                     foreach ($device_types as $value) {
                         Dictionary::create(['name' => $value, 'dict_type_id' => $id]);
                     }
                     break;
-                case 37:
+                case 10:
                     foreach ($device_groups as $value) {
                         Dictionary::create(['name' => $value, 'dict_type_id' => $id]);
                     }
                     break;
-                case 38:
+                case 11:
                     foreach ($regylarity as $value) {
                         Dictionary::create(['name' => $value, 'dict_type_id' => $id]);
                     }
                     break;
-                case 39:
+                case 12:
                     foreach ($parametrs as $value) {
                         Dictionary::create(['name' => $value, 'dict_type_id' => $id]);
                     }
                     break;
-                case 40:
+                case 13:
                     foreach ($periods_of_requesting_report as $value) {
                         Dictionary::create(['name' => $value, 'dict_type_id' => $id]);
                     }
