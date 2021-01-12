@@ -22,7 +22,7 @@ class LogsSeeder extends Seeder
 
         foreach($devices_id as $value){
             Log::create([
-                'log_time'=>$faker->dateTime($startDate='-3 month', $endDate = 'now'),
+                'log_time'=>$faker->dateTimeBetween($startDate='-3 month', $endDate = 'now'),
                 'devices_id'=>$value,
                 'users_id'=>$faker->randomElement($users_id),
                 'operation_type_id'=>$faker->randomElement($operation_type_id)

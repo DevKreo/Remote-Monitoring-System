@@ -20,8 +20,18 @@ class RequestSeeder extends Seeder
         $operators_id=DB::table('users')->pluck('id');
         $devices_id=DB::table('devices')->pluck('id');
         $responsible_user_id=DB::table('users')->pluck('id');
-        $opend = $faker->dateTime()->format("Y-m-d H:i:s");
-        $closed=$faker->dateTime($opend, '+3 weeks')->format("Y-m-d H:i:s");
-        $description=$faker->text();
+
+        foreach($operators_id as $value){
+            $opend = $faker->dateTime()->format("Y-m-d H:i:s");
+            Request::create([
+                'r_status_id'=>$faker->randomElement($r_status_id),
+                'operators_id'=>$value,
+                'devices_id'=>$faker->randomElement($devices_id),
+                'responsible_user_id'=>$faker->randomElement($responsible_user_id),
+                'opend'=>$opend,
+                'closed'=>$faker->dateTimeBetween($opend, '+3 weeks')->format("Y-m-d H:i:s"),
+                'description'=>$faker->text()
+            ]);
+        }
     }
 }
