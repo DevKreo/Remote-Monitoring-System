@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Error_message extends Model
 {
-    protected $table='error_messages';
-    protected $fillable=['message_error', 'message_for_user', 'error_type_id'];
+   
     use HasFactory;
 }

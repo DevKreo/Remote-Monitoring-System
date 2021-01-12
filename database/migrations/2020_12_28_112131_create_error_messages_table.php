@@ -13,14 +13,7 @@ class CreateErrorMessagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('error_messages', function (Blueprint $table) {
-            $table->id();
-            $table->text('message_error');
-            $table->string('message_for_user');
-            $table->unsignedBigInteger('error_type_id');
-            $table->foreign('error_type_id')->references('id')->on('dictionaries');
-            $table->timestamps();
-        });
+        
     }
 
     /**
