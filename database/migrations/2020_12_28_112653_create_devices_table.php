@@ -18,7 +18,6 @@ class CreateDevicesTable extends Migration
             $table->string('serial_number');
             $table->boolean('active')->default(false);
             $table->unsignedBigInteger('device_groups_id');
-            $table->point('cord');
             $table->float('cord_latitude');
             $table->float('cord_longtitude');
             $table->unsignedBigInteger('device_type_id');
