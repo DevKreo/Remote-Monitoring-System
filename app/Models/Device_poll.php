@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Device_poll extends Model
 {
+    protected $table='device_polls';
+    protected $fillable=['date', 'devices_id', 'violation_quantity','transition'];
     use HasFactory;
 }
