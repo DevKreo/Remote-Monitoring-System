@@ -85,79 +85,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1,001</td>
-                                <td>Lorem</td>
-                                <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
-
+                           @foreach($regions as $row)
+                           <tr>
+                                <td>{{$row->id}}</td>
+                                <td>{{$row->name}}</td>
                             </tr>
-                            <tr>
-                                <td>1,002</td>
-                                <td>amet</td>
-                                <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>1,003</td>
-                                <td>Integer</td>
-                                <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>1,003</td>
-                                <td>libero</td>
-                                <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,004</td>
-                                <td>dapibus</td>
-                                <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,005</td>
-                                <td>Nulla</td>
-                                <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,006</td>
-                                <td>nibh</td>
-                                <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
+                           @endforeach
                         </tbody>
                     </table>
                     <nav aria-label="Page navigation example">

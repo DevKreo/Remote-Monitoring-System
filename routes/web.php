@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RegionController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,3 +64,6 @@ Route::get('/operationalSummary', function () {
 Route::get('/history', function () {
     return view('pages.operationHistoryPage');
 });
+
+Route::get('referenceBooks',[RegionController::class, 'index']);
+Route::get('users',[UserController::class, 'index']);

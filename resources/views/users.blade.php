@@ -108,100 +108,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1,001</td>
-                                <td>Lorem</td>
-                                <td>Lorem</td>
-                                <td>Lorem</td>
-                                <td>Lorem</td>
+                        @foreach($users as $row)
+                           <tr>
+                                <td>{{$row->id}}</td>
+                                <td>{{$row->name}}</td>
+                                <td>{{$row->email}}</td>
+                                <td>{{$row->d_name}}</td>
+                                <td>{{$row->role_name}}</td>
                                 <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
-
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn btn-dark btn-circle"><i class="fa fa-eye"></i>
+                                </button>
+                            </div>
+                        </td>
                             </tr>
-                            <tr>
-                                <td>1,002</td>
-                                <td>Lorem</td>
-                                <td>Lorem</td>
-                                <td>Lorem</td>
-                                <td>Lorem</td>
-                                <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>1,003</td>
-                                <td>Lorem</td>
-                                <td>Lorem</td>
-                                <td>Lorem</td>
-                                <td>Lorem</td>
-                                <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>1,003</td>
-                                <td>Lorem</td>
-                                <td>Lorem</td>
-                                <td>Lorem</td>
-                                <td>Lorem</td>
-                                <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,004</td>
-                                <td>Lorem</td>
-                                <td>Lorem</td>
-                                <td>Lorem</td>
-                                <td>Lorem</td>
-                                <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,005</td>
-                                <td>Lorem</td>
-                                <td>Lorem</td>
-                                <td>Lorem</td>
-                                <td>Lorem</td>
-                                <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,006</td>
-                                <td>Lorem</td>
-                                <td>Lorem</td>
-                                <td>Lorem</td>
-                                <td>Lorem</td>
-                                <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
+                           @endforeach
                         </tbody>
                     </table>
                     <nav aria-label="Page navigation example">
