@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -10,6 +10,7 @@
   <title>Test</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
+
 
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -53,44 +54,18 @@
 <body>
   @include('layouts.nav')
   <div class="container-fluid">
+  @include('layouts.sidebar')
     <div class="row">
-      @include('layouts.sidebar')
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-          <ul class="nav nav-tabs">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Предвижные</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Стационарные</a>
-            </li>
-          </ul>
+        <h2>Рабочий стол</h2>
+        <div class="d-flex bd-highlight mb-3">
+          <div class="mr-auto p-2 bd-highlight">
+            <input type="text" class="form-control" id="inputPassword2" placeholder="Поиск по  серийному номеру устройства"></th>
+          </div>
+          <div class="custom-control custom-switch p-2 bd-highlight">
+            <button type="button" class="btn btn-dark">Убрать устройства по всем рубежам</button>
+          </div>
         </div>
-
-        <form class="form-inline">
-          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-            <h3>Расположение передвижных комплексов</h3>
-          </div>
-
-          <div class="form-group mx-sm-3 mb-2">
-            <input type="text" class="form-control" id="inputPassword2" placeholder="Фильтр1">
-          </div>
-
-          <div class="form-group mx-sm-3 mb-2">
-            <select id="inputState" class="form-control">
-              <option selected>Фильтр по группе</option>
-              <option>Бла</option>
-              <option>2</option>
-              <option>3</option>
-            </select>
-          </div>
-          <div class="form-group mx-sm-3 mb-2">
-            <input type="date" class="form-control">
-          </div>
-          <button type="submit" class="btn btn-primary mb-2">Экспорт в эксель</button>
-        </form>
-
-        
         <div class="table-responsive">
           <table class="table table-striped table-bordered table-sm">
             <thead>
@@ -130,7 +105,7 @@
               </tr>
             </thead>
             <tbody>
-             
+              
 
             </tbody>
 
@@ -160,9 +135,53 @@
       </main>
     </div>
   </div>
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script>
+    window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')
+  </script>
+  <script src="../../assets/js/vendor/popper.min.js"></script>
+  <script src="../../dist/js/bootstrap.min.js"></script>
+
+  <!-- Icons -->
   <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
   <script>
     feather.replace()
+  </script>
+
+  <!-- Graphs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+  <script>
+    var ctx = document.getElementById("myChart");
+    var myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        datasets: [{
+          data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],
+          lineTension: 0,
+          backgroundColor: 'transparent',
+          borderColor: '#007bff',
+          borderWidth: 4,
+          pointBackgroundColor: '#007bff'
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: false
+            }
+          }]
+        },
+        legend: {
+          display: false,
+        }
+      }
+    });
   </script>
 </body>
 

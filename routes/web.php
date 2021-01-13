@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegionController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WorkspaceCalendarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +16,9 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.index');
-});
+// Route::get('/', function () {
+//     return view('pages.workspace');
+// });
 
 Route::get('/calendarPage', function () {
     return view('pages.calendarPage');
@@ -67,3 +68,6 @@ Route::get('/history', function () {
 
 Route::get('referenceBooks',[RegionController::class, 'index']);
 Route::get('users',[UserController::class, 'index']);
+
+//Route::get('calendarPage',[WorkspaceCalendarController::class, 'index']);
+Route::get('',[WorkspaceCalendarController::class, 'index']);
