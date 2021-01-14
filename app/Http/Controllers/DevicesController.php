@@ -14,14 +14,8 @@ class DevicesController extends Controller
     public function index()
     {
         $devices = DB::table('devices')
-        ->join('dictionaries as device_groups', function ($join) {
-            $join->on('devices.device_groups_id','=','device_groups.id')
-                ->where('group_table.dict_type_id','=',9);
-        })
-        ->join('dictionaries as device_types', function ($join) {
-            $join->on('devices.device_groups_id','=','device_types.id')
-                ->where('group_table.dict_type_id','=',10);
-        })
+        ->join('dictionaries as device_groups', 'devices.device_groups_id','=','device_groups.id')
+        ->join('dictionaries as device_types', 'devices.device_type_id','=','device_types.id')
         ->join('device_boundaries', 'device_boundaries.id', '=', 'devices.device_boundaries_id')
             ->select('devices.*', 'device_boundaries.device_bound_neme',
              'device_groups.name as dev_group_name', 'device_types.name as dev_type_name')
