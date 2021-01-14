@@ -79,9 +79,6 @@
                                     <input type="text" class="form-control" placeholder="Поиск">
                                 </th>
                                 <th>
-                                    <input type="text" class="form-control" placeholder="Поиск">
-                                </th>
-                                <th>
                                     <select class="form-control">
                                         <option value="" disabled selected>Группы устройств</option>
                                         <option>Первый</option>
@@ -106,7 +103,7 @@
                         </thead>
                         <thead>
                             <tr>
-                                <th></th>
+
                                 <th>№</th>
                                 <th>Наименование рубежа</th>
                                 <th>Регион</th>
@@ -115,13 +112,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @foreach ($users as $row)
+                             @foreach ($w_cal_datas as $row)
                                 <tr>
                                     <td>{{ $row->id }}</td>
-                                    <td>{{ $row->name }}</td>
-                                    <td>{{ $row->email }}</td>
-                                    <td>{{ $row->d_name }}</td>
-                                    <td>{{ $row->role_name }}</td>
+                                    <td>{{ $row->device_bound_neme }}</td>
+                                    <td>{{ $row->region_name }}</td>
+                                    <td>{{ $row->group_name }}</td>
                                     <td>
                                         <div class="d-flex justify-content-center">
                                             <button type="button" class="btn btn-dark btn-circle"><i
@@ -130,12 +126,12 @@
                                         </div>
                                     </td>
                                 </tr>
-                            @endforeach --}}
+                            @endforeach 
                         </tbody>
                     </table>
-                    {{-- <div class="d-flex justify-content-center">
-                        {!! $users->links() !!}
-                    </div> --}}
+                     <div class="d-flex justify-content-center">
+                        {!! $w_cal_datas->links() !!}
+                    </div> 
                     <script>
                         $('#timepicker1').timepicker({
                             uiLibrary: 'bootstrap4'
