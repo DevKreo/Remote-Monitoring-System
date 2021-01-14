@@ -25,7 +25,7 @@ use App\Http\Controllers\LogsController;
 //     return view('pages.workspace');
 // });
 
-Route::get('/calendarPage', function () {
+ Route::get('/calendarPage', function () {
     return view('pages.calendarPage');
 });
 
@@ -33,51 +33,51 @@ Route::get('/login', function () {
     return view('pages.loginPage');
 });
 
-Route::get('/apealsList', function () {
-    return view('pages.apealsListPage');
-});
+// Route::get('/apealsList', function () {
+//     return view('pages.apealsListPage');
+// });
 
-Route::get('/report', function () {
-    return view('pages.reportTemplatePage');
-});
+// Route::get('/report', function () {
+//     return view('pages.reportTemplatePage');
+// });
 
 Route::get('/map', function () {
     return view('pages.mapPage');
 });
-Route::get('/consolidatedReport', function () {
-    return view('pages.ConsReportPage');
-});
-Route::get('/boundary', function () {
-    return view('pages.BoundaryPage');
-});
+// Route::get('/consolidatedReport', function () {
+//     return view('pages.ConsReportPage');
+// });
+// Route::get('/boundary', function () {
+//     return view('pages.BoundaryPage');
+// });
 
-Route::get('/devices', function () {
-    return view('pages.devicesPage');
-});
+// Route::get('/devices', function () {
+//     return view('pages.devicesPage');
+// });
 
-Route::get('/referenceBooks', function () {
-    return view('pages.referenceBooksPage');
-});
+// Route::get('/referenceBooks', function () {
+//     return view('pages.referenceBooksPage');
+// });
 
-Route::get('/users', function () {
-    return view('pages.usersPage');
-});
+// Route::get('/users', function () {
+//     return view('pages.usersPage');
+// });
 
 Route::get('/operationalSummary', function () {
     return view('pages.operationalSummaryPage');
 });
 
-Route::get('/history', function () {
-    return view('pages.operationHistoryPage');
-});
+// Route::get('/history', function () {
+//     return view('pages.operationHistoryPage');
+// });
 
-Route::get('referenceBooks',[RegionController::class, 'index']);
-Route::get('users',[UserController::class, 'index']);
-//Route::get('report',[TemplateReportController::class, 'index']);
-//Route::get('boundary',[DevicesBoundController::class, 'index']);
-//Route::get('devices',[DevicesController::class, 'index']);
-//Route::get('apealsList',[AppealListController::class, 'index']);
-//Route::get('calendarPage',[WorkspaceCalendarController::class, 'index']);
-//Route::get('',[WorkspaceController::class, 'index']);
-//Route::get('consolidatedReport',[SendingReportsController::class, 'index']);
-//Route::get('history',[LogsController::class, 'index']);
+Route::get('/referenceBooks',[RegionController::class, 'index']);
+Route::get('/users',[UserController::class, 'index']);
+Route::get('/report',[TemplateReportController::class, 'index']);
+Route::get('/boundary',[DevicesBoundController::class, 'index']);
+Route::get('/devices',[DevicesController::class, 'index']);
+Route::get('/apealsList',[AppealListController::class, 'index']);
+//Route::get('/calendarPage',[WorkspaceCalendarController::class, 'index']);
+Route::get('/',[WorkspaceController::class, 'index']);
+Route::get('/consolidatedReport',[SendingReportsController::class, 'index']);
+Route::get('/history',[LogsController::class, 'index']);

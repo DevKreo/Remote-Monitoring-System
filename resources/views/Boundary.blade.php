@@ -14,11 +14,13 @@
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- Favicons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
@@ -40,6 +42,7 @@
                 font-size: 3.5rem;
             }
         }
+
     </style>
 
 
@@ -56,6 +59,16 @@
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
                     <h3>Рубежи</h3>
                 </div>
+
+                <ul class="nav nav-tabs mb-2">
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#">Рубежи</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Группы рубижей</a>
+                    </li>
+                </ul>
+
                 <div class="d-flex bd-highlight mb-3">
                     <div class="mr-auto p-2 bd-highlight">
                         <button type="button" class="btn btn-dark">Добавить рубеж</button>
@@ -71,18 +84,22 @@
                             <tr>
                                 <th></th>
                                 <th>
-                                    <input type="text" class="form-control" placeholder="Поиск">
+                                    <input type="text" class="form-control" placeholder="Поиск по наименованию">
                                 </th>
                                 <th>
-                                    <div class="col-md-10">
-                                        <select class="form-control">
-                                            <option value="" disabled selected>Регион</option>
-                                            <option>Первый</option>
-                                            <option>Второй</option>
-                                            <option>Третий</option>
-                                            <option>Четвертый</option>
-                                        </select>
-                                    </div>
+                                    <select class="form-control">
+                                        <option value="" disabled selected>Регион</option>
+                                        <option>Первый</option>
+                                        <option>Второй</option> <!--TODO:/ заполнить из бд -->
+                                        <option>Третий</option>
+                                        <option>Четвертый</option>
+                                    </select>
+                                </th>
+                                <th>
+                                   
+                                </th>
+                                <th>
+                                   
                                 </th>
                                 <th>
                                     <button type="button" class="btn btn-light">Очистить</button>
@@ -91,7 +108,7 @@
                         </thead>
                         <thead>
                             <tr>
-                                <th>#</th>
+                                <th>№</th>
                                 <th>Наименование</th>
                                 <th>Регион</th>
                                 <th>Устройства</th>
@@ -100,133 +117,30 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1,001</td>
-                                <td>Lorem</td>
-                                <td>Lorem</td>
-                                <td>Lorem</td>
-                                <td>
-                                    <button type="button" class="btn btn-success">Активно</button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>1,002</td>
-                                <td>Lorem</td>
-                                <td>Lorem</td>
-                                <td>Lorem</td>
-                                <td>
-                                    <button type="button" class="btn btn-success">Активно</button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>1,003</td>
-                                <td>Lorem</td>
-                                <td>Lorem</td>
-                                <td>Lorem</td>
-                                <td>
-                                    <button type="button" class="btn btn-success">Активно</button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>1,003</td>
-                                <td>Lorem</td>
-                                <td>Lorem</td>
-                                <td>Lorem</td>
-                                <td>
-                                    <button type="button" class="btn btn-success">Активно</button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,004</td>
-                                <td>Lorem</td>
-                                <td>Lorem</td>
-                                <td>Lorem</td>
-                                <td>
-                                    <button type="button" class="btn btn-success">Активно</button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,005</td>
-                                <td>Lorem</td>
-                                <td>Lorem</td>
-                                <td>Lorem</td>
-                                <td>
-                                    <button type="button" class="btn btn-success">Активно</button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,006</td>
-                                <td>Lorem</td>
-                                <td>Lorem</td>
-                                <td>Lorem</td>
-                                <td>
-                                    <button type="button" class="btn btn-success">Активно</button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-dark btn-circle"><i class="fas fa-pen"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
+                            {{-- @foreach ($users as $row)
+                                <tr>
+                                    <td>{{ $row->id }}</td>
+                                    <td>{{ $row->name }}</td>
+                                    <td>{{ $row->email }}</td>
+                                    <td>{{ $row->d_name }}</td>
+                                    <td>{{ $row->role_name }}</td>
+                                    <td>
+                                        <div class="d-flex justify-content-center">
+                                            <button type="button" class="btn btn-dark btn-circle"><i
+                                                    class="fa fa-pen"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-danger btn-circle"><i
+                                                    class="fa fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach --}}
                         </tbody>
                     </table>
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1">Previous</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                            </li>
-                        </ul>
-                    </nav>
-
-                 
-
-
+                    {{-- <div class="d-flex justify-content-center">
+                        {!! $users->links() !!}
+                    </div> --}}
                 </div>
         </div>
 
@@ -237,6 +151,7 @@
     <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
     <script>
         feather.replace()
+
     </script>
 </body>
 

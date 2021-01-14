@@ -14,7 +14,7 @@ class TemplateReportController extends Controller
     public function index()
     {
         $templates = DB::table('report_templates')->paginate(15);
-        return view('report', ['templates' => $templates]);
+        return view('pages.reportTemplatePage', ['templates' => $templates]);
     }
 
     /**

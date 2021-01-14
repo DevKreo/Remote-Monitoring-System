@@ -65,85 +65,88 @@
 
         </div>
         <div class="my-4 w-100">
-          <h2>Рабочий стол</h2>
-          <div class="d-flex bd-highlight mb-3">
-            <div class="mr-auto p-2 bd-highlight">
-              <input type="text" class="form-control" id="inputPassword2" placeholder="Поиск по  серийному номеру устройства"></th>
-            </div>
-            <div class="custom-control custom-switch p-2 bd-highlight">
-              <button type="button" class="btn btn-dark">Убрать устройства по всем рубежам</button>
-            </div>
-          </div>
-          <div class="table-responsive">
-            <table class="table table-striped table-bordered table-sm">
-              <thead>
+          <table class="table table-striped table-sm">
+            <thead>
                 <tr>
-                  <th></th>
-                  <th>
-                    <input type="text" class="form-control" id="inputPassword2" placeholder="Наименование рубежа">
-                  </th>
-                  </th>
-                  <th>
-                    <select class="form-control">
-                      <option selected>Регион</option>
-                      <option>Бла</option>
-                      <option>2</option>
-                      <option>3</option>
-                    </select>
-                  </th>
-                  <th>
-                    <select class="form-control">
-                      <option selected>Группы рубежей</option>
-                      <option>Бла</option>
-                      <option>2</option>
-                      <option>3</option>
-                    </select>
-                  </th>
-                  <th><button type="button" class="btn btn-light">Очистить</button></th>
+                    <th></th>
+                    <th> 
+                      <select class="form-control">
+                        <option value="" disabled selected>Статус</option>
+                        <option>Первый</option>
+                        <option>Второй</option>
+                        <option>Третий</option>
+                        <option>Четвертый</option>
+                      </select>
+                    </th>
+                    <th>
+                        <input type="text" class="form-control" placeholder="Поиск">
+                    </th>
+                    <th>
+                        <input type="text" class="form-control" placeholder="Поиск">
+                    </th>
+                    <th>
+                      <input type="text" class="form-control" placeholder="С - По">
+                    </th>
+                    <th>
+                        <input type="text" class="form-control" placeholder="С - По">
+                    </th>
+                    <th>
+                      <select class="form-control">
+                        <option value="" disabled selected>Рубеж</option>
+                        <option>Первый</option>
+                        <option>Второй</option>
+                        <option>Третий</option>
+                        <option>Четвертый</option>
+                      </select>
+                    </th>
+                    <th>
+                      <select class="form-control">
+                        <option value="" disabled selected>Ответственный</option>
+                        <option>Первый</option>
+                        <option>Второй</option>
+                        <option>Третий</option>
+                        <option>Четвертый</option>
+                      </select>
+                    </th>
+                    <th>
+                        <button type="button" class="btn btn-light">Очистить</button>
+                    </th>
                 </tr>
-              </thead>
-              <thead>
+            </thead>
+            <thead>
                 <tr>
-                  <th>№</th>
-                  <th>Наименование рубежа</th>
-                  <th>Регион</th>
-                  <th>Группы рубежей</th>
-                  <th></th>
-
+                    <th>№</th>
+                    <th>Статус</th>
+                    <th>Оператор</th>
+                    <th>Устройство</th>
+                    <th>Дата создания</th>
+                    <th>Дата исполнения</th>
+                    <th>Рубеж</th>
+                    <th>Ответственный</th>
+                    <th></th>
                 </tr>
-              </thead>
-              <tbody>
-
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-
-
-                  <td>
-                    <button type="button" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i>
-                    </button>
-                  </td>
-
+            </thead>
+            <tbody>
+            {{-- @foreach($users as $row)
+               <tr>
+                    <td>{{$row->id}}</td>
+                    <td>{{$row->name}}</td>
+                    <td>{{$row->email}}</td>
+                    <td>{{$row->d_name}}</td>
+                    <td>{{$row->role_name}}</td>
+                    <td>
+                        <div class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-dark btn-circle"><i class="fa fa-eye"></i>
+                            </button>
+                        </div>
+                    </td>
                 </tr>
-
-              </tbody>
-
-            </table>
-            <nav aria-label="Page navigation example">
-              <ul class="pagination justify-content-center">
-                <li class="page-item disabled">
-                  <a class="page-link" href="#" tabindex="-1">Previous</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="#">Next</a>
-                </li>
-              </ul>
-            </nav>
+               @endforeach --}}
+            </tbody>
+        </table>
+          {{-- <div class="d-flex justify-content-center">
+            {!! $users->links() !!}
+          </div> --}}
             <script>
               $('#timepicker1').timepicker({
                 uiLibrary: 'bootstrap4'

@@ -60,7 +60,7 @@
             @include('layouts.tabsForMap')
             @include('layouts.mapCard')
             <div class="my-lg-2">
-                <p class="text-right ">Выровненный справа текст во всех размерах видового экрана.</p>
+                <p class="text-right ">Статистика выводится за NAN-NAN</p>
             </div>
             @include('layouts.mapForm')
             @include('layouts.mapCanvas')
