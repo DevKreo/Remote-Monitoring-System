@@ -16,6 +16,8 @@ class DevicesBoundController extends Controller
         $device_bounds = DB::table('device_boundaries')
         ->join('dictionaries as region', 'region.id','=','device_boundaries.region_id')
         ->join('dictionaries as bound_group', 'bound_group.id','=','device_boundaries.bound_group_id')
+        ->select('device_boundaries.*', 'region.name as region_name',
+             'bound_group.name as bound_group_name')
             ->paginate(15);
         return view('boundary', ['device_bounds' => $device_bounds]);
     }
