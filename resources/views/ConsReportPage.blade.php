@@ -112,13 +112,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @foreach ($users as $row)
+                             @foreach ($sending_reports as $row)
                                 <tr>
                                     <td>{{ $row->id }}</td>
-                                    <td>{{ $row->name }}</td>
-                                    <td>{{ $row->email }}</td>
-                                    <td>{{ $row->d_name }}</td>
-                                    <td>{{ $row->role_name }}</td>
+                                    <td>{{ $row->template_name }}</td>
+                                    <td>{{ $row->regularity_name }}</td>
+                                    <td>{{ $row->report_period_name }}</td>
+                                    <td>{{ $row->destination }}</td>
                                     <td>
                                         <div class="d-flex justify-content-center">
                                             <button type="button" class="btn btn-secondary btn-circle"><i
@@ -133,13 +133,13 @@
                                         </div>
                                     </td>
                                 </tr>
-                            @endforeach --}}
+                            @endforeach 
 
                         </tbody>
                     </table>
-                    {{-- <div class="d-flex justify-content-center">
-                        {!! $users->links() !!}
-                    </div> --}}
+                     <div class="d-flex justify-content-center">
+                        {!! $sending_reports->links() !!}
+                    </div> 
                     <div class="col align-self-end">
                         <button type="button" class="btn btn-dark">Создать новый отчет</button>
                         <button type="button" class="btn btn-dark">Добавить автоматическую отправку отчетов на
