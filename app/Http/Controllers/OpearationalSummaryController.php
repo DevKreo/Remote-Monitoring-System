@@ -4,30 +4,16 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
-class WorkspaceController extends Controller
+class OpearationalSummaryController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
-    {    
-        $w_cal_datas = DB::table('device_boundaries')
-        ->join('dictionaries as group_table', function ($join) {
-            $join->on('device_boundaries.bound_group_id','=','group_table.id')
-                ->where('group_table.dict_type_id','=',1);
-        })
-        ->join('dictionaries as region_table', function ($join) {
-            $join->on('device_boundaries.region_id','=','region_table.id')
-                ->where('region_table.dict_type_id','=',2);
-        })
-            ->select('device_boundaries.*',  'group_table.name as group_name','region_table.name as region_name')
-            ->paginate(15);
-           // dd($w_cal_datas);
-        return view('work', ['w_cal_datas' => $w_cal_datas]);
-       
+    {
+        //
     }
 
     /**

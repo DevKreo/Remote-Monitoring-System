@@ -4,30 +4,29 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
-class WorkspaceController extends Controller
+class DevicesController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
-    {    
-        $w_cal_datas = DB::table('device_boundaries')
-        ->join('dictionaries as group_table', function ($join) {
-            $join->on('device_boundaries.bound_group_id','=','group_table.id')
-                ->where('group_table.dict_type_id','=',1);
+    {
+        $devices = DB::table('devices')
+        ->join('dictionaries as device_groups', function ($join) {
+            $join->on('devices.device_groups_id','=','device_groups.id')
+                ->where('group_table.dict_type_id','=',9);
         })
-        ->join('dictionaries as region_table', function ($join) {
-            $join->on('device_boundaries.region_id','=','region_table.id')
-                ->where('region_table.dict_type_id','=',2);
+        ->join('dictionaries as device_types', function ($join) {
+            $join->on('devices.device_groups_id','=','device_types.id')
+                ->where('group_table.dict_type_id','=',10);
         })
-            ->select('device_boundaries.*',  'group_table.name as group_name','region_table.name as region_name')
+        ->join('device_boundaries', 'device_boundaries.id', '=', 'devices.device_boundaries_id')
+            ->select('devices.*', 'device_boundaries.device_bound_neme',
+             'device_groups.name as dev_group_name', 'device_types.name as dev_type_name')
             ->paginate(15);
-           // dd($w_cal_datas);
-        return view('work', ['w_cal_datas' => $w_cal_datas]);
-       
+        return view('devices', ['devices' => $devices]);
     }
 
     /**

@@ -18,8 +18,6 @@ class UserController extends Controller
             ->join('dictionaries', function ($join) {
                 $join->on('users.device_group_ip','=','dictionaries.id')
                     ->where('dictionaries.dict_type_id','=',10);
-               // $join->on('users.id', '=', 'contacts.user_id')
-                 //    ->where('contacts.user_id', '>', 5);
             })
             ->select('users.*', 'roles.role_name', 'dictionaries.name as d_name')
             ->paginate(15);
