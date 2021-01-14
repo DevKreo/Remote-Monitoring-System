@@ -1,41 +1,34 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
-class WorkspaceCalendarController extends Controller
+class AppealListController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
-    {     $dictionaries_value=DB::table('dictionaries')
-        ->where("dictionaries.dict_type_id",2)
-        -> orWhere("dictionaries.dict_type_id",1)
-        
-                ->get();
-        $w_cal_datas = DB::table('device_boundaries')
-        ->join('dictionaries as group_table', function ($join) {
-            $join->on('device_boundaries.bound_group_id','=','group_table.id')
-                ->where('group_table.dict_type_id','=',1);
-           // $join->on('device_boundaries.region_id','=','dictionaries.id')
-              //  ->where('dictionaries.dict_type_id','=',2);
-        })
-        ->join('dictionaries as region_table', function ($join) {
-            $join->on('device_boundaries.region_id','=','region_table.id')
-                ->where('region_table.dict_type_id','=',2);
-           // $join->on('device_boundaries.region_id','=','dictionaries.id')
-              //  ->where('dictionaries.dict_type_id','=',2);
-        })
-            ->select('device_boundaries.*',  'group_table.name as group_name','region_table.name as region_name')
-            ->get();
-           // dd($w_cal_datas);
-        return view('work', ['w_cal_datas' => $w_cal_datas]);
-       
+    {
+        $requests = DB::table('requests')
+            ->join('devices', 'devices.id', '=', 'requests.devices_id')
+            ->join('users as operators', 'operators.id', '=', 'requests.operators_id')
+            ->join('users as responsible_users', 'responsible_users.id', '=', 'requests.responsible_user_id')
+            ->join('dictionaries', function ($join) {
+                $join->on('requests.r_status_id', '=', 'dictionaries.id')
+                    ->where('dictionaries.dict_type_id', '=', 5);
+
+            })
+            ->join('device_boundaries', 'devices.device_boundaries_id', '=', 'device_boundaries.id')
+            ->select('requests.*', 'operators.name as operator_name', 'dictionaries.name as d_name',
+             'responsible_users.name as responsible_user_name', 'devices.serial_number',
+             'device_boundaries.device_bound_neme')
+            ->paginate(15);
+        return view('apealsList', ['requests' => $requests]);
     }
 
     /**
