@@ -7,6 +7,7 @@ use App\Http\Controllers\WorkspaceController;
 use App\Http\Controllers\AppealListController;
 use App\Http\Controllers\TemplateReportController;
 use App\Http\Controllers\DevicesController;
+use App\Http\Controllers\DevicesBoundController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -71,6 +72,7 @@ Route::get('/history', function () {
 Route::get('referenceBooks',[RegionController::class, 'index']);
 Route::get('users',[UserController::class, 'index']);
 //Route::get('report',[TemplateReportController::class, 'index']);
+//Route::get('boundary',[DevicesBoundController::class, 'index']);
 //Route::get('devices',[DevicesController::class, 'index']);
 //Route::get('apealsList',[AppealListController::class, 'index']);
 //Route::get('calendarPage',[WorkspaceCalendarController::class, 'index']);
