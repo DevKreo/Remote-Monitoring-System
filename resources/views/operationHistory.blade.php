@@ -101,7 +101,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        { @foreach ($logs as $row)
+                        @foreach ($logs as $row)
                             <tr>
                                 <td>{{ $row->id }}</td>
                                 <td>{{ $row->log_time }}</td>
@@ -110,7 +110,7 @@
                                 <td>{{ $row->user_name }}</td>
                                 <td>
                                     <div class="d-flex justify-content-center">
-                                        <button type="button" class="btn btn-dark btn-circle"><i class="fa fa-eye"></i>
+                                        <button type="button" class="btn btn-secondary btn-circle"><i class="fa fa-eye"></i>
                                         </button>
                                     </div>
                                 </td>

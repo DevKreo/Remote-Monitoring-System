@@ -51,14 +51,6 @@
                                 <tr>
                                     <td>{{ $row->serial_number }}</td>
                                     <td>{{ $row->device_bound_neme }}</td>
-
-                                    <td>
-                                        <div class="d-flex justify-content-center">
-                                            <button type="button" class="btn btn-dark btn-circle"><i
-                                                    class="fa fa-eye"></i>
-                                            </button>
-                                        </div>
-                                    </td>
                                 </tr>
                             @endforeach 
                         </tbody>

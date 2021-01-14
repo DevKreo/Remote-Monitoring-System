@@ -93,7 +93,10 @@
                                     <td>
                                         <div class="d-flex justify-content-center">
                                             <button type="button" class="btn btn-dark btn-circle"><i
-                                                    class="fa fa-eye"></i>
+                                                    class="fa fa-pen"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-danger btn-circle ml-1"><i
+                                                class="fa fa-trash"></i>
                                             </button>
                                         </div>
                                     </td>

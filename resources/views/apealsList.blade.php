@@ -17,13 +17,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   <!-- Favicons -->
-  <link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-  <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-  <link rel="manifest" href="/docs/5.0/assets/img/favicons/manifest.json">
-  <link rel="mask-icon" href="/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
-  <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
-  <meta name="theme-color" content="#7952b3">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 
 
   <style>
@@ -139,7 +133,11 @@
                     <td>{{$row->responsible_user_name}}</td>
                     <td>
                         <div class="d-flex justify-content-center">
-                            <button type="button" class="btn btn-dark btn-circle"><i class="fa fa-eye"></i>
+                            <button type="button" class="btn btn-secondary btn-circle"><i
+                                class="fa fa-envelope"></i>
+                            </button>
+                            <button type="button" class="btn btn-dark btn-circle ml-1"><i
+                                class="fa fa-pen"></i>
                             </button>
                         </div>
                     </td>
