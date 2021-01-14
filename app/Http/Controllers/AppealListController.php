@@ -24,7 +24,7 @@ class AppealListController extends Controller
 
             })
             ->join('device_boundaries', 'devices.device_boundaries_id', '=', 'device_boundaries.id')
-            ->select('requests.*', 'operators.name as operator_name', 'dictionaries.name as d_name',
+            ->select('requests.*', 'operators.name as operator_name', 'dictionaries.name as status_name',
              'responsible_users.name as responsible_user_name', 'devices.serial_number',
              'device_boundaries.device_bound_neme')
             ->paginate(15);

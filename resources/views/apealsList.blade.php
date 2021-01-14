@@ -127,13 +127,16 @@
                 </tr>
             </thead>
             <tbody>
-            {{-- @foreach($users as $row)
+             @foreach($requests as $row)
                <tr>
                     <td>{{$row->id}}</td>
-                    <td>{{$row->name}}</td>
-                    <td>{{$row->email}}</td>
-                    <td>{{$row->d_name}}</td>
-                    <td>{{$row->role_name}}</td>
+                    <td>{{$row->status_name}}</td>
+                    <td>{{$row->operator_name}}</td>
+                    <td>{{$row->serial_number}}</td>
+                    <td>{{$row->opend}}</td>
+                    <td>{{$row->closed}}</td>
+                    <td>{{$row->device_bound_neme}}</td>
+                    <td>{{$row->responsible_user_name}}</td>
                     <td>
                         <div class="d-flex justify-content-center">
                             <button type="button" class="btn btn-dark btn-circle"><i class="fa fa-eye"></i>
@@ -141,12 +144,12 @@
                         </div>
                     </td>
                 </tr>
-               @endforeach --}}
+               @endforeach 
             </tbody>
         </table>
-          {{-- <div class="d-flex justify-content-center">
-            {!! $users->links() !!}
-          </div> --}}
+           <div class="d-flex justify-content-center">
+            {!! $requests->links() !!}
+          </div> 
             <script>
               $('#timepicker1').timepicker({
                 uiLibrary: 'bootstrap4'
