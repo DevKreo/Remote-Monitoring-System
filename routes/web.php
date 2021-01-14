@@ -10,6 +10,7 @@ use App\Http\Controllers\DevicesController;
 use App\Http\Controllers\DevicesBoundController;
 use App\Http\Controllers\SendingReportsController;
 use App\Http\Controllers\LogsController;
+use App\Http\Controllers\MapController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,9 +42,9 @@ Route::get('/login', function () {
 //     return view('pages.reportTemplatePage');
 // });
 
-Route::get('/map', function () {
-    return view('pages.mapPage');
-});
+// Route::get('/map', function () {
+//     return view('pages.mapPage');
+// });
 // Route::get('/consolidatedReport', function () {
 //     return view('pages.ConsReportPage');
 // });
@@ -81,3 +82,4 @@ Route::get('/apealsList',[AppealListController::class, 'index']);
 Route::get('/',[WorkspaceController::class, 'index']);
 Route::get('/consolidatedReport',[SendingReportsController::class, 'index']);
 Route::get('/history',[LogsController::class, 'index']);
+Route::get('/map',[MapController::class, 'index']);
