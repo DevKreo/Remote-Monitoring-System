@@ -8,6 +8,7 @@ use App\Http\Controllers\AppealListController;
 use App\Http\Controllers\TemplateReportController;
 use App\Http\Controllers\DevicesController;
 use App\Http\Controllers\DevicesBoundController;
+use App\Http\Controllers\SendingReportsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -77,3 +78,4 @@ Route::get('users',[UserController::class, 'index']);
 //Route::get('apealsList',[AppealListController::class, 'index']);
 //Route::get('calendarPage',[WorkspaceCalendarController::class, 'index']);
 //Route::get('',[WorkspaceController::class, 'index']);
+//Route::get('consolidatedReport',[SendingReportsController::class, 'index']);
