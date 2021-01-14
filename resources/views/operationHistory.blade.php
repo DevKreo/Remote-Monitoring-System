@@ -101,13 +101,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{-- @foreach ($users as $row)
+                        { @foreach ($logs as $row)
                             <tr>
                                 <td>{{ $row->id }}</td>
-                                <td>{{ $row->name }}</td>
-                                <td>{{ $row->email }}</td>
-                                <td>{{ $row->d_name }}</td>
-                                <td>{{ $row->role_name }}</td>
+                                <td>{{ $row->log_time }}</td>
+                                <td>{{ $row->operation_type_name }}</td>
+                                <td>{{ $row->serial_number }} (id:{{$row->device_id}})</td>
+                                <td>{{ $row->user_name }}</td>
                                 <td>
                                     <div class="d-flex justify-content-center">
                                         <button type="button" class="btn btn-dark btn-circle"><i class="fa fa-eye"></i>
@@ -115,12 +115,12 @@
                                     </div>
                                 </td>
                             </tr>
-                        @endforeach --}}
+                        @endforeach 
                     </tbody>
                 </table>
-                {{-- <div class="d-flex justify-content-center">
-                    {!! $users->links() !!}
-                </div> --}}
+                 <div class="d-flex justify-content-center">
+                    {!! $logs->links() !!}
+                </div> 
             </main>
         </div>
     </div>

@@ -20,12 +20,12 @@ class LogsController extends Controller
             ->select(
                 'logs.*',
                 'devices.serial_number',
-                'devices.id',
+                'devices.id as device_id',
                 'users.name as user_name',
                 'operation_type.name as operation_type_name'
             )
             ->paginate(15);
-        return view('history', ['logs' => $logs]);
+        return view('operationHistory', ['logs' => $logs]);
     }
 
     /**
