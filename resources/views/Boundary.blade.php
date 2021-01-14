@@ -117,13 +117,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @foreach ($users as $row)
+                             @foreach ($device_bounds as $row)
                                 <tr>
                                     <td>{{ $row->id }}</td>
-                                    <td>{{ $row->name }}</td>
-                                    <td>{{ $row->email }}</td>
-                                    <td>{{ $row->d_name }}</td>
-                                    <td>{{ $row->role_name }}</td>
+                                    <td>{{ $row->device_bound_neme }}</td>
+                                    <td>{{ $row->region_name }}</td>
+                                    <td>{{ $row->serial_number }}</td>
+                                    <td>{{ $row->active }}</td>
                                     <td>
                                         <div class="d-flex justify-content-center">
                                             <button type="button" class="btn btn-dark btn-circle"><i
@@ -135,12 +135,12 @@
                                         </div>
                                     </td>
                                 </tr>
-                            @endforeach --}}
+                            @endforeach 
                         </tbody>
                     </table>
-                    {{-- <div class="d-flex justify-content-center">
-                        {!! $users->links() !!}
-                    </div> --}}
+                     <div class="d-flex justify-content-center">
+                        {!! $device_bounds->links() !!}
+                    </div> 
                 </div>
         </div>
 
