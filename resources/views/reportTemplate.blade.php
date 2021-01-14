@@ -86,13 +86,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @foreach ($users as $row)
+                             @foreach ($templates as $row)
                                 <tr>
                                     <td>{{ $row->id }}</td>
-                                    <td>{{ $row->name }}</td>
-                                    <td>{{ $row->email }}</td>
-                                    <td>{{ $row->d_name }}</td>
-                                    <td>{{ $row->role_name }}</td>
+                                    <td>{{ $row->template_name }}</td>
                                     <td>
                                         <div class="d-flex justify-content-center">
                                             <button type="button" class="btn btn-dark btn-circle"><i
@@ -101,12 +98,12 @@
                                         </div>
                                     </td>
                                 </tr>
-                            @endforeach --}}
+                            @endforeach 
                         </tbody>
                     </table>
-                    {{-- <div class="d-flex justify-content-center">
-                        {!! $users->links() !!}
-                    </div> --}}
+                     <div class="d-flex justify-content-center">
+                        {!! $templates->links() !!}
+                    </div> 
 
                     <div
                         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
