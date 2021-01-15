@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RegionController;
+use App\Http\Controllers\DictionaryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WorkspaceController;
 use App\Http\Controllers\AppealListController;
@@ -74,7 +74,14 @@ Route::get('/login', function () {
 //     return view('pages.operationHistoryPage');
 // });
 
-Route::get('/referenceBooks',[RegionController::class, 'index']);
+Route::get('/referenceBooks/regions',[DictionaryController::class, 'regionGetData']);
+Route::get('/referenceBooks/type_devices',[DictionaryController::class, 'deviceTypeGetData']);
+Route::get('/referenceBooks/type_violation',[DictionaryController::class, 'violationTypeGetData']);
+Route::get('/referenceBooks/device_developer',[DictionaryController::class, 'developerGetData']);
+Route::get('/referenceBooks/adress',[DictionaryController::class, 'addressGetData']);
+Route::get('/referenceBooks/error_device',[DictionaryController::class, 'errorsGetData']);
+Route::get('/referenceBooks/branches',[DictionaryController::class, 'SNMPbranchesGetData']);
+
 Route::get('/users',[UserController::class, 'index']);
 Route::get('/report',[TemplateReportController::class, 'index']);
 Route::get('/boundary',[DevicesBoundController::class, 'index']);

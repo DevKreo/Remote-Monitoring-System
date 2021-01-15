@@ -61,25 +61,25 @@
                 </div>
                 <ul class="nav nav-tabs mb-2">
                     <li class="nav-item">
-                      <a class="nav-link active" href="/regions">Регионы</a>
+                      <a class="nav-link active" href="/referenceBooks/regions">Регионы</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="/type_devices">Тип устройства</a>
+                      <a class="nav-link" href="/referenceBooks/type_devices">Тип устройства</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="/type_violation">Тип нарушений</a>
+                      <a class="nav-link" href="/referenceBooks/type_violation">Тип нарушений</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="/device_developer">Производитель устройств</a>
+                      <a class="nav-link" href="/referenceBooks/device_developer">Производитель устройств</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/adress">Адреса</a>
+                        <a class="nav-link" href="/referenceBooks/adress">Адреса</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/error_device">Ошибка устройств</a>
+                        <a class="nav-link" href="/referenceBooks/error_device">Ошибка устройств</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/brances">Ветки SNMP</a>
+                        <a class="nav-link" href="/referenceBooks/branches">Ветки SNMP</a>
                     </li>
                   </ul>
                 <div class="d-flex bd-highlight mb-3">

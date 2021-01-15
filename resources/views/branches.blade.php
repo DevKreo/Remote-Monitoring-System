@@ -61,25 +61,25 @@
                 </div>
                 <ul class="nav nav-tabs mb-2">
                     <li class="nav-item">
-                      <a class="nav-link " href="/regions">Регионы</a>
+                      <a class="nav-link " href="/referenceBooks/regions">Регионы</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link " href="/type_devices">Тип устройства</a>
+                      <a class="nav-link " href="/referenceBooks/type_devices">Тип устройства</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link " href="/type_violation">Тип нарушений</a>
+                      <a class="nav-link " href="/referenceBooks/type_violation">Тип нарушений</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="/device_developer">Производитель устройств</a>
+                      <a class="nav-link" href="/referenceBooks/device_developer">Производитель устройств</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/adress">Адреса</a>
+                        <a class="nav-link" href="/referenceBooks/adress">Адреса</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/error_device">Ошибка устройств</a>
+                        <a class="nav-link" href="/referenceBooks/error_device">Ошибка устройств</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/brances">Ветки SNMP</a>
+                        <a class="nav-link active" href="/referenceBooks/branches">Ветки SNMP</a>
                     </li>
                   </ul>
                 <div class="d-flex bd-highlight mb-3">
@@ -92,7 +92,7 @@
                     </div>
                 </div>
                 <div class="my-4 w-100">
-                    {{-- <table class="table table-striped table-sm">
+                     <table class="table table-striped table-sm">
                         <thead>
                             <tr>
                                 <th></th>
@@ -120,10 +120,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($regions as $row)
+                            @foreach ($branches as $row)
                                 <tr>
                                     <td>{{ $row->id }}</td>
-                                    <td>{{ $row->name }}</td>
+                                    <td>{{ $row->branch_name }}</td>
+                                    <td>{{ $row->OID }}</td>
+                                    <td>{{ $row->min_value }}</td>
+                                    <td>{{ $row->max_value }}</td>
                                     <td>
                                         <div class="d-flex justify-content-center">
                                             <button type="button" class="btn btn-dark btn-circle"><i
@@ -136,11 +139,11 @@
                                     </td>
                                 </tr>
                             @endforeach
-                        </tbody> --}}
+                        </tbody> 
                     </table>
-                    {{-- <div class="d-flex justify-content-center">
-                        {!! $users->links() !!}
-                    </div> --}}
+                     <div class="d-flex justify-content-center">
+                        {!! $branches->links() !!}
+                    </div> 
                 </div>
         </div>
 
