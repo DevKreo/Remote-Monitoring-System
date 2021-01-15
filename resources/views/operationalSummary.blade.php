@@ -143,7 +143,7 @@
                                         @foreach ($perfomances as $row)
                                             @if ($row->date == $rows->date)
                                                 <td>
-                                                    {{ $row->transition }}
+                                                    {{ $row->performance }}
                                                     @php
                                                     $av+= $row->transition;
                                                     $count++;

@@ -11,8 +11,8 @@ use App\Http\Controllers\DevicesBoundController;
 use App\Http\Controllers\SendingReportsController;
 use App\Http\Controllers\LogsController;
 use App\Http\Controllers\MapController;
-use App\Http\Controllers\CalendarMovableComplexController;
-use App\Http\Controllers\OpearationalPerfomanceSummaryController;
+use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\OpearationalSummaryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -80,9 +80,9 @@ Route::get('/report',[TemplateReportController::class, 'index']);
 Route::get('/boundary',[DevicesBoundController::class, 'index']);
 Route::get('/devices',[DevicesController::class, 'index']);
 Route::get('/apealsList',[AppealListController::class, 'index']);
-Route::get('/calendarPage',[CalendarMovableComplexController::class, 'index']);
+Route::get('/calendarPage',[CalendarController::class, 'index']);
 Route::get('/',[WorkspaceController::class, 'index']);
 Route::get('/consolidatedReport',[SendingReportsController::class, 'index']);
 Route::get('/history',[LogsController::class, 'index']);
 Route::get('/map',[MapController::class, 'index']);
-Route::get('/operationalSummary',[OpearationalPerfomanceSummaryController::class, 'index']);
+Route::get('/operationalSummary',[OpearationalSummaryController::class, 'index']);

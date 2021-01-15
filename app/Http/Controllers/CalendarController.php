@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
-class OpearationalPerfomanceSummaryController extends Controller
+class CalendarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,11 +13,10 @@ class OpearationalPerfomanceSummaryController extends Controller
      */
     public function index()
     {
-        $perfomances = DB::table('device_polls')
-        ->join('devices','devices.id','=','device_polls.devices_id')
-        ->select('device_polls.*','devices.serial_number as device_name')
+        $calendar_data = DB::table('devices')
+        ->where('movable','=',1)
         ->get();
-        return view('operationalSummary', ['perfomances' => $perfomances]);
+        return view('calendar', ['calendar_data' => $calendar_data]);
     }
 
     /**

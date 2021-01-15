@@ -32,7 +32,8 @@ class DevicePollSeeder extends Seeder
                     'date' => $date,
                     'devices_id' => $value,
                     'violation_quantity' => rand(0, 100),
-                    'transition' => rand(0, 100)
+                    'transition' => rand(0, 100),
+                    'performance' => rand(0, 100),
                 ]);
             }
         }
