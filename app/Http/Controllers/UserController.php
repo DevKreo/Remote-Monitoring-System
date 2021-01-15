@@ -13,6 +13,12 @@ class UserController extends Controller
      */
     public function index()
     {
+ 
+    }
+
+
+    public function userGetData()
+    {
         $users = DB::table('users')
             ->join('roles', 'roles.id', '=', 'users.roles_id')
             ->join('dictionaries', function ($join) {
@@ -24,6 +30,12 @@ class UserController extends Controller
         return view('users', ['users' => $users]);
     }
 
+    public function rolesGetData()
+    {
+        $roles = DB::table('roles')
+            ->paginate(15);
+        return view('roles', ['roles' => $roles]);
+    }
     /**
      * Show the form for creating a new resource.
      *

@@ -78,7 +78,7 @@
                     </div>
                 </div>
                 <div class="my-4 w-100">
-                    {{-- <table class="table table-striped table-sm">
+                     <table class="table table-striped table-sm">
                         <thead>
                             <tr>
                                 <th></th>
@@ -102,13 +102,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($users as $row)
+                            @foreach ($roles as $row)
                                 <tr>
                                     <td>{{ $row->id }}</td>
-                                    <td>{{ $row->name }}</td>
-                                    <td>{{ $row->email }}</td>
-                                    <td>{{ $row->d_name }}</td>
                                     <td>{{ $row->role_name }}</td>
+                                    <td>{{ $row->role_short_name }}</td>
                                     <td>
                                         <div class="d-flex justify-content-center">
                                             <button type="button" class="btn btn-dark btn-circle"><i
@@ -124,8 +122,8 @@
                         </tbody>
                     </table>
                     <div class="d-flex justify-content-center">
-                        {!! $users->links() !!}
-                    </div> --}}
+                        {!! $roles->links() !!}
+                    </div>
                 </div>
         </div>
 
