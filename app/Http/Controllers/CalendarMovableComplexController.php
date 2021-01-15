@@ -13,7 +13,9 @@ class CalendarMovableComplexController extends Controller
      */
     public function index()
     {
-        $calendar_data = DB::table('devices')->get();
+        $calendar_data = DB::table('devices')
+        ->where('mobile','=',1)
+        ->get();
         return view('calendar', ['calendar_data' => $calendar_data]);
     }
 
