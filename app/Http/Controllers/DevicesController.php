@@ -13,6 +13,12 @@ class DevicesController extends Controller
      */
     public function index()
     {
+
+    }
+
+
+    public function deviceGetData()
+    {
         $devices = DB::table('devices')
         ->join('dictionaries as device_groups', 'devices.device_groups_id','=','device_groups.id')
         ->join('dictionaries as device_types', 'devices.device_type_id','=','device_types.id')

@@ -81,13 +81,21 @@ Route::get('/referenceBooks/device_developer',[DictionaryController::class, 'dev
 Route::get('/referenceBooks/adress',[DictionaryController::class, 'addressGetData']);
 Route::get('/referenceBooks/error_device',[DictionaryController::class, 'errorsGetData']);
 Route::get('/referenceBooks/branches',[DictionaryController::class, 'SNMPbranchesGetData']);
+Route::get('/calendarPage',[CalendarController::class, 'movableGetData']);
+Route::get('/static',[CalendarController::class, 'staticGetData']);
+
+
+
+
+Route::get('/devices',[DevicesController::class, 'deviceGetData']);
+
 
 Route::get('/users',[UserController::class, 'index']);
 Route::get('/report',[TemplateReportController::class, 'index']);
 Route::get('/boundary',[DevicesBoundController::class, 'index']);
-Route::get('/devices',[DevicesController::class, 'index']);
+
 Route::get('/apealsList',[AppealListController::class, 'index']);
-Route::get('/calendarPage',[CalendarController::class, 'index']);
+
 Route::get('/',[WorkspaceController::class, 'index']);
 Route::get('/consolidatedReport',[SendingReportsController::class, 'index']);
 Route::get('/history',[LogsController::class, 'index']);

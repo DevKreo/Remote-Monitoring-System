@@ -13,12 +13,26 @@ class CalendarController extends Controller
      */
     public function index()
     {
+
+    }
+
+    public function movableGetData()
+    {
         $calendar_data = DB::table('devices')
         ->where('movable','=',1)
         ->get();
         return view('calendar', ['calendar_data' => $calendar_data]);
     }
 
+    public function staticGetData()
+    {
+        $calendar_static_data = DB::table('devices')
+        ->join('device_boundaries','device_boundaries.id','=','devices.device_boundaries_id')
+        ->where('movable','=',0)
+        ->select('devices.*','device_boundaries.device_bound_neme as bound_neme')
+        ->paginate(15);
+        return view('staticCalendar', ['calendar_static_data' => $calendar_static_data]);
+    }
     /**
      * Show the form for creating a new resource.
      *

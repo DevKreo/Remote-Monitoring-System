@@ -83,7 +83,7 @@
 
 
                 <div class="table-responsive">
-                    {{-- <table class="table table-striped table-sm">
+                    { <table class="table table-striped table-sm">
                         <thead>
                             <tr>
                                 <th>№</th>
@@ -95,34 +95,28 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @php
-                            $start = '01.01.2021';
-                            $now = date('d.m.Y');
-                            $number_of_col=$calendar_data->count();
-                            @endphp
 
-                            @for ($i = $start; $i <= $now; $i = date('d.m.Y', strtotime($i . ' +1 day')))
+                            @foreach ($calendar_static_data as $row)
                                 <tr>
+                                    <td>{{ $row->id }}</td>
+                                    <td>{{ $row->bound_neme }}</td>
+                                    <td>{{ $row->serial_number }}</td>
+                                    <td>{{ $row->installation_date }}</td>
+                                    <td>{{ $row->date_of_deletion }}</td>
                                     <td>
-                                        {{ $i }}
+                                        <div class="d-flex justify-content-center">
+                                            <button type="button" class="btn btn-dark btn-circle"><i
+                                                    class="fa fa-pen"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-danger btn-circle ml-1"><i
+                                                    class="fa fa-trash"></i>
+                                            </button>
+                                        </div>
                                     </td>
-                                    @foreach ($calendar_data as $col)
-                                        <td>
-                                            <div class="d-flex justify-content-center">
-                                                <button type="button" class="btn btn-dark btn-circle">
-                                                    <i class="fa fa-pen" aria-hidden="true"></i>
-                                                </button>
-                                                <button type="button" class="btn btn-danger btn-circle pl-1">
-                                                    <i class="fa fa-trash" aria-hidden="true"></i>
-                                                </button>
-                                            </div>
-                                        </td>
-
-                                    @endforeach
                                 </tr>
-                            @endfor
+                            @endforeach
                         </tbody>
-                    </table> --}}
+                    </table>
                     {{-- <div class="d-flex justify-content-center">
                         {!! $users->links() !!}
                     </div> --}}
