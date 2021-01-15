@@ -71,7 +71,8 @@
                 </div>
 
                 <form class="form-inline">
-                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+                    <div
+                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
                         <h3>Расположение передвижных комплексов</h3>
                     </div>
 
@@ -99,14 +100,39 @@
                         <thead>
                             <tr>
                                 <th>Комплекс/<br>Дата</th>
-                                <th></th>
-                                <th></th><!--TODO:Заголовки взять из бд-->
-                                <th></th>
-                                <th></th>
-                                <th></th>
+                                <!--TODO:Заголовки взять из бд-->
+                                @foreach ($calendar_data as $col)
+                                    <th>
+                                        {{ $col->serial_number }}
+
+                                    </th>
+                                @endforeach
                             </tr>
                         </thead>
                         <tbody>
+                            @php
+                            $start = '01.01.2021';
+                            $now = date('d.m.Y');
+                            $number_of_col=$calendar_data->count();
+                            @endphp
+
+                            @for ($i = $start; $i <= $now; $i = date('d.m.Y', strtotime($i . ' +1 day')))
+                                <tr>
+                                    <td>
+                                        {{ $i }}
+                                    </td>
+                                    @foreach ($calendar_data as $col)
+                                        <td>
+                                            <div class="d-flex justify-content-center">
+                                                <button type="button" class="btn btn-dark btn-circle"><i
+                                                        class="fa fa-eye"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+
+                                    @endforeach
+                                </tr>
+                            @endfor
                             {{-- @foreach ($users as $row)
                                 <tr>
                                     <td>{{ $row->id }}</td>

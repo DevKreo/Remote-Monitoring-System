@@ -11,6 +11,7 @@ use App\Http\Controllers\DevicesBoundController;
 use App\Http\Controllers\SendingReportsController;
 use App\Http\Controllers\LogsController;
 use App\Http\Controllers\MapController;
+use App\Http\Controllers\CalendarMovableComplexController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,9 +27,9 @@ use App\Http\Controllers\MapController;
 //     return view('pages.workspace');
 // });
 
- Route::get('/calendarPage', function () {
-    return view('pages.calendarPage');
-});
+//  Route::get('/calendarPage', function () {
+//     return view('pages.calendarPage');
+// });
 
 Route::get('/login', function () {
     return view('pages.loginPage');
@@ -78,7 +79,7 @@ Route::get('/report',[TemplateReportController::class, 'index']);
 Route::get('/boundary',[DevicesBoundController::class, 'index']);
 Route::get('/devices',[DevicesController::class, 'index']);
 Route::get('/apealsList',[AppealListController::class, 'index']);
-//Route::get('/calendarPage',[WorkspaceCalendarController::class, 'index']);
+Route::get('/calendarPage',[CalendarMovableComplexController::class, 'index']);
 Route::get('/',[WorkspaceController::class, 'index']);
 Route::get('/consolidatedReport',[SendingReportsController::class, 'index']);
 Route::get('/history',[LogsController::class, 'index']);
