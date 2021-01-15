@@ -115,9 +115,9 @@
                                 <tr>
                                     <th>Дата</th>
                                     <!--TODO:Заголовки взять из бд-->
-                                    @foreach ($perfomances as $col)
+                                    @foreach ($perfomances->unique('device_name') as $col)
                                         <th>
-                                            {{ $col->serial_number }}
+                                            {{ $col->device_name }}
 
                                         </th>
                                     @endforeach
@@ -126,26 +126,32 @@
                             </thead>
                             <tbody>
                                 @php
-                                $start = '01.01.2021';
-                                $now = date('d.m.Y');
+
                                 $av=0;
                                 $count=0;
+
+
                                 @endphp
 
-                                @for ($i = $start; $i <= $now; $i = date('d.m.Y', strtotime($i . ' +1 day')))
+                                @foreach ($perfomances->unique('date') as $rows)
+
+
                                     <tr>
                                         <td>
-                                            {{ $i }}
+                                            {{ date('d.m.Y', strtotime($rows->date)) }}
                                         </td>
                                         @foreach ($perfomances as $row)
-                                            <td>
-                                                {{ $row->performance }}
-                                                @php
-                                                $av+= $row->performance;
-                                                $count++;
-                                                @endphp
+                                            @if ($row->date == $rows->date)
+                                                <td>
+                                                    {{ $row->transition }}
+                                                    @php
+                                                    $av+= $row->transition;
+                                                    $count++;
+                                                    @endphp
 
-                                            </td>
+                                                </td>
+                                            @endif
+
 
                                         @endforeach
                                         <td>
@@ -156,7 +162,7 @@
                                             @endphp
                                         </td>
                                     </tr>
-                                @endfor
+                                @endforeach
 
                             </tbody>
                         </table>

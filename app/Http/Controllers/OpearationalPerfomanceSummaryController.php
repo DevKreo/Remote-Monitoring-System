@@ -13,7 +13,9 @@ class OpearationalPerfomanceSummaryController extends Controller
      */
     public function index()
     {
-        $perfomances = DB::table('devices')
+        $perfomances = DB::table('device_polls')
+        ->join('devices','devices.id','=','device_polls.devices_id')
+        ->select('device_polls.*','devices.serial_number as device_name')
         ->get();
         return view('operationalSummary', ['perfomances' => $perfomances]);
     }
