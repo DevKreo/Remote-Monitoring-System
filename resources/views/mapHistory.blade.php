@@ -82,7 +82,7 @@
                                 <div id="map-container-google-9" class="z-depth-1-half map-container-5"
                                     style="height: 300px">
                                     <table class="table table-striped table-sm">
-                                      {{--
+                                      
                                         <thead>
                                             <tr>
                                                 <th>
@@ -106,17 +106,17 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($map_data as $row)
+                                            @foreach ($map_history_data as $row)
                                                 <tr>
-                                                    <td>{{ $row->serial_number }}</td>
+                                                    <td>{{ $row->id }}</td>
                                                     <td>{{ $row->device_bound_neme }}</td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
                                     <div class="d-flex justify-content-center">
-                                        {!! $map_data->links() !!}
-                                    </div> --}}
+                                        {!! $map_history_data->links() !!}
+                                    </div> 
                                 </div>
                             </div>
                         </div>

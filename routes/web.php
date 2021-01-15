@@ -88,23 +88,22 @@ Route::get('/report',[TemplateReportController::class, 'index']);
 Route::get('/operationalSummary',[OpearationalSummaryController::class, 'index']);//TODO: second page
 Route::get('/users',[UserController::class, 'userGetData']);
 Route::get('/roles',[UserController::class, 'rolesGetData']);
-
-
-
-
-
-
-Route::get('/devices',[DevicesController::class, 'deviceGetData']);
-
-
-
-
-Route::get('/boundary',[DevicesBoundController::class, 'index']);
-
-
-
-Route::get('/',[WorkspaceController::class, 'index']);
-Route::get('/consolidatedReport',[SendingReportsController::class, 'index']);
+Route::get('/devices',[DevicesController::class, 'deviceGetData']);//TODO: second page
+Route::get('/boundary',[DevicesBoundController::class, 'index']);//TODO: second page
 Route::get('/history',[LogsController::class, 'index']);
-Route::get('/map',[MapController::class, 'index']);
+Route::get('/consolidatedReport',[SendingReportsController::class, 'index']);
+Route::get('/map',[MapController::class, 'deviceBoundGetData']);
+Route::get('/historyMap',[MapController::class, 'deviceBoundGetData']);
+
+
+
+
+
+
+
+
+
+
+
+
 
