@@ -68,7 +68,7 @@
                                 <option>Группа 2</option>
                                 <option>Группа 3</option>
                                 <option>Группа 4</option>
-                              </select>
+                            </select>
                         </div>
                         <div class="form-group mx-sm-3 mb-2">
                             <input type="Text" class="form-control" placeholder="Дата начала">
@@ -110,50 +110,43 @@
                         <button type="button" class="w-75 btn btn-light"></i> График</button>
                     </div>
                     <div class="my-4 w-100">
-                        <table class="table table-striped table-sm">
+                        {{-- <table class="table table-striped table-sm">
                             <thead>
                                 <tr>
-                                    <th></th>
-                                    <th>
-                                        <input type="text" class="form-control" placeholder="Поиск">
-                                    </th>
-                                    <th>
-                                        <input type="text" class="form-control" placeholder="Поиск">
-                                    </th>
-                                    <th>
-                                        <select class="form-control">
-                                            <option value="" disabled selected>Группы устройств</option>
-                                            <option>Первый</option>
-                                            <option>Второй</option>
-                                            <option>Третий</option>
-                                            <option>Четвертый</option>
-                                        </select>
-                                    </th>
-                                    <th>
-                                        <select class="form-control">
-                                            <option value="" disabled selected>Роли</option>
-                                            <option>Первый</option>
-                                            <option>Второй</option>
-                                            <option>Третий</option>
-                                            <option>Четвертый</option>
-                                        </select>
-                                    </th>
-                                    <th>
-                                        <button type="button" class="btn btn-light">Очистить</button>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Пользователи</th>
-                                    <th>Email</th>
-                                    <th>Группы устройств</th>
-                                    <th>Роли</th>
-                                    <th></th>
+                                    <th>Комплекс/<br>Дата</th>
+                                    <!--TODO:Заголовки взять из бд-->
+                                    @foreach ($calendar_data as $col)
+                                        <th>
+                                            {{ $col->serial_number }}
+
+                                        </th>
+                                    @endforeach
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                $start = '01.01.2021';
+                                $now = date('d.m.Y');
+                                $number_of_col=$calendar_data->count();
+                                @endphp
+
+                                @for ($i = $start; $i <= $now; $i = date('d.m.Y', strtotime($i . ' +1 day')))
+                                    <tr>
+                                        <td>
+                                            {{ $i }}
+                                        </td>
+                                        @foreach ($calendar_data as $col)
+                                            <td>
+                                                <div class="d-flex justify-content-center">
+                                                    <button type="button" class="btn btn-dark btn-circle"><i
+                                                            class="fa fa-eye"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+
+                                        @endforeach
+                                    </tr>
+                                @endfor
                                 {{-- @foreach ($users as $row)
                                     <tr>
                                         <td>{{ $row->id }}</td>
@@ -174,7 +167,7 @@
                         </table>
                         {{-- <div class="d-flex justify-content-center">
                             {!! $users->links() !!}
-                        </div> --}}
+                        </div> --}} 
                     </div>
 
             </main>
