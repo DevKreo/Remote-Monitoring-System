@@ -63,18 +63,13 @@
                 </ul>
 
                 <form class="form-inline">
-                    <div
-                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-                        <h3>Расположение передвижных комплексов</h3>
-                    </div>
-
                     <div class="form-group mx-sm-3 mb-2">
-                        <input type="text" class="form-control" id="inputPassword2" placeholder="Фильтр1">
+                        <input type="text" class="form-control" id="inputPassword2" placeholder="Фильтр по устройству">
                     </div>
 
                     <div class="form-group mx-sm-3 mb-2">
                         <select id="inputState" class="form-control">
-                            <option selected>Фильтр по группе</option>
+                            <option selected>Фильтр по рубежу</option>
                             <option>Бла</option>
                             <option>2</option>
                             <option>3</option>
@@ -88,17 +83,15 @@
 
 
                 <div class="table-responsive">
-                    <table class="table table-striped table-sm">
+                    {{-- <table class="table table-striped table-sm">
                         <thead>
                             <tr>
-                                <th>Комплекс/<br>Дата</th>
-                                <!--TODO:Заголовки взять из бд-->
-                                @foreach ($calendar_data as $col)
-                                    <th>
-                                        {{ $col->serial_number }}
- 
-                                    </th>
-                                @endforeach
+                                <th>№</th>
+                                <th>Рубеж</th>
+                                <th>Устройства</th>
+                                <th>Дата установки устройства</th>
+                                <th>Дата снятия устройства</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -116,8 +109,11 @@
                                     @foreach ($calendar_data as $col)
                                         <td>
                                             <div class="d-flex justify-content-center">
-                                                <button type="button" class="btn btn-light btn-circle">
-                                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                                <button type="button" class="btn btn-dark btn-circle">
+                                                    <i class="fa fa-pen" aria-hidden="true"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-danger btn-circle pl-1">
+                                                    <i class="fa fa-trash" aria-hidden="true"></i>
                                                 </button>
                                             </div>
                                         </td>
@@ -126,7 +122,7 @@
                                 </tr>
                             @endfor
                         </tbody>
-                    </table>
+                    </table> --}}
                     {{-- <div class="d-flex justify-content-center">
                         {!! $users->links() !!}
                     </div> --}}

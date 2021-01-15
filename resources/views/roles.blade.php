@@ -57,20 +57,20 @@
             @include('layouts.sidebar')
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-                    <h3>Пользователи</h3>
+                    <h3>Роли</h3>
                 </div>
                 <ul class="nav nav-tabs mb-2"> 
                     <li class="nav-item">
-                      <a class="nav-link active" href="/users">Пользователи</a>
+                      <a class="nav-link " href="/users">Пользователи</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="/roles">Роли</a>
+                      <a class="nav-link active" href="/roles">Роли</a>
                     </li> 
                 </ul>
                 
                 <div class="d-flex bd-highlight mb-3">
                     <div class="mr-auto p-2 bd-highlight">
-                        <button type="button" class="btn btn-dark">Добавить пользователя</button>
+                        <button type="button" class="btn btn-dark">Добавить роль</button>
                     </div>
                     <div class="custom-control custom-switch p-2 bd-highlight">
                         <input type="checkbox" class="custom-control-input" id="customSwitch1">
@@ -78,7 +78,7 @@
                     </div>
                 </div>
                 <div class="my-4 w-100">
-                    <table class="table table-striped table-sm">
+                    {{-- <table class="table table-striped table-sm">
                         <thead>
                             <tr>
                                 <th></th>
@@ -89,35 +89,15 @@
                                     <input type="text" class="form-control" placeholder="Поиск">
                                 </th>
                                 <th>
-                                    <select class="form-control">
-                                        <option value="" disabled selected>Группы устройств</option>
-                                        <option>Первый</option>
-                                        <option>Второй</option>
-                                        <option>Третий</option>
-                                        <option>Четвертый</option>
-                                    </select>
-                                </th>
-                                <th>
-                                    <select class="form-control">
-                                        <option value="" disabled selected>Роли</option>
-                                        <option>Первый</option>
-                                        <option>Второй</option>
-                                        <option>Третий</option>
-                                        <option>Четвертый</option>
-                                    </select>
-                                </th>
-                                <th>
                                     <button type="button" class="btn btn-light">Очистить</button>
                                 </th>
                             </tr>
                         </thead>
                         <thead>
                             <tr>
-                                <th>#</th>
-                                <th>Пользователи</th>
-                                <th>Email</th>
-                                <th>Группы устройств</th>
-                                <th>Роли</th>
+                                <th>№</th>
+                                <th>Заголовок</th>
+                                <th>Краткое наименование</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -145,7 +125,7 @@
                     </table>
                     <div class="d-flex justify-content-center">
                         {!! $users->links() !!}
-                    </div>
+                    </div> --}}
                 </div>
         </div>
 
