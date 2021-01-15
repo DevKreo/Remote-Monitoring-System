@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
-class OpearationalSummaryController extends Controller
+class OpearationalPerfomanceSummaryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,9 @@ class OpearationalSummaryController extends Controller
      */
     public function index()
     {
-        //
+        $perfomances = DB::table('devices')
+        ->get();
+        return view('operationalSummary', ['perfomances' => $perfomances]);
     }
 
     /**

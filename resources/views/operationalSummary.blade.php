@@ -110,24 +110,26 @@
                         <button type="button" class="w-75 btn btn-light"></i> График</button>
                     </div>
                     <div class="my-4 w-100">
-                        {{-- <table class="table table-striped table-sm">
+                        <table class="table table-striped table-sm">
                             <thead>
                                 <tr>
-                                    <th>Комплекс/<br>Дата</th>
+                                    <th>Дата</th>
                                     <!--TODO:Заголовки взять из бд-->
-                                    @foreach ($calendar_data as $col)
+                                    @foreach ($perfomances as $col)
                                         <th>
                                             {{ $col->serial_number }}
 
                                         </th>
                                     @endforeach
+                                    <th>Среднее</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @php
                                 $start = '01.01.2021';
                                 $now = date('d.m.Y');
-                                $number_of_col=$calendar_data->count();
+                                $av=0;
+                                $count=0;
                                 @endphp
 
                                 @for ($i = $start; $i <= $now; $i = date('d.m.Y', strtotime($i . ' +1 day')))
@@ -135,39 +137,32 @@
                                         <td>
                                             {{ $i }}
                                         </td>
-                                        @foreach ($calendar_data as $col)
+                                        @foreach ($perfomances as $row)
                                             <td>
-                                                <div class="d-flex justify-content-center">
-                                                    <button type="button" class="btn btn-dark btn-circle"><i
-                                                            class="fa fa-eye"></i>
-                                                    </button>
-                                                </div>
+                                                {{ $row->performance }}
+                                                @php
+                                                $av+= $row->performance;
+                                                $count++;
+                                                @endphp
+
                                             </td>
 
                                         @endforeach
-                                    </tr>
-                                @endfor
-                                {{-- @foreach ($users as $row)
-                                    <tr>
-                                        <td>{{ $row->id }}</td>
-                                        <td>{{ $row->name }}</td>
-                                        <td>{{ $row->email }}</td>
-                                        <td>{{ $row->d_name }}</td>
-                                        <td>{{ $row->role_name }}</td>
                                         <td>
-                                            <div class="d-flex justify-content-center">
-                                                <button type="button" class="btn btn-dark btn-circle"><i
-                                                        class="fa fa-eye"></i>
-                                                </button>
-                                            </div>
+                                            {{ $av / $count }}
+                                            @php
+                                            $av=0;
+                                            $count=0;
+                                            @endphp
                                         </td>
                                     </tr>
-                                @endforeach --}}
+                                @endfor
+
                             </tbody>
                         </table>
                         {{-- <div class="d-flex justify-content-center">
                             {!! $users->links() !!}
-                        </div> --}} 
+                        </div> --}}
                     </div>
 
             </main>

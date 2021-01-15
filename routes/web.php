@@ -12,6 +12,7 @@ use App\Http\Controllers\SendingReportsController;
 use App\Http\Controllers\LogsController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\CalendarMovableComplexController;
+use App\Http\Controllers\OpearationalPerfomanceSummaryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -65,9 +66,9 @@ Route::get('/login', function () {
 //     return view('pages.usersPage');
 // });
 
-Route::get('/operationalSummary', function () {
-    return view('pages.operationalSummaryPage');
-});
+// Route::get('/operationalSummary', function () {
+//     return view('pages.operationalSummaryPage');
+// });
 
 // Route::get('/history', function () {
 //     return view('pages.operationHistoryPage');
@@ -84,3 +85,4 @@ Route::get('/',[WorkspaceController::class, 'index']);
 Route::get('/consolidatedReport',[SendingReportsController::class, 'index']);
 Route::get('/history',[LogsController::class, 'index']);
 Route::get('/map',[MapController::class, 'index']);
+Route::get('/operationalSummary',[OpearationalPerfomanceSummaryController::class, 'index']);
