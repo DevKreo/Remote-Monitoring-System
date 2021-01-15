@@ -14,7 +14,7 @@
              </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/calendarPage">
+            <a class="nav-link" href="/calendar/movable">
                 <span data-feather="file"></span>
                 Календарь-расписание
             </a>

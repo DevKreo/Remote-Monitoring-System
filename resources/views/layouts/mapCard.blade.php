@@ -2,7 +2,7 @@
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Настройка карты</h5>
-        <p class="card-text">Период отображения статиститки*: (*для вес пользователей)</p>
+        <p class="card-text">Период отображения статиститки*: (*для всех пользователей)</p>
         <select class="form-control">
                     <option selected>Статус</option>
                       <option>Бла</option>

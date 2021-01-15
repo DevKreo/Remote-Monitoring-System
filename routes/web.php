@@ -81,11 +81,11 @@ Route::get('/referenceBooks/device_developer',[DictionaryController::class, 'dev
 Route::get('/referenceBooks/adress',[DictionaryController::class, 'addressGetData']);
 Route::get('/referenceBooks/error_device',[DictionaryController::class, 'errorsGetData']);
 Route::get('/referenceBooks/branches',[DictionaryController::class, 'SNMPbranchesGetData']);
-Route::get('/calendarPage',[CalendarController::class, 'movableGetData']);//TODO: beautiful routes
-Route::get('/static',[CalendarController::class, 'staticGetData']);
+Route::get('/calendar/movable',[CalendarController::class, 'movableGetData']);
+Route::get('/calendar/static',[CalendarController::class, 'staticGetData']);
 Route::get('/apealsList',[AppealListController::class, 'index']);
 Route::get('/report',[TemplateReportController::class, 'index']);
-Route::get('/operationalSummary',[OpearationalSummaryController::class, 'index']);//TODO: second page
+Route::get('/operationalSummary',[OpearationalSummaryController::class, 'index']);//TODO: second page Нарушения/проезды + график
 Route::get('/users',[UserController::class, 'userGetData']);
 Route::get('/roles',[UserController::class, 'rolesGetData']);
 Route::get('/devices',[DevicesController::class, 'deviceGetData']);//TODO: second page
@@ -93,7 +93,9 @@ Route::get('/boundary',[DevicesBoundController::class, 'index']);//TODO: second 
 Route::get('/history',[LogsController::class, 'index']);
 Route::get('/consolidatedReport',[SendingReportsController::class, 'index']);
 Route::get('/map',[MapController::class, 'deviceBoundGetData']);
-Route::get('/historyMap',[MapController::class, 'deviceBoundGetData']);
+Route::get('/historyMap',[MapController::class, 'boundGetData']);
+Route::get('/',[WorkspaceController::class, 'index']);
+
 
 
 

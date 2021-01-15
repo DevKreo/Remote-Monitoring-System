@@ -47,7 +47,7 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="css/album.css" rel="stylesheet">
+    <link href="{{ asset('css/album.css') }}"  rel="stylesheet">
 </head>
 
 <body>
@@ -92,7 +92,7 @@
                     </div>
                 </div>
                 <div class="my-4 w-100">
-                    { <table class="table table-striped table-sm">
+                    <table class="table table-striped table-sm">
                         <thead>
                             <tr>
                                 <th></th>

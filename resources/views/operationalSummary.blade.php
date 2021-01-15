@@ -14,13 +14,11 @@
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- Favicons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
@@ -42,7 +40,6 @@
                 font-size: 3.5rem;
             }
         }
-
     </style>
 
 
@@ -94,32 +91,34 @@
                 </ul>
 
                 <div class="d-flex bd-highlight mb-3">
-                    <h5 class="p-2 bd-highlight">Работоспособность</h5>
-                    <div class="p-2 bd-highlight">
+                    <h5 class="p-2 bd-highlight mt-3">Работоспособность</h5>
+                    <div class="p-2 bd-highlight mt-3">
                         <button type="button" class="btn btn-success"><i class="fa fa-download" aria-hidden="true"></i>
                             Экспорт</button>
                     </div>
-                    <div class=" p-2 bd-highlight">
+                    <div class=" p-2 bd-highlight mt-3">
                         <button type="button" class="btn btn-light"><i class="fa fa-download" aria-hidden="true"></i>
                             Выгрузить отчет</button>
                     </div>
                 </div>
                 <div class="d-flex bd-highlight mb-3">
                     <div class="p-2 bd-highlight">
-                        <button type="button" class="w-75 btn btn-light"></i> Таблица</button>
-                        <button type="button" class="w-75 btn btn-light"></i> График</button>
+                        <nav class="nav flex-column">
+                            <a class="nav-link active border-right" href="#">Таблица</a>
+                            <a class="nav-link border-right" href="#">График</a>
+                        </nav>
                     </div>
-                    <div class="my-4 w-100">
+                    <div class="my-2 w-100">
                         <table class="table table-striped table-sm">
                             <thead>
                                 <tr>
                                     <th>Дата</th>
                                     <!--TODO:Заголовки взять из бд-->
                                     @foreach ($perfomances->unique('device_name') as $col)
-                                        <th>
-                                            {{ $col->device_name }}
+                                    <th>
+                                        {{ $col->device_name }}
 
-                                        </th>
+                                    </th>
                                     @endforeach
                                     <th>Среднее</th>
                                 </tr>
@@ -136,32 +135,32 @@
                                 @foreach ($perfomances->unique('date') as $rows)
 
 
-                                    <tr>
-                                        <td>
-                                            {{ date('d.m.Y', strtotime($rows->date)) }}
-                                        </td>
-                                        @foreach ($perfomances as $row)
-                                            @if ($row->date == $rows->date)
-                                                <td>
-                                                    {{ $row->performance }}
-                                                    @php
-                                                    $av+= $row->transition;
-                                                    $count++;
-                                                    @endphp
+                                <tr>
+                                    <td>
+                                        {{ date('d.m.Y', strtotime($rows->date)) }}
+                                    </td>
+                                    @foreach ($perfomances as $row)
+                                    @if ($row->date == $rows->date)
+                                    <td>
+                                        {{ $row->performance }}
+                                        @php
+                                        $av+= $row->transition;
+                                        $count++;
+                                        @endphp
 
-                                                </td>
-                                            @endif
+                                    </td>
+                                    @endif
 
 
-                                        @endforeach
-                                        <td>
-                                            {{ $av / $count }}
-                                            @php
-                                            $av=0;
-                                            $count=0;
-                                            @endphp
-                                        </td>
-                                    </tr>
+                                    @endforeach
+                                    <td>
+                                        {{ $av / $count }}
+                                        @php
+                                        $av=0;
+                                        $count=0;
+                                        @endphp
+                                    </td>
+                                </tr>
                                 @endforeach
 
                             </tbody>
@@ -178,7 +177,6 @@
     <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
     <script>
         feather.replace()
-
     </script>
 </body>
 

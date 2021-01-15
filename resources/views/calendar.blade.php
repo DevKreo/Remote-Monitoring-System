@@ -12,6 +12,7 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
 
 
+
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -23,6 +24,8 @@
 
     <!-- Favicons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
+    <meta name="theme-color" content="#7952b3">
 
 
     <style>
@@ -44,7 +47,7 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="css/album.css" rel="stylesheet">
+    <link href="{{ asset('css/album.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -55,10 +58,10 @@
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
-                        <a class="nav-link active" href="/moveble">Предвижные</a>
+                        <a class="nav-link active" href="/calendar/movable">Предвижные</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/static">Стационарные</a>
+                        <a class="nav-link" href="/calendar/static">Стационарные</a>
                     </li>
                 </ul>
 
@@ -83,7 +86,7 @@
                     <div class="form-group mx-sm-3 mb-2">
                         <input type="date" class="form-control">
                     </div>
-                    <button type="submit" class="btn btn-primary mb-2">Экспорт в эксель</button>
+                    <button type="submit" class="btn btn-success mb-2">Экспорт в эксель</button>
                 </form>
 
 
