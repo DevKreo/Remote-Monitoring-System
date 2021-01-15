@@ -61,13 +61,13 @@
                 </div>
                 <ul class="nav nav-tabs mb-2">
                     <li class="nav-item">
-                      <a class="nav-link active" href="/regions">Регионы</a>
+                      <a class="nav-link " href="/regions">Регионы</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="/type_devices">Тип устройства</a>
+                      <a class="nav-link " href="/type_devices">Тип устройства</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="/type_violation">Тип нарушений</a>
+                      <a class="nav-link " href="/type_violation">Тип нарушений</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="/device_developer">Производитель устройств</a>
@@ -76,7 +76,7 @@
                         <a class="nav-link" href="/adress">Адреса</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/error_device">Ошибка устройств</a>
+                        <a class="nav-link active" href="/error_device">Ошибка устройств</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/brances">Ветки SNMP</a>
@@ -84,7 +84,7 @@
                   </ul>
                 <div class="d-flex bd-highlight mb-3">
                     <div class="mr-auto p-2 bd-highlight">
-                        <button type="button" class="btn btn-dark">Добавить регион</button>
+                        <button type="button" class="btn btn-dark">Добавить адрес</button>
                     </div>
                     <div class="custom-control custom-switch p-2 bd-highlight">
                         <input type="checkbox" class="custom-control-input" id="customSwitch1">
@@ -92,7 +92,7 @@
                     </div>
                 </div>
                 <div class="my-4 w-100">
-                    <table class="table table-striped table-sm">
+                    {{-- <table class="table table-striped table-sm">
                         <thead>
                             <tr>
                                 <th></th>
@@ -100,15 +100,30 @@
                                     <input type="text" class="form-control" placeholder="Поиск">
                                 </th>
                                 <th>
+                                   <input type="text" class="form-control" placeholder="Поиск">
+                                </th>
+                                <th> 
+                                    <select class="form-control">
+                                        <option value="" disabled selected>Тип ошибки</option>
+                                        <option>Первый</option>
+                                        <option>Второй</option>
+                                        <option>Третий</option>
+                                        <option>Четвертый</option>
+                                    </select></th>
+                                <th></th>
+                                <th>
                                     <button type="button" class="btn btn-light">Очистить</button>
                                 </th>
                             </tr>
                         </thead>
                         <thead>
                             <tr>
-                                <th>#</th>
-                                <th>Наименование</th>
-                                <th> </th>
+                                <th>№</th>
+                                <th>Отображение пользователю</th>
+                                <th>Системное представление</th>
+                                <th>Тип ошибки</th>
+                                <th>Активность</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -128,7 +143,7 @@
                                     </td>
                                 </tr>
                             @endforeach
-                        </tbody>
+                        </tbody> --}}
                     </table>
                     {{-- <div class="d-flex justify-content-center">
                         {!! $users->links() !!}
