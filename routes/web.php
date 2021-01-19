@@ -96,6 +96,8 @@ Route::get('/map',[MapController::class, 'deviceBoundGetData']);
 Route::get('/historyMap',[MapController::class, 'boundGetData']);
 Route::get('/',[WorkspaceController::class, 'index']);
 
+Route::post('/search',[WorkspaceController::class, 'findSerialNumber']);
+
 
 
 

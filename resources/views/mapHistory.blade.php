@@ -60,7 +60,7 @@
                 <div class="my-lg-4">
                     <ul class="nav nav-tabs">
                         <li class="nav-item">
-                            <a class="nav-link " href="/onlineMap">Карта online
+                            <a class="nav-link " href="/map">Карта online
                             </a>
                         </li>
                         <li class="nav-item">

@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Device;
+use App\Models\Device_boundarie;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -28,6 +31,13 @@ class WorkspaceController extends Controller
            // dd($w_cal_datas);
         return view('work', ['w_cal_datas' => $w_cal_datas]);
        
+    }
+
+    public function findSerialNumber(Request $request)
+    {
+        $value = $request->input('value');
+        $serialNumber=Device_boundarie::where('device_bound-neme','=', '%'.$value.'%')->paginate(15);
+        return view('work',['serialNumber'=>$serialNumber]);
     }
 
     /**

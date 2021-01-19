@@ -16,6 +16,7 @@
         "infyomlabs/laravel-ui-coreui": "^3.0",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
+        "livewire/livewire": "^2.3",
         "nesbot/carbon": "^2.43",
         "yajra/laravel-datatables-oracle": "^9.15"
     },

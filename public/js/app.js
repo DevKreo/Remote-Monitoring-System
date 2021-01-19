@@ -35815,8 +35815,8 @@ try {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Projects\Work\Remote_Monitoring_System\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Projects\Work\Remote_Monitoring_System\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Aleks\Documents\GitHub\Remote-Monitoring-System\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Aleks\Documents\GitHub\Remote-Monitoring-System\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
