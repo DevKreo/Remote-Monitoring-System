@@ -36,7 +36,7 @@ class WorkspaceController extends Controller
     public function findSerialNumber(Request $request)
     {
         $value = $request->input('value');
-        $serialNumber=Device_boundarie::where('device_bound-neme','=', '%'.$value.'%')->paginate(15);
+        $serialNumber=Device_boundarie::where('device_bound_neme','=', '%'.$value.'%')->paginate(15);
         return view('work',['serialNumber'=>$serialNumber]);
     }
 

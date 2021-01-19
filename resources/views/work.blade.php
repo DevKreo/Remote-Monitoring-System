@@ -15,13 +15,11 @@
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- Favicons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
@@ -41,7 +39,6 @@
                 font-size: 3.5rem;
             }
         }
-
     </style>
 
 
@@ -69,13 +66,13 @@
                     </div>
                     <div class="table-responsive">
                         <div id="work_table">
+                            @csrf
                             <table class="table table-striped table-sm">
                                 <thead>
                                     <tr>
                                         <th> </th>
                                         <th>
-                                            <input type="text" class="form-control" placeholder="Наименование рубежа"
-                                                onkeyup="findSerialNumber()"  id="search-serial-number">
+                                            <input type="text" class="form-control" placeholder="Наименование рубежа" onkeyup="findSerialNumber()" id="search-serial-number">
                                         </th>
                                         <th>
                                             <select class="form-control">
@@ -111,19 +108,18 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($w_cal_datas as $row)
-                                        <tr>
-                                            <td>{{ $row->id }}</td>
-                                            <td>{{ $row->device_bound_neme }}</td>
-                                            <td>{{ $row->region_name }}</td>
-                                            <td>{{ $row->group_name }}</td>
-                                            <td>
-                                                <div class="d-flex justify-content-center">
-                                                    <button type="button" class="btn btn-secondary btn-circle"><i
-                                                            class="fa fa-trash"></i>
-                                                    </button>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                    <tr>
+                                        <td>{{ $row->id }}</td>
+                                        <td>{{ $row->device_bound_neme }}</td>
+                                        <td>{{ $row->region_name }}</td>
+                                        <td>{{ $row->group_name }}</td>
+                                        <td>
+                                            <div class="d-flex justify-content-center">
+                                                <button type="button" class="btn btn-secondary btn-circle"><i class="fa fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
                                     @endforeach
                                 </tbody>
                             </table>
@@ -138,7 +134,6 @@
                             $('#timepicker2').timepicker({
                                 uiLibrary: 'bootstrap4'
                             });
-
                         </script>
                     </div>
                 </main>
@@ -146,32 +141,30 @@
         </div>
     </div>
 
-    <script src="/js/app.js"></script>
+    <script src="js/app.js"></script>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 
     <!-- Icons -->
     <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
     <script>
         feather.replace()
-
     </script>
 
-    <script>
+    <script type="text/javascript">
         function findSerialNumber() {
+            const CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             const value = $("#search-serial-number").val();
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
             $.ajax({
                 url: '/search',
                 type: 'POST',
                 data: {
+                    _token: CSRF_TOKEN,
                     value: value,
                 },
                 success: function(data) {
@@ -179,7 +172,6 @@
                 }
             })
         }
-
     </script>
 
 </body>
