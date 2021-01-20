@@ -19,25 +19,25 @@ class DictionaryController extends Controller
     public function regionGetData()
     {
         $regions = DB::table('dictionaries')->where('dict_type_id', '2')->paginate(15);
-        return view('pages/regions', ['regions' => $regions]);
+        return view('layouts/regions', ['regions' => $regions]);
     }
 
     public function deviceTypeGetData()
     {
         $device_types = DB::table('dictionaries')->where('dict_type_id', '9')->paginate(15);
-        return view('pages/typeDevice', ['device_types' => $device_types]);
+        return view('pages/typeDevicePage', ['device_types' => $device_types]);
     }
 
     public function violationTypeGetData()
     {
         $violation_types = DB::table('violation_types')->paginate(15);
-        return view('pages/typeViolation', ['violation_types' => $violation_types]);
+        return view('pages/violationTypePage', ['violation_types' => $violation_types]);
     }
     
     public function developerGetData()
     {
         $developers = DB::table('dictionaries')->where('dict_type_id', '8')->paginate(15);
-        return view('pages/deviceDeveloper', ['developers' => $developers]);
+        return view('pages/deviceDeveloperPage', ['developers' => $developers]);
     }
 
     public function addressGetData()
@@ -51,7 +51,7 @@ class DictionaryController extends Controller
             'dictionaries.name as region_name'
         )
         ->paginate(15);
-        return view('pages/adress', ['addresses' => $addresses]);
+        return view('pages/adressPage', ['addresses' => $addresses]);
     }
 
     public function errorsGetData()
@@ -63,13 +63,13 @@ class DictionaryController extends Controller
             'dictionaries.name as error_type_name'
         )
         ->paginate(15);
-        return view('pages/error', ['errors' => $errors]);
+        return view('pages/errorPage', ['errors' => $errors]);
     }
 
     public function SNMPbranchesGetData()
     {
         $branches = DB::table('s_n_m_p_branches')->paginate(15);
-        return view('pages/branches', ['branches' => $branches]);
+        return view('pages/branchesPage', ['branches' => $branches]);
     }
     /**
      * Show the form for creating a new resource.

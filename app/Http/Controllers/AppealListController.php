@@ -28,7 +28,7 @@ class AppealListController extends Controller
              'responsible_users.name as responsible_user_name', 'devices.serial_number',
              'device_boundaries.device_bound_neme')
             ->paginate(15);
-        return view('pages/apealsList', ['requests' => $requests]);
+        return view('pages/apealsListPage', ['requests' => $requests]);
     }
 
     /**

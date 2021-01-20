@@ -27,14 +27,14 @@ class UserController extends Controller
             })
             ->select('users.*', 'roles.role_name', 'dictionaries.name as d_name')
             ->paginate(15);
-        return view('pages/users', ['users' => $users]);
+        return view('pages/usersPage', ['users' => $users]);
     }
 
     public function rolesGetData()
     {
         $roles = DB::table('roles')
             ->paginate(15);
-        return view('pages/roles', ['roles' => $roles]);
+        return view('pages/usersPage', ['roles' => $roles]);
     }
     /**
      * Show the form for creating a new resource.

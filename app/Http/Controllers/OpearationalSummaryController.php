@@ -17,7 +17,7 @@ class OpearationalSummaryController extends Controller
         ->join('devices','devices.id','=','device_polls.devices_id')
         ->select('device_polls.*','devices.serial_number as device_name')
         ->get();
-        return view('pages/operationalSummary', ['perfomances' => $perfomances]);
+        return view('pages/operationalSummaryPage', ['perfomances' => $perfomances]);
     }
 
     /**

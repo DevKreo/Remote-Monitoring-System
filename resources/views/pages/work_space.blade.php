@@ -1,4 +1,4 @@
-@extends('pages/work')
+@extends('layouts.work')
 
 @section('header')
     @include('partials.nav')

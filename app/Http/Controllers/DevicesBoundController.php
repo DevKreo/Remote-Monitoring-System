@@ -20,7 +20,7 @@ class DevicesBoundController extends Controller
         ->select('device_boundaries.*', 'region.name as region_name',
              'bound_group.name as bound_group_name','devices.serial_number')
             ->paginate(15);
-        return view('pages/boundary', ['device_bounds' => $device_bounds]);
+        return view('pages/boundaryPage', ['device_bounds' => $device_bounds]);
     }
 
     /**

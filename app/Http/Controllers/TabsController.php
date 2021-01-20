@@ -18,7 +18,7 @@ class TabsController extends Controller
 
     public function historyMap(request $request)
     {
-        return view('mapHistory');
+        return view('layouts/mapHistory');
     }
 
     /**

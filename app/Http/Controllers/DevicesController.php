@@ -26,7 +26,7 @@ class DevicesController extends Controller
             ->select('devices.*', 'device_boundaries.device_bound_neme',
              'device_groups.name as dev_group_name', 'device_types.name as dev_type_name')
             ->paginate(15);
-        return view('pages/devices', ['devices' => $devices]);
+        return view('pages/devicesPage', ['devices' => $devices]);
     }
 
     /**
