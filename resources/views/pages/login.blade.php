@@ -46,7 +46,7 @@
     <link href="css/album.css" rel="stylesheet">
     </head>
 <body>
-    @include('layouts.nav')
+    @include('partials.nav')
     <div class="d-flex justify-content-center" id="content">
       <div class="row">
         <form>

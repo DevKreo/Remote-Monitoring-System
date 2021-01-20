@@ -25,7 +25,7 @@ class LogsController extends Controller
                 'operation_type.name as operation_type_name'
             )
             ->paginate(15);
-        return view('operationHistory', ['logs' => $logs]);
+        return view('pages/operationHistory', ['logs' => $logs]);
     }
 
     /**

@@ -47,13 +47,14 @@
 
 </head>
 
+
 <body>
+    @yield('header')
     <div id="app">
-        @include('layouts.nav')
         <div class="container-fluid">
-            @include('layouts.sidebar')
             <div class="row">
-                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                @yield('content')
+                {{-- <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                     <h2>Рабочий стол</h2>
                     <div class="d-flex bd-highlight mb-3">
                         <div class="p-2 w-50 bd-highlight">
@@ -136,7 +137,7 @@
                             });
                         </script>
                     </div>
-                </main>
+                </main> --}}
             </div>
         </div>
     </div>
@@ -157,21 +158,21 @@
     </script>
 
     <script type="text/javascript">
-        function findSerialNumber() {
-            const CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-            const value = $("#search-serial-number").val();
-            $.ajax({
-                url: '/search',
-                type: 'POST',
-                data: {
-                    _token: CSRF_TOKEN,
-                    value: value,
-                },
-                success: function(data) {
-                    $('#work_table').html(data);
-                }
-            })
-        }
+        // function findSerialNumber() {
+        //     const CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+        //     const value = $("#search-serial-number").val();
+        //     $.ajax({
+        //         url: '/search',
+        //         type: 'POST',
+        //         data: {
+        //             _token: CSRF_TOKEN,
+        //             value: value,
+        //         },
+        //         success: function(data) {
+        //             $('#work_table').html(data);
+        //         }
+        //     })
+        // }
     </script>
 
 </body>

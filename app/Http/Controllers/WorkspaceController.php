@@ -29,7 +29,7 @@ class WorkspaceController extends Controller
             ->select('device_boundaries.*',  'group_table.name as group_name','region_table.name as region_name')
             ->paginate(15);
            // dd($w_cal_datas);
-        return view('work', ['w_cal_datas' => $w_cal_datas]);
+        return view('layouts/work_space', ['w_cal_datas' => $w_cal_datas]);
        
     }
 
@@ -37,7 +37,7 @@ class WorkspaceController extends Controller
     {
         $value = $request->input('value');
         $serialNumber=Device_boundarie::where('device_bound_neme','=', '%'.$value.'%')->paginate(15);
-        return view('work',['serialNumber'=>$serialNumber]);
+        return view('layouts/work_space',['serialNumber'=>$serialNumber]);
     }
 
     /**

@@ -25,7 +25,7 @@ class SendingReportsController extends Controller
                 'report_periods.name as report_period_name'
             )
             ->paginate(15);
-        return view('ConsReportPage', ['sending_reports' => $sending_reports]);
+        return view('pages/ConsReportPage', ['sending_reports' => $sending_reports]);
     }
 
     /**

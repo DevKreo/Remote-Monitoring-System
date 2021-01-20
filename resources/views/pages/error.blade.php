@@ -47,30 +47,44 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="css/album.css" rel="stylesheet">
+    <link href="{{ asset('css/album.css') }}"  rel="stylesheet">
 </head>
 
 <body>
-    @include('layouts.nav')
+    @include('partials.nav')
     <div class="container-fluid">
         <div class="row">
-            @include('layouts.sidebar')
+            @include('partials.sidebar')
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-                    <h3>Пользователи</h3>
+                    <h3>Справочники</h3>
                 </div>
-                <ul class="nav nav-tabs mb-2"> 
+                <ul class="nav nav-tabs mb-2">
                     <li class="nav-item">
-                      <a class="nav-link active" href="/users">Пользователи</a>
+                      <a class="nav-link " href="/referenceBooks/regions">Регионы</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="/roles">Роли</a>
-                    </li> 
-                </ul>
-                
+                      <a class="nav-link " href="/referenceBooks/type_devices">Тип устройства</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link " href="/referenceBooks/type_violation">Тип нарушений</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/referenceBooks/device_developer">Производитель устройств</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/referenceBooks/adress">Адреса</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/referenceBooks/error_device">Ошибка устройств</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/referenceBooks/branches">Ветки SNMP</a>
+                    </li>
+                  </ul>
                 <div class="d-flex bd-highlight mb-3">
                     <div class="mr-auto p-2 bd-highlight">
-                        <button type="button" class="btn btn-dark">Добавить пользователя</button>
+                        <button type="button" class="btn btn-dark">Добавить адрес</button>
                     </div>
                     <div class="custom-control custom-switch p-2 bd-highlight">
                         <input type="checkbox" class="custom-control-input" id="customSwitch1">
@@ -86,26 +100,17 @@
                                     <input type="text" class="form-control" placeholder="Поиск">
                                 </th>
                                 <th>
-                                    <input type="text" class="form-control" placeholder="Поиск">
+                                   <input type="text" class="form-control" placeholder="Поиск">
                                 </th>
-                                <th>
+                                <th> 
                                     <select class="form-control">
-                                        <option value="" disabled selected>Группы устройств</option>
+                                        <option value="" disabled selected>Тип ошибки</option>
                                         <option>Первый</option>
                                         <option>Второй</option>
                                         <option>Третий</option>
                                         <option>Четвертый</option>
-                                    </select>
-                                </th>
-                                <th>
-                                    <select class="form-control">
-                                        <option value="" disabled selected>Роли</option>
-                                        <option>Первый</option>
-                                        <option>Второй</option>
-                                        <option>Третий</option>
-                                        <option>Четвертый</option>
-                                    </select>
-                                </th>
+                                    </select></th>
+                                <th></th>
                                 <th>
                                     <button type="button" class="btn btn-light">Очистить</button>
                                 </th>
@@ -113,22 +118,22 @@
                         </thead>
                         <thead>
                             <tr>
-                                <th>#</th>
-                                <th>Пользователи</th>
-                                <th>Email</th>
-                                <th>Группы устройств</th>
-                                <th>Роли</th>
+                                <th>№</th>
+                                <th>Отображение пользователю</th>
+                                <th>Системное представление</th>
+                                <th>Тип ошибки</th>
+                                <th>Активность</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($users as $row)
+                            @foreach ($errors as $row)
                                 <tr>
                                     <td>{{ $row->id }}</td>
-                                    <td>{{ $row->name }}</td>
-                                    <td>{{ $row->email }}</td>
-                                    <td>{{ $row->d_name }}</td>
-                                    <td>{{ $row->role_name }}</td>
+                                    <td>{{ $row->message_for_user }}</td>
+                                    <td>{{ $row->message_error }}</td>
+                                    <td>{{ $row->error_type_name }}</td>
+                                    <td>{{ $row->active }}</td>
                                     <td>
                                         <div class="d-flex justify-content-center">
                                             <button type="button" class="btn btn-dark btn-circle"><i
@@ -141,11 +146,11 @@
                                     </td>
                                 </tr>
                             @endforeach
-                        </tbody>
+                        </tbody> 
                     </table>
-                    <div class="d-flex justify-content-center">
-                        {!! $users->links() !!}
-                    </div>
+                     <div class="d-flex justify-content-center">
+                        {!! $errors->links() !!}
+                    </div> 
                 </div>
         </div>
 

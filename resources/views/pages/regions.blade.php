@@ -51,23 +51,23 @@
 </head>
 
 <body>
-    @include('layouts.nav')
+    @include('partials.nav')
     <div class="container-fluid">
         <div class="row">
-            @include('layouts.sidebar')
+            @include('partials.sidebar')
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
                     <h3>Справочники</h3>
                 </div>
                 <ul class="nav nav-tabs mb-2">
                     <li class="nav-item">
-                      <a class="nav-link " href="/referenceBooks/regions">Регионы</a>
+                      <a class="nav-link active" href="/referenceBooks/regions">Регионы</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link " href="/referenceBooks/type_devices">Тип устройства</a>
+                      <a class="nav-link" href="/referenceBooks/type_devices">Тип устройства</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link active" href="/referenceBooks/type_violation">Тип нарушений</a>
+                      <a class="nav-link" href="/referenceBooks/type_violation">Тип нарушений</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="/referenceBooks/device_developer">Производитель устройств</a>
@@ -84,7 +84,7 @@
                   </ul>
                 <div class="d-flex bd-highlight mb-3">
                     <div class="mr-auto p-2 bd-highlight">
-                        <button type="button" class="btn btn-dark">Добавить тип нарушения</button>
+                        <button type="button" class="btn btn-dark">Добавить регион</button>
                     </div>
                     <div class="custom-control custom-switch p-2 bd-highlight">
                         <input type="checkbox" class="custom-control-input" id="customSwitch1">
@@ -92,15 +92,12 @@
                     </div>
                 </div>
                 <div class="my-4 w-100">
-                     <table class="table table-striped table-sm">
+                    <table class="table table-striped table-sm">
                         <thead>
                             <tr>
                                 <th></th>
                                 <th>
-                                    <input type="text" class="form-control" placeholder="Поиск по наименованию">
-                                </th>
-                                <th>
-                                    <input type="text" class="form-control" placeholder="Поиск по наименованию">
+                                    <input type="text" class="form-control" placeholder="Поиск">
                                 </th>
                                 <th>
                                     <button type="button" class="btn btn-light">Очистить</button>
@@ -109,18 +106,16 @@
                         </thead>
                         <thead>
                             <tr>
-                                <th>№</th>
+                                <th>#</th>
                                 <th>Наименование</th>
-                                <th>Примечание</th>
-                                <th></th>
+                                <th> </th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($violation_types as $row)
+                            @foreach ($regions as $row)
                                 <tr>
                                     <td>{{ $row->id }}</td>
-                                    <td>{{ $row->violation_neme }}</td>
-                                    <td>{{ $row->description }}</td>
+                                    <td>{{ $row->name }}</td>
                                     <td>
                                         <div class="d-flex justify-content-center">
                                             <button type="button" class="btn btn-dark btn-circle"><i
@@ -133,11 +128,11 @@
                                     </td>
                                 </tr>
                             @endforeach
-                        </tbody> 
+                        </tbody>
                     </table>
-                     <div class="d-flex justify-content-center">
-                        {!! $violation_types->links() !!}
-                    </div> 
+                    {{-- <div class="d-flex justify-content-center">
+                        {!! $users->links() !!}
+                    </div> --}}
                 </div>
         </div>
 

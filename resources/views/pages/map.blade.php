@@ -52,10 +52,10 @@
 </head>
 
 <body>
-  @include('layouts.nav')
+  @include('partials.nav')
   <div class="container-fluid">
     <div class="row">
-      @include('layouts.sidebar')
+      @include('partials.sidebar')
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
         <div class="my-lg-4">
           <ul class="nav nav-tabs">
@@ -68,12 +68,12 @@
             </li>
           </ul>
         </div>
-        @include('layouts.mapCard')
+        @include('partials.mapCard')
         <div class="my-lg-2">
           <p class="text-right ">Статистика выводится за NAN-NAN</p>
         </div>
-        @include('layouts.mapForm')
-        @include('layouts.mapCanvas')
+        @include('partials.mapForm')
+        @include('partials.mapCanvas')
 
       </main>
     </div>

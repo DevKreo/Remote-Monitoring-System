@@ -49,92 +49,97 @@
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/album.css') }}"  rel="stylesheet">
 </head>
+
 <body>
-    @include('layouts.nav')
+    @include('partials.nav')
     <div class="container-fluid">
         <div class="row">
-            @include('layouts.sidebar')
+            @include('partials.sidebar')
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-                <ul class="nav nav-tabs">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+                    <h3>Справочники</h3>
+                </div>
+                <ul class="nav nav-tabs mb-2">
                     <li class="nav-item">
-                        <a class="nav-link " href="/calendar/movable">Предвижные</a>
+                      <a class="nav-link " href="/referenceBooks/regions">Регионы</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/calendar/static">Стационарные</a>
+                      <a class="nav-link active" href="/referenceBooks/type_devices">Тип устройства</a>
                     </li>
-                </ul>
-
-                <form class="form-inline mt-3 md-3">
-                    <div class="form-group mx-sm-3 mb-2">
-                        <input type="text" class="form-control" id="inputPassword2" placeholder="Фильтр по устройству">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/referenceBooks/type_violation">Тип нарушений</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/referenceBooks/device_developer">Производитель устройств</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/referenceBooks/adress">Адреса</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/referenceBooks/error_device">Ошибка устройств</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/referenceBooks/branches">Ветки SNMP</a>
+                    </li>
+                  </ul>
+                <div class="d-flex bd-highlight mb-3">
+                    <div class="mr-auto p-2 bd-highlight">
+                        <button type="button" class="btn btn-dark">Добавить устройство</button>
                     </div>
-
-                    <div class="form-group mx-sm-3 mb-2">
-                        <select id="inputState" class="form-control">
-                            <option selected>Фильтр по рубежу</option>
-                            <option>Бла</option>
-                            <option>2</option>
-                            <option>3</option>
-                        </select>
+                    <div class="custom-control custom-switch p-2 bd-highlight">
+                        <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                        <label class="custom-control-label" for="customSwitch1">с удаленными</label>
                     </div>
-                    <div class="form-group mx-sm-3 mb-2">
-                        <input type="date" class="form-control">
-                    </div>
-                    <button type="submit" class="btn btn-success mb-2">Экспорт в эксель</button>
-                </form>
-
-
-                <div class="table-responsive">
-                    <table class="table table-striped table-sm">
+                </div>
+                <div class="my-4 w-100">
+                     <table class="table table-striped table-sm">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>
+                                    <input type="text" class="form-control" placeholder="Поиск по наименованию">
+                                </th>
+                                <th>
+                                    <button type="button" class="btn btn-light">Очистить</button>
+                                </th>
+                            </tr>
+                        </thead>
                         <thead>
                             <tr>
                                 <th>№</th>
-                                <th>Рубеж</th>
-                                <th>Устройства</th>
-                                <th>Дата установки устройства</th>
-                                <th>Дата снятия устройства</th>
+                                <th>Наименование</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-
-                            @foreach ($calendar_static_data as $row)
+                            @foreach ($device_types as $row)
                                 <tr>
                                     <td>{{ $row->id }}</td>
-                                    <td>{{ $row->bound_neme }}</td>
-                                    <td>{{ $row->serial_number }}</td>
-                                    <td>{{ $row->installation_date }}</td>
-                                    <td>{{ $row->date_of_deletion }}</td>
+                                    <td>{{ $row->name }}</td>
                                     <td>
                                         <div class="d-flex justify-content-center">
                                             <button type="button" class="btn btn-dark btn-circle"><i
                                                     class="fa fa-pen"></i>
                                             </button>
                                             <button type="button" class="btn btn-danger btn-circle ml-1"><i
-                                                    class="fa fa-trash"></i>
+                                                class="fa fa-trash"></i>
                                             </button>
                                         </div>
                                     </td>
                                 </tr>
                             @endforeach
-                        </tbody>
+                        </tbody> 
                     </table>
-                    {{-- <div class="d-flex justify-content-center">
-                        {!! $users->links() !!}
-                    </div> --}}
-                    <script>
-                        $('#timepicker1').timepicker({
-                            uiLibrary: 'bootstrap4'
-                        });
-                        $('#timepicker2').timepicker({
-                            uiLibrary: 'bootstrap4'
-                        });
-
-                    </script>
+                     <div class="d-flex justify-content-center">
+                        {!! $device_types->links() !!}
+                    </div> 
                 </div>
-            </main>
         </div>
+
+        </main>
     </div>
+    </div>
+    <script src="js/search.js"></script>
     <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
     <script>
         feather.replace()

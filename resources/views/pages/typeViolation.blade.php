@@ -51,10 +51,10 @@
 </head>
 
 <body>
-    @include('layouts.nav')
+    @include('partials.nav')
     <div class="container-fluid">
         <div class="row">
-            @include('layouts.sidebar')
+            @include('partials.sidebar')
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
                     <h3>Справочники</h3>
@@ -67,13 +67,13 @@
                       <a class="nav-link " href="/referenceBooks/type_devices">Тип устройства</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link " href="/referenceBooks/type_violation">Тип нарушений</a>
+                      <a class="nav-link active" href="/referenceBooks/type_violation">Тип нарушений</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="/referenceBooks/device_developer">Производитель устройств</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/referenceBooks/adress">Адреса</a>
+                        <a class="nav-link" href="/referenceBooks/adress">Адреса</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/referenceBooks/error_device">Ошибка устройств</a>
@@ -84,7 +84,7 @@
                   </ul>
                 <div class="d-flex bd-highlight mb-3">
                     <div class="mr-auto p-2 bd-highlight">
-                        <button type="button" class="btn btn-dark">Добавить адрес</button>
+                        <button type="button" class="btn btn-dark">Добавить тип нарушения</button>
                     </div>
                     <div class="custom-control custom-switch p-2 bd-highlight">
                         <input type="checkbox" class="custom-control-input" id="customSwitch1">
@@ -100,17 +100,8 @@
                                     <input type="text" class="form-control" placeholder="Поиск по наименованию">
                                 </th>
                                 <th>
-                                    <select class="form-control">
-                                        <option value="" disabled selected>Регион</option>
-                                        <option>Первый</option>
-                                        <option>Второй</option>
-                                        <option>Третий</option>
-                                        <option>Четвертый</option>
-                                    </select>
+                                    <input type="text" class="form-control" placeholder="Поиск по наименованию">
                                 </th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
                                 <th>
                                     <button type="button" class="btn btn-light">Очистить</button>
                                 </th>
@@ -119,23 +110,17 @@
                         <thead>
                             <tr>
                                 <th>№</th>
-                                <th>Адрес</th>
-                                <th>Регион</th>
-                                <th>Количество устройств</th>
-                                <th>Устройства</th>
-                                <th>Активность</th>
+                                <th>Наименование</th>
+                                <th>Примечание</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($addresses as $row)
+                            @foreach ($violation_types as $row)
                                 <tr>
                                     <td>{{ $row->id }}</td>
-                                    <td>{{ $row->adress }}</td>
-                                    <td>{{ $row->region_name }}</td>
-                                    <td>{{ $row->count_of_device }}</td>
-                                    <td>{{ $row->serial_number }}</td>
-                                    <td>{{ $row->active }}</td>
+                                    <td>{{ $row->violation_neme }}</td>
+                                    <td>{{ $row->description }}</td>
                                     <td>
                                         <div class="d-flex justify-content-center">
                                             <button type="button" class="btn btn-dark btn-circle"><i
@@ -151,7 +136,7 @@
                         </tbody> 
                     </table>
                      <div class="d-flex justify-content-center">
-                        {!! $addresses->links() !!}
+                        {!! $violation_types->links() !!}
                     </div> 
                 </div>
         </div>
