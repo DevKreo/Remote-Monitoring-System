@@ -1,3 +1,5 @@
+const { default: axios } = require('axios');
+
 window._ = require('lodash');
 
 /**
@@ -9,7 +11,9 @@ window._ = require('lodash');
 try {
     window.Popper = require('popper.js').default;
     window.$ = window.jQuery = require('jquery');
-
+    window.axios= require('axios');
+    axios.defaults.headers.common['Content-type'] = 'application/json';
+    axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
     require('bootstrap');
 } catch (e) {
 }

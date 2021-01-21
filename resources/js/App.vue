@@ -1,3 +1,4 @@
+
 <template>
     <div class="container">
         <div>
@@ -6,6 +7,7 @@
         </div>
     </div>
 </template>
+
 
 <style>
     .fade-enter-active, .fade-leave-active {

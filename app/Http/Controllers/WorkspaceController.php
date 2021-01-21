@@ -15,7 +15,7 @@ class WorkspaceController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function index()
+    public function index(Request $request)
     {    
         $w_cal_datas = DB::table('device_boundaries')
         ->join('dictionaries as group_table', function ($join) {
@@ -29,9 +29,14 @@ class WorkspaceController extends Controller
             ->select('device_boundaries.*',  'group_table.name as group_name','region_table.name as region_name')
             ->paginate(15);
            // dd($w_cal_datas);
+
+           if ($request->ajax()) 
+               return response()
+               ->json($w_cal_datas);
+           
         return view('pages/work_space', ['w_cal_datas' => $w_cal_datas]);
-       
     }
+
 
     public function findSerialNumber(Request $request)
     {

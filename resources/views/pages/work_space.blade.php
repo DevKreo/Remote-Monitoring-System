@@ -6,8 +6,13 @@
 
 @section('content')
     @include('partials.sidebar')
-    <test-table></test-table>
+    <v-app>
+        <test-table></test-table>
+    </v-app>
 @endsection 
+@section('script')
+    {{-- @include('./public/js/work-space-table.js') --}}
+@endsection
 {{-- <!DOCTYPE html>
 <html lang="en">
 <head>
