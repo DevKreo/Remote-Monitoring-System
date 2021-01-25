@@ -1,6 +1,6 @@
 <template>
   <v-app id="inspire">
-    <v-navigation-drawer v-model="drawer" app class="rounded-card indigo darken-4">
+    <v-navigation-drawer v-model="drawer" app class="rounded-card" color="#050c42">
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title class="title purple--text darken-3--text"><h1>SDM</h1></v-list-item-title>
@@ -9,15 +9,14 @@
       </v-list-item>
       
       <v-list shaped>
-        <v-list-item-group v-model="selectedItem">
+        <v-list-item-group v-model="selectedItem" color="text" dark>
           <v-list-item v-for="(item, i) in pagesUP" :key="i" mandatory>
             <v-list-item-icon>
-              <v-icon v-text="item.icon" class="white--text"></v-icon>
+              <v-icon v-text="item.icon"></v-icon>
             </v-list-item-icon>
             <v-list-item-content>
               <v-list-item-title
                 v-text="item.text"
-                class="white--text"
               ></v-list-item-title>
             </v-list-item-content>
           </v-list-item>
@@ -75,3 +74,6 @@ export default {
   }),
 };
 </script>
+
+
+

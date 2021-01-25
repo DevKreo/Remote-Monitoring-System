@@ -2115,7 +2115,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -38664,8 +38663,8 @@ var render = function() {
       _c(
         "v-navigation-drawer",
         {
-          staticClass: "rounded-card indigo darken-4",
-          attrs: { app: "" },
+          staticClass: "rounded-card",
+          attrs: { app: "", color: "#050c42" },
           model: {
             value: _vm.drawer,
             callback: function($$v) {
@@ -38706,6 +38705,7 @@ var render = function() {
               _c(
                 "v-list-item-group",
                 {
+                  attrs: { color: "text", dark: "" },
                   model: {
                     value: _vm.selectedItem,
                     callback: function($$v) {
@@ -38723,7 +38723,6 @@ var render = function() {
                         "v-list-item-icon",
                         [
                           _c("v-icon", {
-                            staticClass: "white--text",
                             domProps: { textContent: _vm._s(item.icon) }
                           })
                         ],
@@ -38734,7 +38733,6 @@ var render = function() {
                         "v-list-item-content",
                         [
                           _c("v-list-item-title", {
-                            staticClass: "white--text",
                             domProps: { textContent: _vm._s(item.text) }
                           })
                         ],
@@ -96237,13 +96235,15 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 __webpack_require__(/*! @coreui/coreui/dist/js/coreui.bundle.min */ "./node_modules/@coreui/coreui/dist/js/coreui.bundle.min.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
- //import App from 'resources/js/App.vue';
+ //import router from './plugins/router'
+//import App from 'resources/js/App.vue';
 
 Vue.component('test-table', __webpack_require__(/*! ./components/TestTable.vue */ "./resources/js/components/TestTable.vue")["default"]);
 Vue.component('nav-side-bar', __webpack_require__(/*! ./components/NavSideBar.vue */ "./resources/js/components/NavSideBar.vue")["default"]);
 var app = new Vue({
   vuetify: _plugins_vuetify__WEBPACK_IMPORTED_MODULE_0__["default"],
-  el: "#app"
+  el: "#app" //router,
+
 });
 
 /***/ }),
@@ -96445,6 +96445,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuetify_dist_vuetify_min_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vuetify_dist_vuetify_min_css__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _mdi_font_css_materialdesignicons_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mdi/font/css/materialdesignicons.css */ "./node_modules/@mdi/font/css/materialdesignicons.css");
 /* harmony import */ var _mdi_font_css_materialdesignicons_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_mdi_font_css_materialdesignicons_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var D_Projects_Work_Remote_Monitoring_System_resources_sass_app_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./resources/sass/app.scss */ "./resources/sass/app.scss");
+/* harmony import */ var D_Projects_Work_Remote_Monitoring_System_resources_sass_app_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(D_Projects_Work_Remote_Monitoring_System_resources_sass_app_scss__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
@@ -96453,6 +96456,34 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuetify__WEBPACK_IMPORTED_MODULE_
 var opts = {
   icons: {
     iconfont: 'mdi'
+  },
+  theme: {
+    themes: {
+      light: {
+        text: "#7224f2",
+        secondary: "#424242",
+        accent: "#82B1FF",
+        error: "#FF5252",
+        info: "#2196F3",
+        success: "#4CAF50",
+        warning: "#FFC107",
+        lightblue: "#14c6FF",
+        yellow: "#FFCF00",
+        pink: "#FF1976",
+        orange: "#FF8657",
+        magenta: "#C33AFC",
+        darkblue: "#1E2D56",
+        gray: "#909090",
+        neutralgray: "#9BA6C1",
+        green: "#2ED47A",
+        red: "#FF5c4E",
+        darkblueshade: "#308DC2",
+        lightgray: "#BDBDBD",
+        lightpink: "#FFCFE3",
+        white: "#FFFFFF",
+        dark: "#f0f0f3"
+      }
+    }
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (new vuetify__WEBPACK_IMPORTED_MODULE_1___default.a(opts));
@@ -96477,8 +96508,8 @@ var opts = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Aleks\Documents\GitHub\Remote-Monitoring-System\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Aleks\Documents\GitHub\Remote-Monitoring-System\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\Projects\Work\Remote_Monitoring_System\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\Projects\Work\Remote_Monitoring_System\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
