@@ -1,13 +1,9 @@
 @extends('layouts.work')
 
-@section('header')
-    @include('partials.nav')
-@endsection
 
 @section('content')
-    @include('partials.sidebar')
     <v-app>
-        <test-table></test-table>
+        <nav-side-bar></nav-side-bar>
     </v-app>
 @endsection 
 @section('script')

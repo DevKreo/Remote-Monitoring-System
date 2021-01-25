@@ -7,6 +7,7 @@ import Vuetify from './plugins/vuetify'
 
 //import App from 'resources/js/App.vue';
 Vue.component('test-table', require('./components/TestTable.vue').default);
+Vue.component('nav-side-bar', require('./components/NavSideBar.vue').default);
 
 
 const app=new Vue({

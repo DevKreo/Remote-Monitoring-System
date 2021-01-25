@@ -49,15 +49,9 @@
 
 
 <body>
-    @yield('header')
     <div id="app">
-        <div class="container-fluid">
-            <div class="row">
-                    @yield('content')
-            </div>
-        </div>
+            @yield('content')
     </div>
-
     <script src="js/app.js"></script>
     <!-- Bootstrap core JavaScript
     ================================================== -->
