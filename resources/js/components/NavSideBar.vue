@@ -64,6 +64,13 @@
                             >
                             </v-list-item-title>
                         </v-list-item-content>
+                        <v-list-item-action v-if="item.counter">
+                            <v-btn icon>
+                                <v-icon color="grey lighten-1"
+                                    >mdi-plus</v-icon
+                                >
+                            </v-btn>
+                        </v-list-item-action>
                     </v-list-item>
                 </v-list-item-group>
             </v-list>
@@ -119,10 +126,7 @@ export default {
             { text: "История операций" },
             { text: "Информация о системе" }
         ],
-        colors: [
-          {color: "success"},
-          {color: "error"},
-        ]
+        colors: [{ color: "success" }, { color: "error" }]
     }),
     created() {
         this.getData();
