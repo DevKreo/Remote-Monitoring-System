@@ -21,3 +21,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::get('pages/work_space',[WorkspaceController::class, 'index']);
+
+Route::get('pages/work_space/count', [WorkspaceController::class, 'Number']);

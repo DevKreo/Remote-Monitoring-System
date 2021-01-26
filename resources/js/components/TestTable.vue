@@ -1,5 +1,5 @@
 <template>
-  <v-container class="grey lighten-5 w-100 scoped">
+  <v-container >
     <v-row no-gutters>
       <v-col order="last">
         <v-data-table
@@ -91,8 +91,7 @@
                     <v-spacer></v-spacer>
                     <v-btn color="blue darken-1" text @click="closeDelete">Cancel</v-btn>
                     <v-btn color="blue darken-1" text @click="deleteItemConfirm"
-                      >OK</v-btn
-                    >
+                      >OK</v-btn>
                     <v-spacer></v-spacer>
                   </v-card-actions>
                 </v-card>
@@ -105,11 +104,11 @@
           </template>
 
           <template v-slot:item.actions="{ item }">
-            <v-icon small class="mr-2" @click="editItem(item)"> mdi-pencil </v-icon>
-            <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
+            <v-icon small class="mr-2" @click="editItem(item)">mdi-pencil </v-icon>
+            <v-icon small @click="deleteItem(item)">mdi-delete </v-icon>
           </template>
           <template v-slot:no-data>
-            <v-btn color="primary" @click="initialize"> Reset </v-btn>
+            <v-btn color="primary" @click="initialize">Reset</v-btn>
           </template>
         </v-data-table>
       </v-col>
@@ -178,7 +177,7 @@ export default {
   methods: {
     getData() {
       axios.get("/api/pages/work_space").then((response) => {
-        this.laravelData = response.data.data;
+        this.laravelData = response.data;
       });
     },
 

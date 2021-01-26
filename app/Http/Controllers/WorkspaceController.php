@@ -27,7 +27,7 @@ class WorkspaceController extends Controller
                 ->where('region_table.dict_type_id','=',2);
         })
             ->select('device_boundaries.*',  'group_table.name as group_name','region_table.name as region_name')
-            ->paginate(15);
+            ->get();
            // dd($w_cal_datas);
 
            if ($request->ajax()) 
@@ -38,11 +38,10 @@ class WorkspaceController extends Controller
     }
 
 
-    public function findSerialNumber(Request $request)
+    public function Number(Request $request)
     {
-        $value = $request->input('value');
-        $serialNumber=Device_boundarie::where('device_bound_neme','=', '%'.$value.'%')->paginate(15);
-        return view('pages/work_space',['serialNumber'=>$serialNumber]);
+        $num_of_records = DB::table('device_boundaries')->get()->count();
+        return  $num_of_records;
     }
 
     /**

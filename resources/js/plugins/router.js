@@ -1,12 +1,13 @@
-// import Vue from 'vue';
-// import VueRouter from 'vue-router';
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import TestTable from '../components/TestTable.vue';
 
 
-// Vue.use(VueRouter);
+Vue.use(VueRouter);
 
-// export default new VueRouter({
-//     routes:[
-//         {}
-//     ],
-//     mode: 'history'
-// });
+export default new VueRouter({
+    routes:[
+        {path:"/", component: TestTable},
+    ],
+    mode: 'history'
+});

@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import '@mdi/font/css/materialdesignicons.css'
-import 'D:/Projects/Work/Remote_Monitoring_System/resources/sass/app.scss'
+// import 'D:/Projects/Work/Remote_Monitoring_System/resources/sass/app.scss'
 
 Vue.use(Vuetify)
 
