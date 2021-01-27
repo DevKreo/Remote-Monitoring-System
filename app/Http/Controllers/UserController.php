@@ -17,7 +17,7 @@ class UserController extends Controller
     }
 
 
-    public function userGetData()
+    public function userGetData(request $request)
     {
         $users = DB::table('users')
             ->join('roles', 'roles.id', '=', 'users.roles_id')
@@ -26,7 +26,12 @@ class UserController extends Controller
                     ->where('dictionaries.dict_type_id','=',10);
             })
             ->select('users.*', 'roles.role_name', 'dictionaries.name as d_name')
-            ->paginate(15);
+            ->get();
+            
+            if ($request->ajax()) 
+               return response()
+               ->json($users);
+
         return view('pages/usersPage', ['users' => $users]);
     }
 

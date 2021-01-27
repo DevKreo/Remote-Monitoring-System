@@ -5,7 +5,33 @@
   font-size: 32px;
   font-weight: 900;
   font-style: bold;
+}
 
+#tabs{
+  border-bottom: 1px solid rgb(173, 173, 173);
+  max-height: 53px;
+}
+#tabs-text{
+  font-family: 'Montserrat',  sans-serif;
+  font-size: 8px;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.history_button{
+  font-family: 'Montserrat',  sans-serif;
+  font-size: 8px;
+  font-weight: 600;
+  font-style: normal;
+  text-decoration: underline;
+  text-transform: none;
+}
+
+.references{
+  font-family: 'Montserrat',  sans-serif;
+  font-weight: 800;
+  font-style: bold;
+  margin-left: 3%;
 }
 
 #subtitle{

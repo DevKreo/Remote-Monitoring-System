@@ -12,7 +12,7 @@ class SendingReportsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(request $request)
     {
         $sending_reports = DB::table('sending_reports')
             ->join('report_templates','sending_reports.reports_template_id' ,'=' ,'report_templates.id')
@@ -25,7 +25,18 @@ class SendingReportsController extends Controller
                 'report_periods.name as report_period_name'
             )
             ->paginate(15);
+
+            if ($request->ajax()) 
+               return response()
+               ->json($sending_reports);
+
         return view('pages/ConsReportPage', ['sending_reports' => $sending_reports]);
+    }
+
+    public function Number(Request $request)
+    {
+        $num_of_records = DB::table('sending_reports')->get()->count();
+        return  $num_of_records;
     }
 
     /**
