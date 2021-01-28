@@ -54,15 +54,16 @@ class DictionaryController extends Controller
         return view('pages/adressPage', ['addresses' => $addresses]);
     }
 
-    public function errorsGetData()
+    public function errorsGetData(request $request)
     {
-        $errors = DB::table('errors')
-        ->join('dictionaries','dictionaries.id' ,'=', 'errors.error_type_id')
-        ->select(
-            'errors.*',
-            'dictionaries.name as error_type_name'
-        )
-        ->paginate(15);
+        $errors = DB::table('dictionaries')
+        ->where('dict_type_id','=',3)
+        ->get();
+        if ($request->ajax()) 
+               return response()
+               ->json($errors);
+
+
         return view('pages/errorPage', ['errors' => $errors]);
     }
 

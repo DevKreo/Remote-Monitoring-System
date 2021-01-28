@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WorkspaceController;
 use App\Http\Controllers\SendingReportsController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DictionaryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,5 @@ Route::get('pages/work_space/count', [WorkspaceController::class, 'Number']);
 
 Route::get('pages/work_space/report/count', [SendingReportsController::class, 'Number']);
 Route::get('pages/work_space/users_select', [UserController::class, 'userGetData']);
+
+Route::get('pages/work_space/errors', [DictionaryController::class, 'errorsGetData']);

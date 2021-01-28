@@ -18,6 +18,12 @@
   font-style: normal;
 }
 
+#table{
+  font-family: 'Montserrat',  sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 .history_button{
   font-family: 'Montserrat',  sans-serif;
   font-size: 8px;
@@ -27,11 +33,42 @@
   text-transform: none;
 }
 
+.add_button{
+  font-family: 'Montserrat',  sans-serif;
+  font-size: 8px;
+  font-weight: 300;
+  font-style: normal;
+  text-transform: none!important;
+  background-color: #7224f2;
+}
+
+.swich_page{
+  max-height: 40px;
+  max-width: 25px;
+  color: #7224f2;
+}
+.legend{
+  font-family: 'Montserrat',  sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.del_button{
+  font-family: 'Montserrat',  sans-serif;
+  font-size: 8px;
+  font-weight: 300;
+  font-style: normal;
+  text-transform: none!important;
+  margin-left: 4px;
+  background-color: #28a745;
+}
+
 .references{
   font-family: 'Montserrat',  sans-serif;
   font-weight: 800;
   font-style: bold;
-  margin-left: 3%;
+  margin-right: 22%!important;
 }
 
 #subtitle{
