@@ -17,11 +17,14 @@
   font-weight: 600;
   font-style: normal;
 }
-
+.button_togle{
+  margin-left: 72px!important;
+}
 #table{
   font-family: 'Montserrat',  sans-serif;
   font-weight: 400;
   font-style: normal;
+  max-width: 97.3%;
 }
 
 .history_button{
@@ -42,11 +45,6 @@
   background-color: #7224f2;
 }
 
-.swich_page{
-  max-height: 40px;
-  max-width: 25px;
-  color: #7224f2;
-}
 .legend{
   font-family: 'Montserrat',  sans-serif;
   font-size: 12px;
@@ -68,7 +66,7 @@
   font-family: 'Montserrat',  sans-serif;
   font-weight: 800;
   font-style: bold;
-  margin-right: 22%!important;
+  margin-right: auto;
 }
 
 #subtitle{

@@ -1,7 +1,7 @@
 <template>
 <v-container>
     <template>
-        <v-card id="tabs" elevation="0">
+        <v-card id="tabs" elevation="0" class="ml-8 mr-9">
             <v-row dense>
                 <v-col cols="12" sm="6" md="8">
                     <v-tabs color="purple">
@@ -20,7 +20,7 @@
     </template>
 
     <template>
-        <v-card class="d-flex flex-row justify-end mt-4" flat tile elevation="0">
+        <v-card class="d-flex flex-row justify-end mt-4 ml-8 mr-9" flat tile elevation="0">
             <h2 class="references">Обращения <v-icon color="purple">mdi-information</v-icon>
             </h2>
             <v-btn text>
@@ -32,7 +32,7 @@
     </template>
 
     <template>
-        <v-card flat tile elevation="0">
+        <v-card flat tile elevation="0" class="mt-3">
             <v-row class="ml-5">
                 <v-col class="mt-2">
                     <p class="legend">
@@ -59,11 +59,11 @@
                     <v-select :items="filters" label="сначала показать" dense color="purple" outlined></v-select>
                 </v-col>
                 <v-col>
-                    <v-btn-toggle v-model="toggle_none" >
-                        <v-btn class="swich_page">
+                    <v-btn-toggle v-model="toggle_none" color="deep-purple accent-4" class="button_togle">
+                        <v-btn max-height="40px" @click="format_table= true">
                             <v-icon>mdi-menu</v-icon>
                         </v-btn>
-                        <v-btn class="swich_page">
+                        <v-btn max-height="40px" @click="format_table= false">
                             <v-icon>mdi-apps</v-icon>
                         </v-btn>
                     </v-btn-toggle>
@@ -72,7 +72,7 @@
         </v-card>
     </template>
 
-    <template>
+    <template v-if="format_table">
         <v-container id="table">
             <v-row no-gutters>
                 <v-col>
@@ -132,6 +132,21 @@
         </v-container>
     </template>
 
+    <template v-else="format_table">
+        <v-row dense>
+            <v-col v-for="item in laravelData" :key="item.device_bound_neme">
+                <v-card class="mx-auto" outlined>
+                    <v-card-text>{{item.device_bound_neme}}</v-card-text>
+                    <v-card-actions>
+                        <v-btn outlined rounded text>
+                            Button
+                        </v-btn>
+                    </v-card-actions>
+                </v-card>
+            </v-col>
+        </v-row>
+    </template>
+
 </v-container>
 </template>
 
@@ -139,8 +154,10 @@
 export default {
     data: () => ({
         myLoadVariable: true,
+        toggle_none: null,
         dialog: false,
         dialogDelete: false,
+        format_table: true,
         expanded: [],
         errors: [],
         filters: ['актуальные', 'за неделю', 'за месяц', 'за квартал', 'за год'],
