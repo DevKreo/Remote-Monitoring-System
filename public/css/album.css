@@ -7,6 +7,31 @@
   font-style: bold;
 }
 
+.button-add{
+  background-color: #6A1B9A!important;
+  border: 4px solid #431280;
+}
+
+.divider{
+  position: relative;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  height: 1px;
+}
+
+.div-transparent::before
+{
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 1px;
+  background-image: linear-gradient(to right, #7324f2a6, transparent);
+}
+
+
+
+
 #tabs{
   border-bottom: 1px solid rgb(173, 173, 173);
   max-height: 53px;
@@ -17,9 +42,7 @@
   font-weight: 600;
   font-style: normal;
 }
-.button_togle{
-  margin-left: 72px!important;
-}
+
 #table{
   font-family: 'Montserrat',  sans-serif;
   font-weight: 400;
@@ -76,8 +99,9 @@
   font-style: normal;
 }
 
-.v-list-item--active { 
-  border-left: 2px solid #7224f2;
+
+.v-list-item--active {
+  border-left: 2px solid #7224f2!important;
 }
 
 #styled-list-group{
