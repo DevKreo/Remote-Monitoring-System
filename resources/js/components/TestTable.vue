@@ -3,19 +3,19 @@
     <template>
         <v-card id="tabs" elevation="0" class="ml-8 mr-9">
             <v-row dense>
-                <v-col cols="12" sm="6" md="8">
+                <v-col cols="auto">
                     <v-breadcrumbs :items="path" class="breadcrumbs">
                         <template v-slot:divider>
                             <v-icon class="pb-3">mdi-dots-horizontal</v-icon>
                         </template>
                     </v-breadcrumbs>
                 </v-col>
-                <v-col cols="6" md="4">
+                <v-spacer></v-spacer>
+                <v-col cols="auto">
                     <v-select :items="users" item-text="name" label="Пользователь" dense class="pa-1" color="#6633ff"></v-select>
                 </v-col>
             </v-row>
         </v-card>
-        </v-row>
     </template>
 
     <template>
@@ -32,32 +32,33 @@
 
     <template>
         <v-card flat tile elevation="0" class="mt-3">
-            <v-row class="ml-5">
-                <v-col class="mt-2">
+            <v-row class="ml-5 mr-6">
+                <v-col class="mt-2" cols="auto">
                     <p class="legend">
-                        <v-icon color="red">mdi-radiobox-marked</v-icon>Актуальные
+                        <v-icon color="#d93030">mdi-radiobox-marked</v-icon>Актуальные
                     </p>
                 </v-col>
-                <v-col class="mt-2">
+                <v-col class="mt-2" cols="auto">
                     <p class="legend">
                         <v-icon color="#6633ff">mdi-radiobox-marked</v-icon>В работе
                     </p>
                 </v-col>
-                <v-col class="mt-2">
+                <v-col class="mt-2" cols="auto">
                     <p class="legend">
-                        <v-icon color="success">mdi-radiobox-marked</v-icon>Готово
+                        <v-icon color="#458e3c">mdi-radiobox-marked</v-icon>Готово
                     </p>
                 </v-col>
-                <v-col>
-                    <v-text-field placeholder="Название рубежа" label="все" outlined dense color="#6633ff"></v-text-field>
+                <v-spacer></v-spacer>
+                <v-col cols="auto">
+                    <v-text-field placeholder="Название рубежа" v-model="search" label="все" outlined dense color="#6633ff"></v-text-field>
                 </v-col>
-                <v-col>
-                    <v-select :items="errors" item-text="name" label="проблема" placeholder="Все" dense color="#6633ff" outlined></v-select>
+                <v-col cols="auto">
+                    <v-select :items="errors" item-text="name" v-model="error_filter" label="проблема" placeholder="Все" dense color="#6633ff" outlined></v-select>
                 </v-col>
-                <v-col>
+                <v-col cols="auto">
                     <v-select :items="filters" label="сначала показать" dense color="#6633ff" outlined></v-select>
                 </v-col>
-                <v-col>
+                <v-col cols="auto">
                     <v-btn-toggle v-model="toggle_none" color="#6633ff" class="button_togle">
                         <v-btn max-height="40px" @click="format_table= true">
                             <v-icon>mdi-menu</v-icon>
@@ -73,9 +74,14 @@
 
     <template v-if="format_table">
         <v-container id="table">
-            <v-row no-gutters>
+            <v-row>
                 <v-col>
-                    <v-data-table :headers="headers" :items="laravelData" hide-default-header :loading="myLoadVariable" hide-default-footer disable-pagination loading-text="Loading... Please wait">
+                    <v-data-table :headers="headers" :search="search" :items="laravelData" hide-default-header :loading="myLoadVariable" hide-default-footer disable-pagination loading-text="Loading... Please wait">
+                        <template v-slot:item.icon="{ item }" class="columBorder ">
+                            <v-icon v-if="item.type_ad === 'error'" color="#d93030" class="columBorder">mdi-bookmark</v-icon>
+                            <v-icon v-if="item.type_ad === 'inWork'" color="#6633ff" class="columBorder">mdi-bookmark</v-icon>
+                            <v-icon v-if="item.type_ad === 'complete'" color="#458e3c" class="columBorder">mdi-bookmark</v-icon>
+                        </template>
                         <template v-slot:top>
                             <v-dialog v-model="dialog" max-width="30vw">
                                 <v-card>
@@ -132,13 +138,33 @@
     </template>
 
     <template v-else="format_table">
-        <v-row dense>
-            <v-col cols="3" v-for="item in laravelData" :key="item.device_bound_neme" class="content-between">
-                <v-card class="mx-auto" outlined>
-                    <v-card-text>{{item.device_bound_neme}}</v-card-text>
-                    <v-card-actions>
-                        <v-btn outlined rounded text>
-                            Button
+        <v-row dense class="ml-7 mr-8">
+            <v-col cols="3" v-for="item in laravelData" :key="item.evice_bound_neme" class="content-between">
+                <v-card class="styled_card" outlined>
+                    <v-card-text>{{item.evice_bound_neme}}
+                        <v-icon v-if="item.type_ad === 'error'" color="#d93030">mdi-bookmark</v-icon>
+                        <v-icon v-if="item.type_ad === 'inWork'" color="#6633ff">mdi-bookmark</v-icon>
+                        <v-icon v-if="item.type_ad === 'complete'" color="#458e3c">mdi-bookmark</v-icon>
+                    </v-card-text>
+                    <v-card-text>
+                        {{item.errors}}
+                    </v-card-text>
+                    <v-card-text>
+                        {{item.date_open}}
+                    </v-card-text>
+                    <v-card-text>
+                        {{item.worker}}
+                    </v-card-text>
+                    <v-card-text>
+                        {{item.data}}
+                    </v-card-text>
+                    <div></div>
+                    <v-card-actions justify="center">
+                        <v-btn elevation="0" class="add_button white--text" color="#6633ff">
+                            Подробнее
+                        </v-btn>
+                        <v-btn elevation="0" v-if="item.type_ad === 'complete'" class="del_button white--text" color="#458e3c">
+                            Скрыть
                         </v-btn>
                     </v-card-actions>
                 </v-card>
@@ -158,19 +184,83 @@ export default {
         dialogDelete: false,
         format_table: true,
         expanded: [],
+        error_filter: "",
         errors: [],
         filters: ['актуальные', 'за неделю', 'за месяц', 'за квартал', 'за год'],
         singleExpand: false,
-        laravelData: [],
+        laravelData: [{
+                evice_bound_neme: "г. Пенза, ул. Ленина, 541-1а",
+                errors: "Низкий заряд аккумулятора",
+                date_open: "12 августав 2020 в 15:58",
+                worker: "",
+                data: "",
+                type_ad: "error"
+            },
+            {
+                evice_bound_neme: "г. Пенза, ул. Стасова, 14",
+                errors: "Нет ответа от камеры",
+                date_open: "12 августав 2020 в 14:05",
+                worker: "",
+                data: "",
+                type_ad: "error"
+            },
+            {
+                evice_bound_neme: "г. Пенза, ул. Павлушкина, 964а",
+                errors: "Камера загрязнена",
+                date_open: "12 августав 2020 в 13:58",
+                worker: "",
+                data: "",
+                type_ad: "error"
+            },
+            {
+                evice_bound_neme: "г. Пенза, ул. Ленина, 541-1а",
+                errors: "Низкий заряд аккумулятора",
+                date_open: "12 августав 2020 в 15:58",
+                worker: "",
+                data: "",
+                type_ad: "error"
+            },
+            {
+                evice_bound_neme: "г. Пенза, ул. Стасова, 14",
+                errors: "Нет ответа от камеры",
+                date_open: "12 августав 2020 в 14:05",
+                worker: "",
+                data: "",
+                type_ad: "error"
+            },
+            {
+                evice_bound_neme: "г. Пенза, ул. Стасова, 15",
+                errors: "Низкий заряд аккумулятора",
+                date_open: "12 августав 2020 в 15:47",
+                worker: "Фамилия И.О.",
+                data: "",
+                type_ad: "inWork"
+            },
+            {
+                evice_bound_neme: "г. Пенза, ул. Название, 1",
+                errors: "Низкий заряд аккумулятора",
+                date_open: "12 августав 2020 в 15:47",
+                worker: "Фамилия И.О.",
+                data: "13 августав 2020 в 09:01",
+                type_ad: "complete"
+            },
+            {
+                evice_bound_neme: "г. Пенза, ул. Название, 1",
+                errors: "Низкий заряд аккумулятора",
+                date_open: "12 августав 2020 в 15:47",
+                worker: "12 августав 2020 в 15:47",
+                data: "13 августав 2020 в 09:01",
+                type_ad: "complete"
+            },
+        ],
         users: [],
-        search: "",
         headers: [{
                 text: "",
                 value: "icon"
             },
             {
                 text: "",
-                value: "device_bound_neme"
+                value: "evice_bound_neme"
             },
             {
                 text: "",
@@ -178,14 +268,22 @@ export default {
             },
             {
                 text: "",
-                value: "group_name"
+                value: "errors",
+            },
+            {
+                text: "",
+                value: "date_open",
+            },
+            {
+                text: "",
+                value: "data",
             },
             {
                 text: "",
                 value: "actions",
-                sortable: false
-            },
+            }
         ],
+        search: "",
         path: [{
                 text: 'Кабинет',
                 disabled: false,
@@ -215,6 +313,35 @@ export default {
         formTitle() {
             return this.editedIndex === -1 ? "New Item" : "Edit Item";
         },
+        // headers() {
+        //     return [{
+        //             text: "",
+        //             value: "icon"
+        //         },
+        //         {
+        //             text: "",
+        //             value: "device_bound_neme"
+        //         },
+        //         {
+        //             text: "",
+        //             value: "region_name"
+        //         },
+        //         {
+        //             text: "",
+        //             value: "group_name",
+        //             filter: value => {
+        //                 if (!this.group_name) return true
+
+        //                 return value === this.group_name
+        //             },
+        //         },
+        //         {
+        //             text: "",
+        //             value: "actions",
+        //             sortable: false
+        //         },
+        //     ]
+        // },
     },
 
     watch: {
@@ -232,18 +359,18 @@ export default {
 
     methods: {
         getData() {
-            axios.get("/api/pages/work_space").then((response) => {
-                this.laravelData = response.data;
-                this.myLoadVariable = false;
-            });
+            // axios.get("/api/pages/work_space").then((response) => {
+            //     this.laravelData = response.data;
+
+            // });
             axios.get("/api/pages/work_space/users_select").then((response) => {
                 this.users = response.data;
-                console.log(this.users);
+
             });
             axios.get("/api/pages/work_space/errors").then((response) => {
                 this.errors = response.data;
-                console.log(this.errors);
             });
+            this.myLoadVariable = false;
         },
 
         editItem(item) {

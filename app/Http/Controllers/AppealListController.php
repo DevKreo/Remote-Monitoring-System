@@ -12,7 +12,7 @@ class AppealListController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(request $request)
     {
         $requests = DB::table('requests')
             ->join('devices', 'devices.id', '=', 'requests.devices_id')
@@ -24,10 +24,15 @@ class AppealListController extends Controller
 
             })
             ->join('device_boundaries', 'devices.device_boundaries_id', '=', 'device_boundaries.id')
+            
             ->select('requests.*', 'operators.name as operator_name', 'dictionaries.name as status_name',
              'responsible_users.name as responsible_user_name', 'devices.serial_number',
              'device_boundaries.device_bound_neme')
-            ->paginate(15);
+            ->get();
+            if ($request->ajax()) 
+               return response()
+               ->json($requests);
+           
         return view('pages/apealsListPage', ['requests' => $requests]);
     }
 

@@ -9,10 +9,34 @@
 }
 
 
+.columBorder{
+  border-right: 2px solid #dfe1ee!important;
+  padding-right: 10px!important;
+}
+.v-select{
+  width: 150px;
+  text-overflow: clip;
+}
+
 .button-add{
   background-color: #6633ff!important;
   border: 4px solid #312278;
 }
+
+.styled_card{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px!important;
+  font-weight: 500;
+  font-style: normal;
+  color: #25262c;
+}
+
+.v-data-table__wrapper tr{
+  border-radius: 10px!important;
+  margin-bottom: 2px!important;
+}
+
+
 
 .divider{
   position: relative;

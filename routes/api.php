@@ -6,6 +6,7 @@ use App\Http\Controllers\WorkspaceController;
 use App\Http\Controllers\SendingReportsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DictionaryController;
+use App\Http\Controllers\AppealListController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +32,5 @@ Route::get('pages/work_space/report/count', [SendingReportsController::class, 'N
 Route::get('pages/work_space/users_select', [UserController::class, 'userGetData']);
 
 Route::get('pages/work_space/errors', [DictionaryController::class, 'errorsGetData']);
+
+Route::get('pages/work_space/request_info', [AppealListController::class, 'index']);
