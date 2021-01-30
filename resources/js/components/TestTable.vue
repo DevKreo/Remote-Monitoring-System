@@ -4,15 +4,14 @@
         <v-card id="tabs" elevation="0" class="ml-8 mr-9">
             <v-row dense>
                 <v-col cols="12" sm="6" md="8">
-                    <v-tabs color="purple">
-                        <v-tabs-slider></v-tabs-slider>
-                        <v-tab id="tabs-text">One </v-tab>
-                        <v-icon small>mdi-dots-horizontal</v-icon>
-                        <v-tab id="tabs-text">Two</v-tab>
-                    </v-tabs>
+                    <v-breadcrumbs :items="path" class="breadcrumbs">
+                        <template v-slot:divider>
+                            <v-icon class="pb-3">mdi-dots-horizontal</v-icon>
+                        </template>
+                    </v-breadcrumbs>
                 </v-col>
                 <v-col cols="6" md="4">
-                    <v-select :items="users" item-text="name" label="Пользователь" dense class="pa-1" color="purple"></v-select>
+                    <v-select :items="users" item-text="name" label="Пользователь" dense class="pa-1" color="#6633ff"></v-select>
                 </v-col>
             </v-row>
         </v-card>
@@ -21,7 +20,7 @@
 
     <template>
         <v-card class="d-flex flex-row justify-end mt-4 ml-8 mr-9" flat tile elevation="0">
-            <h2 class="references">Обращения <v-icon color="purple">mdi-information</v-icon>
+            <h2 class="references">Обращения <v-icon color="#6633ff">mdi-information</v-icon>
             </h2>
             <v-btn text>
                 <caption class="history_button">История обращений</caption>
@@ -41,7 +40,7 @@
                 </v-col>
                 <v-col class="mt-2">
                     <p class="legend">
-                        <v-icon color="purple">mdi-radiobox-marked</v-icon>В работе
+                        <v-icon color="#6633ff">mdi-radiobox-marked</v-icon>В работе
                     </p>
                 </v-col>
                 <v-col class="mt-2">
@@ -50,16 +49,16 @@
                     </p>
                 </v-col>
                 <v-col>
-                    <v-text-field placeholder="Название рубежа" label="все" outlined dense color="purple"></v-text-field>
+                    <v-text-field placeholder="Название рубежа" label="все" outlined dense color="#6633ff"></v-text-field>
                 </v-col>
                 <v-col>
-                    <v-select :items="errors" item-text="name" label="проблема" placeholder="Все" dense color="purple" outlined></v-select>
+                    <v-select :items="errors" item-text="name" label="проблема" placeholder="Все" dense color="#6633ff" outlined></v-select>
                 </v-col>
                 <v-col>
-                    <v-select :items="filters" label="сначала показать" dense color="purple" outlined></v-select>
+                    <v-select :items="filters" label="сначала показать" dense color="#6633ff" outlined></v-select>
                 </v-col>
                 <v-col>
-                    <v-btn-toggle v-model="toggle_none" color="deep-purple accent-4" class="button_togle">
+                    <v-btn-toggle v-model="toggle_none" color="#6633ff" class="button_togle">
                         <v-btn max-height="40px" @click="format_table= true">
                             <v-icon>mdi-menu</v-icon>
                         </v-btn>
@@ -78,7 +77,7 @@
                 <v-col>
                     <v-data-table :headers="headers" :items="laravelData" hide-default-header :loading="myLoadVariable" hide-default-footer disable-pagination loading-text="Loading... Please wait">
                         <template v-slot:top>
-                            <v-dialog v-model="dialog" max-width="500px">
+                            <v-dialog v-model="dialog" max-width="30vw">
                                 <v-card>
                                     <v-card-title>
                                         <span class="headline">{{ formTitle }}</span>
@@ -101,18 +100,18 @@
 
                                     <v-card-actions>
                                         <v-spacer></v-spacer>
-                                        <v-btn color="blue darken-1" text @click="close"> Cancel </v-btn>
-                                        <v-btn color="blue darken-1" text @click="save"> Save </v-btn>
+                                        <v-btn color="blue darken-1" text @click="close"> Отмена </v-btn>
+                                        <v-btn color="blue darken-1" text @click="save"> Сохранить </v-btn>
                                     </v-card-actions>
                                 </v-card>
                             </v-dialog>
-                            <v-dialog v-model="dialogDelete" max-width="500px">
+                            <v-dialog v-model="dialogDelete" max-width="30vw">
                                 <v-card>
-                                    <v-card-title class="headline">Are you sure you want to delete this item?</v-card-title>
+                                    <v-card-title class="headline">Вы действительно хотите удалить запись?</v-card-title>
                                     <v-card-actions>
                                         <v-spacer></v-spacer>
-                                        <v-btn color="blue darken-1" text @click="closeDelete">Cancel</v-btn>
-                                        <v-btn color="blue darken-1" text @click="deleteItemConfirm">OK</v-btn>
+                                        <v-btn color="blue darken-1" text @click="closeDelete">Отмена</v-btn>
+                                        <v-btn color="blue darken-1" text @click="deleteItemConfirm">Сохранить</v-btn>
                                         <v-spacer></v-spacer>
                                     </v-card-actions>
                                 </v-card>
@@ -134,7 +133,7 @@
 
     <template v-else="format_table">
         <v-row dense>
-            <v-col v-for="item in laravelData" :key="item.device_bound_neme">
+            <v-col cols="3" v-for="item in laravelData" :key="item.device_bound_neme" class="content-between">
                 <v-card class="mx-auto" outlined>
                     <v-card-text>{{item.device_bound_neme}}</v-card-text>
                     <v-card-actions>
@@ -186,6 +185,22 @@ export default {
                 value: "actions",
                 sortable: false
             },
+        ],
+        path: [{
+                text: 'Кабинет',
+                disabled: false,
+                href: 'breadcrumbs_dashboard',
+            },
+            {
+                text: 'Панель управления',
+                disabled: false,
+                href: 'breadcrumbs_link_1',
+            },
+            {
+                text: 'Обращения',
+                disabled: true,
+                href: 'breadcrumbs_link_2',
+            }
         ],
         desserts: [],
         editedIndex: -1,
