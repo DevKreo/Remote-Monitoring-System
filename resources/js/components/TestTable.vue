@@ -56,6 +56,9 @@
                     <v-select :items="errors" item-text="name" v-model="error_filter" label="проблема" placeholder="Все" dense color="#6633ff" outlined></v-select>
                 </v-col>
                 <v-col cols="auto">
+                    <v-btn outlined class="dotsbutton"  color="#7d7e83" ><v-icon color="#6633ff">mdi-dots-horizontal</v-icon></v-btn>
+                </v-col>
+                <v-col cols="auto">
                     <v-select :items="filters" label="сначала показать" dense color="#6633ff" outlined></v-select>
                 </v-col>
                 <v-col cols="auto">
@@ -125,11 +128,25 @@
                         </template>
 
                         <template v-slot:item.actions="{ item }">
-                            <v-icon small class="mr-2" @click="editItem(item)">mdi-pencil </v-icon>
-                            <v-icon small @click="deleteItem(item)">mdi-delete </v-icon>
+                            <v-btn class="ma-2" v-if="item.type_ad === 'complete'" text icon x-small>
+                                <v-icon>mdi-checkbox-multiple-blank</v-icon>
+                            </v-btn>
+                            <v-btn class="ma-2" v-if="item.type_ad !== 'complete'" disabled text icon x-small>
+                                <v-icon></v-icon>
+                            </v-btn>
+                            <v-btn elevation="0" class="mr-2 more white--text" @click="editItem(item)" color="#6633ff">Подробнее</v-btn>
+                            <v-btn elevation="0" v-if="item.type_ad === 'error'" disabled>
+                                <v-icon small>mdi-close</v-icon>
+                            </v-btn>
+                            <v-btn elevation="0" v-if="item.type_ad === 'inWork'" disabled>
+                                <v-icon small>mdi-close</v-icon>
+                            </v-btn>
+                            <v-btn elevation="0" v-if="item.type_ad === 'complete'" class="white--text" @click="deleteItem(item)" color="#458e3c">
+                                <v-icon small>mdi-close</v-icon>
+                            </v-btn>
                         </template>
                         <template v-slot:no-data>
-                            <v-btn color="primary" @click="initialize">Reset</v-btn>
+                            <v-btn color="primary" icon @click="initialize"></v-btn>
                         </template>
                     </v-data-table>
                 </v-col>

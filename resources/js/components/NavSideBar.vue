@@ -12,10 +12,10 @@
             <v-list-item-group v-model="selectedItem" dark>
                 <v-list-item @click.stop="mini = !mini">
                     <v-list-item-icon v-if="!mini">
-                        <v-icon color="#6633ff">mdi-arrow-left-drop-circle-outline</v-icon>
+                        <v-icon color="#6633ff">mdi-chevron-left</v-icon>
                     </v-list-item-icon>
                     <v-list-item-icon v-else>
-                        <v-icon color="#6633ff">mdi-arrow-right-drop-circle-outline</v-icon>
+                        <v-icon color="#6633ff">mdi-chevron-left</v-icon>
                     </v-list-item-icon>
                     <v-list-item-content>
                         <v-list-item-title class="white--text roll-up">Свернуть</v-list-item-title>
