@@ -32,7 +32,7 @@
 
     <template>
         <v-card flat tile elevation="0" class="mt-3">
-            <v-row class="ml-5 mr-6">
+            <v-row class="ml-5 mr-6 flex-nowrap">
                 <v-col class="mt-2" cols="auto">
                     <p class="legend">
                         <v-icon color="#d93030">mdi-radiobox-marked</v-icon>Актуальные
@@ -63,7 +63,7 @@
                 </v-col>
                 <v-col cols="auto">
                     <v-btn-toggle v-model="toggle_none" color="#6633ff" class="button_togle">
-                        <v-btn max-height="40px" @click="format_table= true">
+                        <v-btn max-height="40px" @click="format_table= true" >
                             <v-icon>mdi-menu</v-icon>
                         </v-btn>
                         <v-btn max-height="40px" @click="format_table= false">
@@ -93,7 +93,8 @@
                                     </v-card-title>
                                     <v-card-text>
                                         <v-container>
-                                            <v-row>
+                                            <h1>Подробная информация об обращении</h1>
+                                            <!-- <v-row>
                                                 <v-col cols="12" sm="6" md="4">
                                                     <v-text-field v-model="editedItem.device_bound_neme" label="Имя группы"></v-text-field>
                                                 </v-col>
@@ -103,24 +104,23 @@
                                                 <v-col cols="12" sm="6" md="4">
                                                     <v-text-field v-model="editedItem.group_name" label="Имя устройства"></v-text-field>
                                                 </v-col>
-                                            </v-row>
+                                            </v-row> -->
                                         </v-container>
                                     </v-card-text>
 
                                     <v-card-actions>
                                         <v-spacer></v-spacer>
-                                        <v-btn color="blue darken-1" text @click="close"> Отмена </v-btn>
-                                        <v-btn color="blue darken-1" text @click="save"> Сохранить </v-btn>
+                                        <v-btn color="blue darken-1" text @click="close"> Назад </v-btn>
                                     </v-card-actions>
                                 </v-card>
                             </v-dialog>
-                            <v-dialog v-model="dialogDelete" max-width="30vw">
+                            <v-dialog v-model="dialogDelete" max-width="40vw">
                                 <v-card>
                                     <v-card-title class="headline">Вы действительно хотите удалить запись?</v-card-title>
                                     <v-card-actions>
                                         <v-spacer></v-spacer>
                                         <v-btn color="blue darken-1" text @click="closeDelete">Отмена</v-btn>
-                                        <v-btn color="blue darken-1" text @click="deleteItemConfirm">Сохранить</v-btn>
+                                        <v-btn color="blue darken-1" text @click="deleteItemConfirm">Да</v-btn>
                                         <v-spacer></v-spacer>
                                     </v-card-actions>
                                 </v-card>
@@ -128,22 +128,24 @@
                         </template>
 
                         <template v-slot:item.actions="{ item }">
-                            <v-btn class="ma-2" v-if="item.type_ad === 'complete'" text icon x-small>
-                                <v-icon>mdi-checkbox-multiple-blank</v-icon>
-                            </v-btn>
-                            <v-btn class="ma-2" v-if="item.type_ad !== 'complete'" disabled text icon x-small>
-                                <v-icon></v-icon>
-                            </v-btn>
-                            <v-btn elevation="0" class="mr-2 more white--text" @click="editItem(item)" color="#6633ff">Подробнее</v-btn>
-                            <v-btn elevation="0" v-if="item.type_ad === 'error'" disabled>
-                                <v-icon small>mdi-close</v-icon>
-                            </v-btn>
-                            <v-btn elevation="0" v-if="item.type_ad === 'inWork'" disabled>
-                                <v-icon small>mdi-close</v-icon>
-                            </v-btn>
-                            <v-btn elevation="0" v-if="item.type_ad === 'complete'" class="white--text" @click="deleteItem(item)" color="#458e3c">
-                                <v-icon small>mdi-close</v-icon>
-                            </v-btn>
+                            <div style="display: flex">
+                                <v-btn class="ma-2" v-if="item.type_ad === 'complete'" text icon x-small>
+                                    <v-icon>mdi-checkbox-multiple-blank</v-icon>
+                                </v-btn>
+                                <v-btn class="ma-2" v-if="item.type_ad !== 'complete'" disabled text icon x-small>
+                                    <v-icon></v-icon>
+                                </v-btn>
+                                <v-btn elevation="0" class="mr-2 more white--text" @click="editItem(item)" color="#6633ff">Подробнее</v-btn>
+                                <v-btn elevation="0" v-if="item.type_ad === 'error'" disabled>
+                                    <v-icon small>mdi-close</v-icon>
+                                </v-btn>
+                                <v-btn elevation="0" v-if="item.type_ad === 'inWork'" disabled>
+                                    <v-icon small>mdi-close</v-icon>
+                                </v-btn>
+                                <v-btn elevation="0" v-if="item.type_ad === 'complete'" class="white--text" @click="deleteItem(item)" color="#458e3c">
+                                    <v-icon small>mdi-close</v-icon>
+                                </v-btn>
+                            </div>
                         </template>
                         <template v-slot:no-data>
                             <v-btn color="primary" icon @click="initialize"></v-btn>
@@ -196,7 +198,7 @@
 export default {
     data: () => ({
         myLoadVariable: true,
-        toggle_none: null,
+        toggle_none: 0,
         dialog: false,
         dialogDelete: false,
         format_table: true,
@@ -208,7 +210,7 @@ export default {
         laravelData: [{
                 evice_bound_neme: "г. Пенза, ул. Ленина, 541-1а",
                 errors: "Низкий заряд аккумулятора",
-                date_open: "12 августав 2020 в 15:58",
+                date_open: "12 августа 2020 в 15:58",
                 worker: "",
                 data: "",
                 type_ad: "error"
@@ -216,7 +218,7 @@ export default {
             {
                 evice_bound_neme: "г. Пенза, ул. Стасова, 14",
                 errors: "Нет ответа от камеры",
-                date_open: "12 августав 2020 в 14:05",
+                date_open: "12 августа 2020 в 14:05",
                 worker: "",
                 data: "",
                 type_ad: "error"
@@ -224,7 +226,7 @@ export default {
             {
                 evice_bound_neme: "г. Пенза, ул. Павлушкина, 964а",
                 errors: "Камера загрязнена",
-                date_open: "12 августав 2020 в 13:58",
+                date_open: "12 августа 2020 в 13:58",
                 worker: "",
                 data: "",
                 type_ad: "error"
@@ -232,7 +234,7 @@ export default {
             {
                 evice_bound_neme: "г. Пенза, ул. Ленина, 541-1а",
                 errors: "Низкий заряд аккумулятора",
-                date_open: "12 августав 2020 в 15:58",
+                date_open: "12 августа 2020 в 15:58",
                 worker: "",
                 data: "",
                 type_ad: "error"
@@ -240,7 +242,7 @@ export default {
             {
                 evice_bound_neme: "г. Пенза, ул. Стасова, 14",
                 errors: "Нет ответа от камеры",
-                date_open: "12 августав 2020 в 14:05",
+                date_open: "12 августа 2020 в 14:05",
                 worker: "",
                 data: "",
                 type_ad: "error"
@@ -248,7 +250,7 @@ export default {
             {
                 evice_bound_neme: "г. Пенза, ул. Стасова, 15",
                 errors: "Низкий заряд аккумулятора",
-                date_open: "12 августав 2020 в 15:47",
+                date_open: "12 августа 2020 в 15:47",
                 worker: "Фамилия И.О.",
                 data: "",
                 type_ad: "inWork"
@@ -256,17 +258,17 @@ export default {
             {
                 evice_bound_neme: "г. Пенза, ул. Название, 1",
                 errors: "Низкий заряд аккумулятора",
-                date_open: "12 августав 2020 в 15:47",
+                date_open: "12 августа 2020 в 15:47",
                 worker: "Фамилия И.О.",
-                data: "13 августав 2020 в 09:01",
+                data: "13 августа 2020 в 09:01",
                 type_ad: "complete"
             },
             {
                 evice_bound_neme: "г. Пенза, ул. Название, 1",
                 errors: "Низкий заряд аккумулятора",
-                date_open: "12 августав 2020 в 15:47",
-                worker: "12 августав 2020 в 15:47",
-                data: "13 августав 2020 в 09:01",
+                date_open: "12 августа 2020 в 15:47",
+                worker: "Фамилия И.О.",
+                data: "13 августа 2020 в 09:01",
                 type_ad: "complete"
             },
         ],
@@ -290,6 +292,10 @@ export default {
             {
                 text: "",
                 value: "date_open",
+            },
+            {
+                text: "",
+                value: "worker",
             },
             {
                 text: "",
@@ -328,7 +334,7 @@ export default {
 
     computed: {
         formTitle() {
-            return this.editedIndex === -1 ? "New Item" : "Edit Item";
+            return this.editedIndex === -1 ? "New Item" : "Подробная информация";
         },
         // headers() {
         //     return [{
