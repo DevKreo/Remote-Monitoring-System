@@ -7,6 +7,9 @@
   font-style: bold;
   color: #6633ff;
 }
+.userSelect{
+  width: 280px!important;
+}
 
 .dotsbutton{
   margin-top: 2px!important;
@@ -103,10 +106,37 @@
   max-width: 97.3%;
 }
 
+.border-copy-button{
+  background-color: #ffffff!important;
+  border: 1px solid #dfe1ee;
+  width: 29px!important; 
+  min-width: 29px!important;
+}
+
+.errors-collum{
+  font-family: 'Montserrat',  sans-serif;
+  font-size: 11px!important;
+  font-weight: 700;
+  font-style: bold;
+  padding: 10px!important;
+  width: 240px;
+}
+
+.errors-collum .v-icon{
+  width: 11px!important;
+  height: 17px!important;
+  margin-right: 10px;
+}
+.disable-button{
+  width: 29px!important;
+  height: 29px!important;
+}
+
 .history_button{
   font-family: 'Montserrat',  sans-serif;
   font-size: 12px!important;
   font-weight: 400;
+  color: #25262c!important;
   font-style: normal;
   text-decoration: underline;
   text-decoration-color: #6633ff;
@@ -183,7 +213,7 @@
 }
 
 #color-list{
-  color: #cacaca!important;
+  color: #8289bc!important;
 }
 .v-list-item--active #color-list{
   color: #ffffff!important;

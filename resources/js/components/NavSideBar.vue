@@ -25,7 +25,7 @@
                     <div class="divider div-transparent"></div>
                     <v-list-item>
                         <v-list-item-icon>
-                            <v-icon v-text="item.icon" color="#6b6b6b"></v-icon>
+                            <v-icon v-text="item.icon" color="#333a6d"></v-icon>
                         </v-list-item-icon>
                         <v-list-item-content>
                             <div v-if="item.counter" id="color-list">

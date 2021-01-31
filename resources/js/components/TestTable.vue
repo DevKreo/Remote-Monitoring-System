@@ -12,7 +12,7 @@
                 </v-col>
                 <v-spacer></v-spacer>
                 <v-col cols="auto">
-                    <v-select :items="users" item-text="name" label="Пользователь" dense class="pa-1" color="#6633ff"></v-select>
+                    <v-select :items="users" item-text="name" label="Пользователь" dense class="pa-1 userSelect" color="#6633ff"></v-select>
                 </v-col>
             </v-row>
         </v-card>
@@ -56,14 +56,16 @@
                     <v-select :items="errors" item-text="name" v-model="error_filter" label="проблема" placeholder="Все" dense color="#6633ff" outlined></v-select>
                 </v-col>
                 <v-col cols="auto">
-                    <v-btn outlined class="dotsbutton"  color="#7d7e83" ><v-icon color="#6633ff">mdi-dots-horizontal</v-icon></v-btn>
+                    <v-btn outlined class="dotsbutton" color="#7d7e83">
+                        <v-icon color="#6633ff">mdi-dots-horizontal</v-icon>
+                    </v-btn>
                 </v-col>
                 <v-col cols="auto">
                     <v-select :items="filters" label="сначала показать" dense color="#6633ff" outlined></v-select>
                 </v-col>
                 <v-col cols="auto">
                     <v-btn-toggle v-model="toggle_none" color="#6633ff" class="button_togle">
-                        <v-btn max-height="40px" @click="format_table= true" >
+                        <v-btn max-height="40px" @click="format_table= true">
                             <v-icon>mdi-menu</v-icon>
                         </v-btn>
                         <v-btn max-height="40px" @click="format_table= false">
@@ -84,6 +86,11 @@
                             <v-icon v-if="item.type_ad === 'error'" color="#d93030" class="columBorder">mdi-bookmark</v-icon>
                             <v-icon v-if="item.type_ad === 'inWork'" color="#6633ff" class="columBorder">mdi-bookmark</v-icon>
                             <v-icon v-if="item.type_ad === 'complete'" color="#458e3c" class="columBorder">mdi-bookmark</v-icon>
+                        </template>
+                        <template v-slot:item.errors="{ item }">
+                            <div class="d-flex justify-center errors-collum">
+                                <v-icon :color="item.color">{{item.icon}}</v-icon>{{item.errors}}
+                            </div>
                         </template>
                         <template v-slot:top>
                             <v-dialog v-model="dialog" max-width="30vw">
@@ -129,27 +136,21 @@
 
                         <template v-slot:item.actions="{ item }">
                             <div style="display: flex">
-                                <v-btn class="ma-2" v-if="item.type_ad === 'complete'" text icon x-small>
-                                    <v-icon>mdi-checkbox-multiple-blank</v-icon>
+                                <v-btn class="mr-6 mt-1 border-copy-button" v-if="item.type_ad === 'complete'" elevation="0" small>
+                                    <v-icon small>mdi-checkbox-multiple-blank</v-icon>
                                 </v-btn>
-                                <v-btn class="ma-2" v-if="item.type_ad !== 'complete'" disabled text icon x-small>
+                                <v-btn class="mr-6 mt-1 disable-button" elevation="0" v-if="item.type_ad !== 'complete'" disabled text icon small>
                                     <v-icon></v-icon>
                                 </v-btn>
                                 <v-btn elevation="0" class="mr-2 more white--text" @click="editItem(item)" color="#6633ff">Подробнее</v-btn>
-                                <v-btn elevation="0" v-if="item.type_ad === 'error'" 
-                                style="width: 36px; min-width: 36px;" 
-                                disabled>
+                                <v-btn elevation="0" v-if="item.type_ad === 'error'" style="width: 36px; min-width: 36px;" disabled>
                                     <v-icon small>mdi-close</v-icon>
                                 </v-btn>
-                                <v-btn elevation="0" v-if="item.type_ad === 'inWork'"
-                                 style="width: 36px; min-width: 36px;" 
-                                 disabled>
+                                <v-btn elevation="0" v-if="item.type_ad === 'inWork'" style="width: 36px; min-width: 36px;" disabled>
 
                                     <v-icon small>mdi-close</v-icon>
                                 </v-btn>
-                                <v-btn elevation="0" v-if="item.type_ad === 'complete'" class="white--text" 
-                                style="width: 36px; min-width: 36px;" 
-                                @click="deleteItem(item)" color="#458e3c">
+                                <v-btn elevation="0" v-if="item.type_ad === 'complete'" class="white--text" style="width: 36px; min-width: 36px;" @click="deleteItem(item)" color="#458e3c">
                                     <v-icon small>mdi-close</v-icon>
                                 </v-btn>
                             </div>
@@ -220,7 +221,9 @@ export default {
                 date_open: "12 августа 2020 в 15:58",
                 worker: "",
                 data: "",
-                type_ad: "error"
+                type_ad: "error",
+                icon: "mdi-battery-10",
+                color: "#d93030",
             },
             {
                 evice_bound_neme: "г. Пенза, ул. Стасова, 14",
@@ -228,7 +231,9 @@ export default {
                 date_open: "12 августа 2020 в 14:05",
                 worker: "",
                 data: "",
-                type_ad: "error"
+                type_ad: "error",
+                icon: "mdi-block-helper",
+                color: "#d93030",
             },
             {
                 evice_bound_neme: "г. Пенза, ул. Павлушкина, 964а",
@@ -236,7 +241,9 @@ export default {
                 date_open: "12 августа 2020 в 13:58",
                 worker: "",
                 data: "",
-                type_ad: "error"
+                type_ad: "error",
+                icon: "mdi-broom",
+                color: "#d93030",
             },
             {
                 evice_bound_neme: "г. Пенза, ул. Ленина, 541-1а",
@@ -244,7 +251,9 @@ export default {
                 date_open: "12 августа 2020 в 15:58",
                 worker: "",
                 data: "",
-                type_ad: "error"
+                type_ad: "error",
+                icon: "mdi-battery-10",
+                color: "#d93030",
             },
             {
                 evice_bound_neme: "г. Пенза, ул. Стасова, 14",
@@ -252,7 +261,9 @@ export default {
                 date_open: "12 августа 2020 в 14:05",
                 worker: "",
                 data: "",
-                type_ad: "error"
+                type_ad: "error",
+                icon: "mdi-block-helper",
+                color: "#d93030",
             },
             {
                 evice_bound_neme: "г. Пенза, ул. Стасова, 15",
@@ -260,7 +271,9 @@ export default {
                 date_open: "12 августа 2020 в 15:47",
                 worker: "Фамилия И.О.",
                 data: "",
-                type_ad: "inWork"
+                type_ad: "inWork",
+                icon: "mdi-battery-10",
+                color: "#6633ff",
             },
             {
                 evice_bound_neme: "г. Пенза, ул. Название, 1",
@@ -268,7 +281,9 @@ export default {
                 date_open: "12 августа 2020 в 15:47",
                 worker: "Фамилия И.О.",
                 data: "13 августа 2020 в 09:01",
-                type_ad: "complete"
+                type_ad: "complete",
+                icon: "mdi-battery-10",
+                color: "#458e3c",
             },
             {
                 evice_bound_neme: "г. Пенза, ул. Название, 1",
@@ -276,7 +291,9 @@ export default {
                 date_open: "12 августа 2020 в 15:47",
                 worker: "Фамилия И.О.",
                 data: "13 августа 2020 в 09:01",
-                type_ad: "complete"
+                type_ad: "complete",
+                icon: "mdi-battery-10",
+                color: "#458e3c",
             },
         ],
         users: [],
