@@ -136,13 +136,20 @@
                                     <v-icon></v-icon>
                                 </v-btn>
                                 <v-btn elevation="0" class="mr-2 more white--text" @click="editItem(item)" color="#6633ff">Подробнее</v-btn>
-                                <v-btn elevation="0" v-if="item.type_ad === 'error'" disabled>
+                                <v-btn elevation="0" v-if="item.type_ad === 'error'" 
+                                style="width: 36px; min-width: 36px;" 
+                                disabled>
                                     <v-icon small>mdi-close</v-icon>
                                 </v-btn>
-                                <v-btn elevation="0" v-if="item.type_ad === 'inWork'" disabled>
+                                <v-btn elevation="0" v-if="item.type_ad === 'inWork'"
+                                 style="width: 36px; min-width: 36px;" 
+                                 disabled>
+
                                     <v-icon small>mdi-close</v-icon>
                                 </v-btn>
-                                <v-btn elevation="0" v-if="item.type_ad === 'complete'" class="white--text" @click="deleteItem(item)" color="#458e3c">
+                                <v-btn elevation="0" v-if="item.type_ad === 'complete'" class="white--text" 
+                                style="width: 36px; min-width: 36px;" 
+                                @click="deleteItem(item)" color="#458e3c">
                                     <v-icon small>mdi-close</v-icon>
                                 </v-btn>
                             </div>
