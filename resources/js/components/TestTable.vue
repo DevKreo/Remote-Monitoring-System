@@ -88,9 +88,27 @@
                             <v-icon v-if="item.type_ad === 'complete'" color="#458e3c" class="columBorder">mdi-bookmark</v-icon>
                         </template>
                         <template v-slot:item.errors="{ item }">
-                            <div class="d-flex justify-center errors-collum">
+                            <div v-if="item.type_ad === 'error'" class="d-flex justify-center errors-collum">
                                 <v-icon :color="item.color">{{item.icon}}</v-icon>{{item.errors}}
                             </div>
+                            <div v-if="item.type_ad === 'inWork'" class="d-flex justify-center inwork-collum">
+                                <v-icon :color="item.color">{{item.icon}}</v-icon>{{item.errors}}
+                            </div>
+                            <div v-if="item.type_ad === 'complete'" class="d-flex justify-center complete-collum">
+                                <v-icon :color="item.color">{{item.icon}}</v-icon>{{item.errors}}
+                            </div>
+                        </template>
+                        <template v-slot:item.dateOpen="{ item }">
+                            <div class="d-flex  datatable-subheader">создание обращения</div>
+                            <div class="d-flex">{{item.dateOpen}}</div>
+                        </template>
+                        <template v-slot:item.worker="{ item }">
+                            <div v-if="item.worker != ''" class="d-flex  datatable-subheader">ответственный</div>
+                            <div class="d-flex">{{item.worker}}</div>
+                        </template>
+                        <template v-slot:item.data="{ item }">
+                            <div v-if="item.data != ''" class="d-flex  datatable-subheader">окончание работ</div>
+                            <div class="d-flex">{{item.data}}</div>
                         </template>
                         <template v-slot:top>
                             <v-dialog v-model="dialog" max-width="30vw">
@@ -177,7 +195,7 @@
                         {{item.errors}}
                     </v-card-text>
                     <v-card-text>
-                        {{item.date_open}}
+                        {{item.dateOpen}}
                     </v-card-text>
                     <v-card-text>
                         {{item.worker}}
@@ -218,7 +236,7 @@ export default {
         laravelData: [{
                 evice_bound_neme: "г. Пенза, ул. Ленина, 541-1а",
                 errors: "Низкий заряд аккумулятора",
-                date_open: "12 августа 2020 в 15:58",
+                dateOpen: "12 августа 2020 в 15:58",
                 worker: "",
                 data: "",
                 type_ad: "error",
@@ -228,7 +246,7 @@ export default {
             {
                 evice_bound_neme: "г. Пенза, ул. Стасова, 14",
                 errors: "Нет ответа от камеры",
-                date_open: "12 августа 2020 в 14:05",
+                dateOpen: "12 августа 2020 в 14:05",
                 worker: "",
                 data: "",
                 type_ad: "error",
@@ -238,7 +256,7 @@ export default {
             {
                 evice_bound_neme: "г. Пенза, ул. Павлушкина, 964а",
                 errors: "Камера загрязнена",
-                date_open: "12 августа 2020 в 13:58",
+                dateOpen: "12 августа 2020 в 13:58",
                 worker: "",
                 data: "",
                 type_ad: "error",
@@ -248,7 +266,7 @@ export default {
             {
                 evice_bound_neme: "г. Пенза, ул. Ленина, 541-1а",
                 errors: "Низкий заряд аккумулятора",
-                date_open: "12 августа 2020 в 15:58",
+                dateOpen: "12 августа 2020 в 15:58",
                 worker: "",
                 data: "",
                 type_ad: "error",
@@ -258,7 +276,7 @@ export default {
             {
                 evice_bound_neme: "г. Пенза, ул. Стасова, 14",
                 errors: "Нет ответа от камеры",
-                date_open: "12 августа 2020 в 14:05",
+                dateOpen: "12 августа 2020 в 14:05",
                 worker: "",
                 data: "",
                 type_ad: "error",
@@ -268,7 +286,7 @@ export default {
             {
                 evice_bound_neme: "г. Пенза, ул. Стасова, 15",
                 errors: "Низкий заряд аккумулятора",
-                date_open: "12 августа 2020 в 15:47",
+                dateOpen: "12 августа 2020 в 15:47",
                 worker: "Фамилия И.О.",
                 data: "",
                 type_ad: "inWork",
@@ -278,7 +296,7 @@ export default {
             {
                 evice_bound_neme: "г. Пенза, ул. Название, 1",
                 errors: "Низкий заряд аккумулятора",
-                date_open: "12 августа 2020 в 15:47",
+                dateOpen: "12 августа 2020 в 15:47",
                 worker: "Фамилия И.О.",
                 data: "13 августа 2020 в 09:01",
                 type_ad: "complete",
@@ -288,7 +306,7 @@ export default {
             {
                 evice_bound_neme: "г. Пенза, ул. Название, 1",
                 errors: "Низкий заряд аккумулятора",
-                date_open: "12 августа 2020 в 15:47",
+                dateOpen: "12 августа 2020 в 15:47",
                 worker: "Фамилия И.О.",
                 data: "13 августа 2020 в 09:01",
                 type_ad: "complete",
@@ -315,7 +333,7 @@ export default {
             },
             {
                 text: "",
-                value: "date_open",
+                value: "dateOpen",
             },
             {
                 text: "",

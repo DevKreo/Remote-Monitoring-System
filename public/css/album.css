@@ -118,8 +118,47 @@
   font-size: 11px!important;
   font-weight: 700;
   font-style: bold;
+  border: 1px solid #d93030;
   padding: 10px!important;
   width: 240px;
+}
+
+.inwork-collum{
+  font-family: 'Montserrat',  sans-serif;
+  font-size: 11px!important;
+  font-weight: 700;
+  font-style: bold;
+  border: 1px solid #6633ff;
+  padding: 10px!important;
+  width: 240px;
+}
+.complete-collum{
+  font-family: 'Montserrat',  sans-serif;
+  font-size: 11px!important;
+  font-weight: 700;
+  font-style: bold;
+  border: 1px solid #458e3c;
+  padding: 10px!important;
+  width: 240px;
+}
+
+.datatable-subheader{
+  font-family: 'Montserrat',  sans-serif;
+  font-size: 10px!important;
+  font-weight: 400;
+  font-style: normal;
+  color: #9d9ea5;
+}
+
+.inwork-collum .v-icon{
+  width: 11px!important;
+  height: 17px!important;
+  margin-right: 10px;
+}
+.complete-collum .v-icon{
+  width: 11px!important;
+  height: 17px!important;
+  margin-right: 10px;
 }
 
 .errors-collum .v-icon{
