@@ -23,7 +23,9 @@
   text-overflow: clip;
 }
 
-
+.footer{
+  height: 50vh!important;
+}
 
 .button-add{
   background-color: #6633ff!important;

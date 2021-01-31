@@ -1,6 +1,6 @@
 <template>
 <v-app id="inspire">
-    <v-navigation-drawer v-model="drawer" :mini-variant.sync="mini" width="330"  app class="rounded-card"  color="#050c42">
+    <v-navigation-drawer v-model="drawer" :mini-variant.sync="mini" width="330" app class="rounded-card" color="#050c42">
         <v-list-item two-line class="mb-4">
             <v-list-item-content>
                 <v-list-item-title class="ml-6" id="SDM">SDM</v-list-item-title>
@@ -46,18 +46,19 @@
                 </div>
             </v-list-item-group>
         </v-list>
-        <v-list dense v-if="!mini" id="styled-list-group">
-            <v-list-item>
-                <v-list-item-group>
-                    <v-list-item v-for="(item, i) in pagesDOWN" :key="i" mandatory>
-                        <v-list-item-content>
-                            <v-list-item-subtitle v-text="item.text" class="text-decoration-underline" id="color-list"></v-list-item-subtitle>
-                        </v-list-item-content>
-                    </v-list-item>
-                </v-list-item-group>
-            </v-list-item>
-        </v-list>
-
+        <div class="footer d-flex align-end">
+            <v-list dense v-if="!mini" id="styled-list-group">
+                <v-list-item>
+                    <v-list-item-group>
+                        <v-list-item v-for="(item, i) in pagesDOWN" :key="i" mandatory>
+                            <v-list-item-content>
+                                <v-list-item-subtitle v-text="item.text" class="text-decoration-underline" id="color-list"></v-list-item-subtitle>
+                            </v-list-item-content>
+                        </v-list-item>
+                    </v-list-item-group>
+                </v-list-item>
+            </v-list>
+        </div>
     </v-navigation-drawer>
 
     <v-main style="pading: 0px 0px 0px 330px">
