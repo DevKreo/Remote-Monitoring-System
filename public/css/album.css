@@ -32,6 +32,9 @@
   border: 4px solid #312278;
 }
 
+
+
+
 .styled_card{
   font-family: 'Montserrat', sans-serif;
   font-size: 14px!important;
@@ -101,6 +104,13 @@
   font-style: normal;
 }
 
+.table-text{
+  font-family: 'Montserrat',  sans-serif;
+  font-size: 12px!important;
+  font-weight: 500!important;
+  font-style: normal;
+}
+
 #table{
   font-family: 'Montserrat',  sans-serif;
   font-weight: 400;
@@ -114,6 +124,7 @@
   width: 29px!important; 
   min-width: 29px!important;
 }
+
 
 .errors-collum{
   font-family: 'Montserrat',  sans-serif;

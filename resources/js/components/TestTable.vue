@@ -100,20 +100,20 @@
                         </template>
                         <template v-slot:item.dateOpen="{ item }">
                             <div class="d-flex  datatable-subheader">создание обращения</div>
-                            <div class="d-flex">{{item.dateOpen}}</div>
+     <!--ПЕРЕНОС ТЕКСТА-->  <div class="d-flex table-text">{{item.dateOpen}}</div>
                         </template>
                         <template v-slot:item.worker="{ item }">
                             <div v-if="item.worker != ''" class="d-flex  datatable-subheader">ответственный</div>
-                            <div class="d-flex">{{item.worker}}</div>
+       <!--ПЕРЕНОС ТЕКСТА--><div class="d-flex table-text">{{item.worker}}</div>
                         </template>
                         <template v-slot:item.data="{ item }">
                             <div v-if="item.data != ''" class="d-flex  datatable-subheader">окончание работ</div>
-                            <div class="d-flex">{{item.data}}</div>
+    <!--ПЕРЕНОС ТЕКСТА-->   <div class="d-flex table-text">{{item.data}}</div>
                         </template>
                         <template v-slot:top>
                             <v-dialog v-model="dialog" max-width="30vw">
                                 <v-card>
-                                    <v-card-title>
+                                    <v-card-title class="justify-center">
                                         <span class="headline">{{ formTitle }}</span>
                                     </v-card-title>
                                     <v-card-text>
@@ -141,7 +141,7 @@
                             </v-dialog>
                             <v-dialog v-model="dialogDelete" max-width="40vw">
                                 <v-card>
-                                    <v-card-title class="headline">Вы действительно хотите удалить запись?</v-card-title>
+                                    <v-card-title class="headline justify-center ">Вы действительно хотите удалить запись?</v-card-title>
                                     <v-card-actions>
                                         <v-spacer></v-spacer>
                                         <v-btn color="blue darken-1" text @click="closeDelete">Отмена</v-btn>
@@ -181,27 +181,39 @@
             </v-row>
         </v-container>
     </template>
-
+<!--КАРТОЧКИ ТУТ -->
     <template v-else="format_table">
         <v-row dense class="ml-7 mr-8">
             <v-col cols="3" v-for="item in laravelData" :key="item.evice_bound_neme" class="content-between">
                 <v-card class="styled_card" outlined>
-                    <v-card-text>{{item.evice_bound_neme}}
+                    <v-card-text class="d-flex">
+                        {{item.evice_bound_neme}}
                         <v-icon v-if="item.type_ad === 'error'" color="#d93030">mdi-bookmark</v-icon>
                         <v-icon v-if="item.type_ad === 'inWork'" color="#6633ff">mdi-bookmark</v-icon>
                         <v-icon v-if="item.type_ad === 'complete'" color="#458e3c">mdi-bookmark</v-icon>
                     </v-card-text>
                     <v-card-text>
-                        {{item.errors}}
+                        <div v-if="item.type_ad === 'error'" class="d-flex justify-center errors-collum">
+                            <v-icon :color="item.color">{{item.icon}}</v-icon>{{item.errors}}
+                        </div>
+                        <div v-if="item.type_ad === 'inWork'" class="d-flex justify-center inwork-collum">
+                            <v-icon :color="item.color">{{item.icon}}</v-icon>{{item.errors}}
+                        </div>
+                        <div v-if="item.type_ad === 'complete'" class="d-flex justify-center complete-collum">
+                            <v-icon :color="item.color">{{item.icon}}</v-icon>{{item.errors}}
+                        </div>
                     </v-card-text>
                     <v-card-text>
-                        {{item.dateOpen}}
+                        <div class="d-flex  datatable-subheader">создание обращения</div>
+                        <div class="d-flex table-text">{{item.dateOpen}}</div>
                     </v-card-text>
                     <v-card-text>
-                        {{item.worker}}
+                        <div v-if="item.worker != ''" class="d-flex  datatable-subheader">ответственный</div>
+                        <div class="d-flex table-text">{{item.worker}}</div>
                     </v-card-text>
                     <v-card-text>
-                        {{item.data}}
+                        <div v-if="item.data != ''" class="d-flex  datatable-subheader">окончание работ</div>
+                        <div class="d-flex table-text">{{item.data}}</div>
                     </v-card-text>
                     <div></div>
                     <v-card-actions justify="center">

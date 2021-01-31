@@ -46,19 +46,17 @@
                 </div>
             </v-list-item-group>
         </v-list>
-        <div class="footer d-flex">
-            <v-list dense v-if="!mini" id="styled-list-group">
-                <v-list-item>
-                    <v-list-item-group>
-                        <v-list-item v-for="(item, i) in pagesDOWN" :key="i" mandatory>
-                            <v-list-item-content>
-                                <v-list-item-subtitle v-text="item.text" class="text-decoration-underline" id="color-list"></v-list-item-subtitle>
-                            </v-list-item-content>
-                        </v-list-item>
-                    </v-list-item-group>
-                </v-list-item>
-            </v-list>
-        </div>
+        <v-list dense v-if="!mini" id="styled-list-group">
+            <v-list-item>
+                <v-list-item-group>
+                    <v-list-item v-for="(item, i) in pagesDOWN" :key="i" mandatory>
+                        <v-list-item-content>
+                            <v-list-item-subtitle v-text="item.text" class="text-decoration-underline" id="color-list"></v-list-item-subtitle>
+                        </v-list-item-content>
+                    </v-list-item>
+                </v-list-item-group>
+            </v-list-item>
+        </v-list>
     </v-navigation-drawer>
 
     <v-main style="pading: 0px 0px 0px 330px">
