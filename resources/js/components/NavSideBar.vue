@@ -46,7 +46,7 @@
                 </div>
             </v-list-item-group>
         </v-list>
-        <div class="footer d-flex align-end">
+        <div class="footer d-flex">
             <v-list dense v-if="!mini" id="styled-list-group">
                 <v-list-item>
                     <v-list-item-group>
