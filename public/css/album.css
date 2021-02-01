@@ -41,7 +41,9 @@
   font-weight: 500;
   font-style: normal;
   color: #25262c;
+  height: 270px;
 }
+
 
 .v-data-table__wrapper tr{
   border-radius: 10px!important;

@@ -164,15 +164,14 @@
                                 <v-btn class="mr-6 mt-1 disable-button" elevation="0" v-if="item.type_ad !== 'complete'" disabled text icon small>
                                     <v-icon></v-icon>
                                 </v-btn>
-                                <v-btn elevation="0" class="mr-2 more white--text" @click="editItem(item)" color="#6633ff"><v-icon>mdi-chevron-right</v-icon></v-btn>
-                                <v-btn elevation="0" v-if="item.type_ad === 'error'" style="width: 36px; min-width: 36px;" disabled>
-                                    <v-icon small>mdi-close</v-icon>
-                                </v-btn>
-                                <v-btn elevation="0" v-if="item.type_ad === 'inWork'" style="width: 36px; min-width: 36px;" disabled>
-
-                                    <v-icon small>mdi-close</v-icon>
+                                <v-btn elevation="0" class="mr-2 more white--text" @click="editItem(item)" color="#6633ff">
+                                    <v-icon>mdi-chevron-right</v-icon>
                                 </v-btn>
                                 <v-btn elevation="0" v-if="item.type_ad === 'complete'" class="white--text" style="width: 36px; min-width: 36px;" @click="deleteItem(item)" color="#458e3c">
+                                    <v-icon small>mdi-close</v-icon>
+                                </v-btn>
+                                <v-btn elevation="0" v-else style="width: 36px; min-width: 36px;" disabled>
+
                                     <v-icon small>mdi-close</v-icon>
                                 </v-btn>
                             </div>
@@ -188,46 +187,61 @@
     <!--КАРТОЧКИ ТУТ -->
     <template v-else="format_table">
         <v-row dense class="ml-7 mr-8">
-            <v-col cols="3" v-for="item in laravelData" :key="item.evice_bound_neme" class="content-between">
+            <v-col cols="3" v-for="item in laravelData" :key="item.key" class="content-between">
                 <v-card class="styled_card" outlined>
                     <v-card-text class="d-flex">
                         {{item.evice_bound_neme}}
-                        <v-icon v-if="item.type_ad === 'error'" color="#d93030">mdi-bookmark</v-icon>
+                        <v-icon v-if="item.type_ad === 'error'" style="margin-left: auto" color="#d93030">mdi-bookmark</v-icon>
                         <v-icon v-if="item.type_ad === 'inWork'" color="#6633ff">mdi-bookmark</v-icon>
                         <v-icon v-if="item.type_ad === 'complete'" color="#458e3c">mdi-bookmark</v-icon>
                     </v-card-text>
-                    <v-card-text>
-                        <div v-if="item.type_ad === 'error'" class="d-flex justify-center errors-collum">
-                            <v-icon :color="item.color">{{item.icon}}</v-icon>{{item.errors}}
-                        </div>
-                        <div v-if="item.type_ad === 'inWork'" class="d-flex justify-center inwork-collum">
-                            <v-icon :color="item.color">{{item.icon}}</v-icon>{{item.errors}}
-                        </div>
-                        <div v-if="item.type_ad === 'complete'" class="d-flex justify-center complete-collum">
-                            <v-icon :color="item.color">{{item.icon}}</v-icon>{{item.errors}}
+                    <v-card-text v-card-text class="d-flex justify-center">
+                        <div class="d-flex justify-center errors-collum" style="width: 360px!important; ">
+                            <v-icon color="#d93030">{{item.icon}}</v-icon>{{item.errors}}
                         </div>
                     </v-card-text>
                     <v-card-text>
-                        <div class="d-flex  datatable-subheader">создание обращения</div>
-                        <div class="d-flex table-text">{{item.dateOpen}}</div>
+                        <div v-if="item.type_ad === 'error'">
+                            <div class="d-flex  datatable-subheader">дата и время обращения</div>
+                            <!--ПЕРЕНОС ТЕКСТА-->
+                            <div class="d-flex table-text">{{item.dateOpen}}</div>
+                        </div>
+                        <div v-if="item.type_ad === 'inWork'">
+                            <div class="d-flex  datatable-subheader">дата и время начала работ</div>
+                            <!--ПЕРЕНОС ТЕКСТА-->
+                            <div class="d-flex table-text">{{item.dateOpen}}</div>
+                        </div>
+                        <div v-if="item.type_ad === 'complete'">
+                            <v-row>
+                                <div class="ml-3">
+                                    <div class="d-flex datatable-subheader">дата и время окончания работ</div>
+                                    <!--ПЕРЕНОС ТЕКСТА-->
+                                    <div class="d-flex table-text">{{item.data}}</div>
+                                </div>
+                                <v-btn class="ml-auto mt-3 mr-3 border-copy-button" v-if="item.type_ad === 'complete'" elevation="0" small text>
+                                    Отчет
+                                </v-btn>
+                            </v-row>
+                        </div>
                     </v-card-text>
-                    <v-card-text>
-                        <div v-if="item.worker != ''" class="d-flex  datatable-subheader">ответственный</div>
-                        <div class="d-flex table-text">{{item.worker}}</div>
+                    <v-card-text class="d-flex">
+                        <v-row>
+                            <div class="ml-3">
+                                <div class="d-flex datatable-subheader">серийный номер устройств</div>
+                                <!--ПЕРЕНОС ТЕКСТА-->
+                                <div class="d-flex table-text">{{item.serialNumber}}</div>
+                            </div>
+                            <div class="ml-auto mr-3">
+                                <v-btn elevation="0" class="add_button white--text" color="#6633ff">
+                                    <v-icon>mdi-chevron-right</v-icon>
+                                </v-btn>
+
+                                <v-btn elevation="0" v-if="item.type_ad === 'complete'" class="del_button white--text" color="#458e3c">
+                                    <v-icon>mdi-close</v-icon>
+                                </v-btn>
+                            </div>
+                        </v-row>
                     </v-card-text>
-                    <v-card-text>
-                        <div v-if="item.data != ''" class="d-flex  datatable-subheader">окончание работ</div>
-                        <div class="d-flex table-text">{{item.data}}</div>
-                    </v-card-text>
-                    <div></div>
-                    <v-card-actions justify="center">
-                        <v-btn elevation="0" class="add_button white--text" color="#6633ff">
-                            Подробнее
-                        </v-btn>
-                        <v-btn elevation="0" v-if="item.type_ad === 'complete'" class="del_button white--text" color="#458e3c">
-                            Скрыть
-                        </v-btn>
-                    </v-card-actions>
                 </v-card>
             </v-col>
         </v-row>
@@ -250,6 +264,7 @@ export default {
         filters: ['актуальные', 'за неделю', 'за месяц', 'за квартал', 'за год'],
         singleExpand: false,
         laravelData: [{
+                key: 1,
                 evice_bound_neme: "г. Пенза, ул. Ленина, 541-1а",
                 errors: "Низкий заряд аккумулятора",
                 dateOpen: "12 августа 2020 в 15:58",
@@ -260,6 +275,7 @@ export default {
                 color: "#d93030",
             },
             {
+                key: 2,
                 evice_bound_neme: "г. Пенза, ул. Стасова, 14",
                 errors: "Нет ответа от камеры",
                 dateOpen: "12 августа 2020 в 14:05",
@@ -270,6 +286,7 @@ export default {
                 color: "#d93030",
             },
             {
+                key: 3,
                 evice_bound_neme: "г. Пенза, ул. Павлушкина, 964а",
                 errors: "Камера загрязнена",
                 dateOpen: "12 августа 2020 в 13:58",
@@ -280,6 +297,7 @@ export default {
                 color: "#d93030",
             },
             {
+                key: 4,
                 evice_bound_neme: "г. Пенза, ул. Ленина, 541-1а",
                 errors: "Низкий заряд аккумулятора",
                 dateOpen: "12 августа 2020 в 15:58",
@@ -290,6 +308,7 @@ export default {
                 color: "#d93030",
             },
             {
+                key: 5,
                 evice_bound_neme: "г. Пенза, ул. Стасова, 14",
                 errors: "Нет ответа от камеры",
                 dateOpen: "12 августа 2020 в 14:05",
@@ -300,6 +319,7 @@ export default {
                 color: "#d93030",
             },
             {
+                key: 6,
                 evice_bound_neme: "г. Пенза, ул. Стасова, 15",
                 errors: "Низкий заряд аккумулятора",
                 dateOpen: "12 августа 2020 в 15:47",
@@ -310,6 +330,7 @@ export default {
                 color: "#6633ff",
             },
             {
+                key: 7,
                 evice_bound_neme: "г. Пенза, ул. Ленина, 541-1а",
                 errors: "Низкий заряд аккумулятора",
                 dateOpen: "12 августа 2020 в 15:47",
@@ -320,6 +341,7 @@ export default {
                 color: "#458e3c",
             },
             {
+                key: 8,
                 evice_bound_neme: "г. Пенза, ул. Ленина, 4",
                 errors: "Низкий заряд аккумулятора",
                 dateOpen: "12 августа 2020 в 15:47",
