@@ -88,27 +88,31 @@
                             <v-icon v-if="item.type_ad === 'complete'" color="#458e3c" class="columBorder">mdi-bookmark</v-icon>
                         </template>
                         <template v-slot:item.errors="{ item }">
-                            <div v-if="item.type_ad === 'error'" class="d-flex justify-center errors-collum">
-                                <v-icon :color="item.color">{{item.icon}}</v-icon>{{item.errors}}
-                            </div>
-                            <div v-if="item.type_ad === 'inWork'" class="d-flex justify-center inwork-collum">
-                                <v-icon :color="item.color">{{item.icon}}</v-icon>{{item.errors}}
-                            </div>
-                            <div v-if="item.type_ad === 'complete'" class="d-flex justify-center complete-collum">
-                                <v-icon :color="item.color">{{item.icon}}</v-icon>{{item.errors}}
+                            <div class="d-flex justify-center errors-collum">
+                                <v-icon color="#d93030">{{item.icon}}</v-icon>{{item.errors}}
                             </div>
                         </template>
                         <template v-slot:item.dateOpen="{ item }">
-                            <div class="d-flex  datatable-subheader">создание обращения</div>
-     <!--ПЕРЕНОС ТЕКСТА-->  <div class="d-flex table-text">{{item.dateOpen}}</div>
+                            <div v-if="item.type_ad === 'error'">
+                                <div class="d-flex  datatable-subheader">дата и время обращения</div>
+                                <!--ПЕРЕНОС ТЕКСТА-->
+                                <div class="d-flex table-text">{{item.dateOpen}}</div>
+                            </div>
+                            <div v-if="item.type_ad === 'inWork'">
+                                <div class="d-flex  datatable-subheader">дата и время начала работ</div>
+                                <!--ПЕРЕНОС ТЕКСТА-->
+                                <div class="d-flex table-text">{{item.dateOpen}}</div>
+                            </div>
+                            <div v-if="item.type_ad === 'complete'">
+                                <div class="d-flex  datatable-subheader">дата и время окончания работ</div>
+                                <!--ПЕРЕНОС ТЕКСТА-->
+                                <div class="d-flex table-text">{{item.data}}</div>
+                            </div>
                         </template>
-                        <template v-slot:item.worker="{ item }">
-                            <div v-if="item.worker != ''" class="d-flex  datatable-subheader">ответственный</div>
-       <!--ПЕРЕНОС ТЕКСТА--><div class="d-flex table-text">{{item.worker}}</div>
-                        </template>
-                        <template v-slot:item.data="{ item }">
-                            <div v-if="item.data != ''" class="d-flex  datatable-subheader">окончание работ</div>
-    <!--ПЕРЕНОС ТЕКСТА-->   <div class="d-flex table-text">{{item.data}}</div>
+                        <template v-slot:item.serialNumber="{item}">
+                            <div class="d-flex  datatable-subheader">серийный номер устройств</div>
+                            <!--ПЕРЕНОС ТЕКСТА-->
+                            <div class="d-flex table-text">{{item.serialNumber}}</div>
                         </template>
                         <template v-slot:top>
                             <v-dialog v-model="dialog" max-width="30vw">
@@ -154,13 +158,13 @@
 
                         <template v-slot:item.actions="{ item }">
                             <div style="display: flex">
-                                <v-btn class="mr-6 mt-1 border-copy-button" v-if="item.type_ad === 'complete'" elevation="0" small>
-                                    <v-icon small>mdi-checkbox-multiple-blank</v-icon>
+                                <v-btn class="mr-6 mt-1 border-copy-button" v-if="item.type_ad === 'complete'" elevation="0" small text>
+                                    Отчет
                                 </v-btn>
                                 <v-btn class="mr-6 mt-1 disable-button" elevation="0" v-if="item.type_ad !== 'complete'" disabled text icon small>
                                     <v-icon></v-icon>
                                 </v-btn>
-                                <v-btn elevation="0" class="mr-2 more white--text" @click="editItem(item)" color="#6633ff">Подробнее</v-btn>
+                                <v-btn elevation="0" class="mr-2 more white--text" @click="editItem(item)" color="#6633ff"><v-icon>mdi-chevron-right</v-icon></v-btn>
                                 <v-btn elevation="0" v-if="item.type_ad === 'error'" style="width: 36px; min-width: 36px;" disabled>
                                     <v-icon small>mdi-close</v-icon>
                                 </v-btn>
@@ -181,7 +185,7 @@
             </v-row>
         </v-container>
     </template>
-<!--КАРТОЧКИ ТУТ -->
+    <!--КАРТОЧКИ ТУТ -->
     <template v-else="format_table">
         <v-row dense class="ml-7 mr-8">
             <v-col cols="3" v-for="item in laravelData" :key="item.evice_bound_neme" class="content-between">
@@ -249,8 +253,8 @@ export default {
                 evice_bound_neme: "г. Пенза, ул. Ленина, 541-1а",
                 errors: "Низкий заряд аккумулятора",
                 dateOpen: "12 августа 2020 в 15:58",
-                worker: "",
                 data: "",
+                serialNumber: "MD4578 KD1405",
                 type_ad: "error",
                 icon: "mdi-battery-10",
                 color: "#d93030",
@@ -259,8 +263,8 @@ export default {
                 evice_bound_neme: "г. Пенза, ул. Стасова, 14",
                 errors: "Нет ответа от камеры",
                 dateOpen: "12 августа 2020 в 14:05",
-                worker: "",
                 data: "",
+                serialNumber: "MD0051 KD17568",
                 type_ad: "error",
                 icon: "mdi-block-helper",
                 color: "#d93030",
@@ -269,8 +273,8 @@ export default {
                 evice_bound_neme: "г. Пенза, ул. Павлушкина, 964а",
                 errors: "Камера загрязнена",
                 dateOpen: "12 августа 2020 в 13:58",
-                worker: "",
                 data: "",
+                serialNumber: "MD0051 KD17568",
                 type_ad: "error",
                 icon: "mdi-broom",
                 color: "#d93030",
@@ -279,8 +283,8 @@ export default {
                 evice_bound_neme: "г. Пенза, ул. Ленина, 541-1а",
                 errors: "Низкий заряд аккумулятора",
                 dateOpen: "12 августа 2020 в 15:58",
-                worker: "",
                 data: "",
+                serialNumber: "MD4578 KD0505",
                 type_ad: "error",
                 icon: "mdi-battery-10",
                 color: "#d93030",
@@ -289,8 +293,8 @@ export default {
                 evice_bound_neme: "г. Пенза, ул. Стасова, 14",
                 errors: "Нет ответа от камеры",
                 dateOpen: "12 августа 2020 в 14:05",
-                worker: "",
                 data: "",
+                serialNumber: "MD4578 KD1405",
                 type_ad: "error",
                 icon: "mdi-block-helper",
                 color: "#d93030",
@@ -299,28 +303,28 @@ export default {
                 evice_bound_neme: "г. Пенза, ул. Стасова, 15",
                 errors: "Низкий заряд аккумулятора",
                 dateOpen: "12 августа 2020 в 15:47",
-                worker: "Фамилия И.О.",
                 data: "",
+                serialNumber: "MD0051 KD17568",
                 type_ad: "inWork",
                 icon: "mdi-battery-10",
                 color: "#6633ff",
             },
             {
-                evice_bound_neme: "г. Пенза, ул. Название, 1",
+                evice_bound_neme: "г. Пенза, ул. Ленина, 541-1а",
                 errors: "Низкий заряд аккумулятора",
                 dateOpen: "12 августа 2020 в 15:47",
-                worker: "Фамилия И.О.",
                 data: "13 августа 2020 в 09:01",
+                serialNumber: "MD4578 KD1405",
                 type_ad: "complete",
                 icon: "mdi-battery-10",
                 color: "#458e3c",
             },
             {
-                evice_bound_neme: "г. Пенза, ул. Название, 1",
+                evice_bound_neme: "г. Пенза, ул. Ленина, 4",
                 errors: "Низкий заряд аккумулятора",
                 dateOpen: "12 августа 2020 в 15:47",
-                worker: "Фамилия И.О.",
                 data: "13 августа 2020 в 09:01",
+                serialNumber: "MD4578 KD1405",
                 type_ad: "complete",
                 icon: "mdi-battery-10",
                 color: "#458e3c",
@@ -349,11 +353,7 @@ export default {
             },
             {
                 text: "",
-                value: "worker",
-            },
-            {
-                text: "",
-                value: "data",
+                value: "serialNumber",
             },
             {
                 text: "",

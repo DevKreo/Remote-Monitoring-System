@@ -101,6 +101,8 @@
   font-size: 12px!important;
   font-weight: 500!important;
   text-transform: none!important;
+  width: 36px!important; 
+  min-width: 36px!important;
   font-style: normal;
 }
 
@@ -120,9 +122,14 @@
 
 .border-copy-button{
   background-color: #ffffff!important;
-  border: 1px solid #dfe1ee;
-  width: 29px!important; 
-  min-width: 29px!important;
+  font-family: 'Montserrat',  sans-serif;
+  font-size: 10px!important;
+  font-weight: 500;
+  width: 20px!important;
+  max-width: 20px!important;
+  font-style: normal;
+  text-transform: none!important;
+  border-bottom: 1px solid #6633ff;
 }
 
 
@@ -131,29 +138,11 @@
   font-size: 11px!important;
   font-weight: 700;
   font-style: bold;
-  border: 1px solid #d93030;
+  border: 1px solid #9d9ea5;
   padding: 10px!important;
   width: 240px;
 }
 
-.inwork-collum{
-  font-family: 'Montserrat',  sans-serif;
-  font-size: 11px!important;
-  font-weight: 700;
-  font-style: bold;
-  border: 1px solid #6633ff;
-  padding: 10px!important;
-  width: 240px;
-}
-.complete-collum{
-  font-family: 'Montserrat',  sans-serif;
-  font-size: 11px!important;
-  font-weight: 700;
-  font-style: bold;
-  border: 1px solid #458e3c;
-  padding: 10px!important;
-  width: 240px;
-}
 
 .datatable-subheader{
   font-family: 'Montserrat',  sans-serif;
@@ -163,16 +152,6 @@
   color: #9d9ea5;
 }
 
-.inwork-collum .v-icon{
-  width: 11px!important;
-  height: 17px!important;
-  margin-right: 10px;
-}
-.complete-collum .v-icon{
-  width: 11px!important;
-  height: 17px!important;
-  margin-right: 10px;
-}
 
 .errors-collum .v-icon{
   width: 11px!important;
@@ -180,7 +159,7 @@
   margin-right: 10px;
 }
 .disable-button{
-  width: 29px!important;
+  width: 50px!important;
   height: 29px!important;
 }
 
