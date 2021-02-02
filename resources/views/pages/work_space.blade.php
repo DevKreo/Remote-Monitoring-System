@@ -2,9 +2,7 @@
 
 
 @section('content')
-    <v-app>
-        <nav-side-bar></nav-side-bar>
-    </v-app>
+    <new-sidebar></new-sidebar>
 @endsection 
 @section('script')
     {{-- @include('./public/js/work-space-table.js') --}}

@@ -1,11 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+.Logo{
+  padding-top: 35px;
+  padding-left: 50px;
+  margin-bottom: 30px;
+}
 #SDM{
   font-family: 'Montserrat',  sans-serif;
   font-size: 30px!important;
   font-weight: 900;
   font-style: bold;
   color: #6633ff;
+  margin-bottom: 0px;
 }
 .userSelect{
   width: 280px!important;
@@ -18,10 +24,7 @@
   border-right: 2px solid #dfe1ee!important;
   padding-right: 10px!important;
 }
-.v-select{
-  width: 150px;
-  text-overflow: clip;
-}
+
 
 .footer{
   height: 50vh!important;
@@ -46,12 +49,6 @@
 }
 
 
-.v-data-table__wrapper tr{
-  border-radius: 10px!important;
-  margin-bottom: 2px!important;
-}
-
-
 
 .divider{
   position: relative;
@@ -69,20 +66,7 @@
   height: 1px;
   background-image: linear-gradient(to right, #1e2555, transparent);
 }
-.v-breadcrumbs li{
-  font-family: 'Montserrat',  sans-serif;
-  font-size: 12px!important;
-  font-weight: 400;
-  font-style: normal;
-}
-.v-breadcrumbs__item{
-  padding-bottom: 10px!important;
-  color: #999;
-}
-.v-breadcrumbs__item--disabled{
-  border-bottom: 3px solid #6633ff;
-  text-decoration: none;
-}
+
 
 
 
@@ -156,11 +140,6 @@
 }
 
 
-.errors-collum .v-icon{
-  width: 11px!important;
-  height: 17px!important;
-  margin-right: 10px;
-}
 .disable-button{
   width: 50px!important;
   height: 29px!important;
@@ -210,6 +189,35 @@
   font-weight: 500;
   font-style: normal;
 }
+.roll-up a{
+  background-color: #050c42;
+  border: 0;
+  border-radius: 0 0 0 0!important;
+  padding-left: 50px;
+  color: #8289bc
+}
+
+
+.roll-up > a:focus{
+  border-left: 2px solid #6633ff;
+  background-color: #1e2555;
+  color: white;
+}
+.roll-up > a:hover{
+  background-color: #1e2555;
+  color: white
+}
+
+
+
+.roll-up > a:focus > i{
+  color: #6633ff;
+}
+
+.roll-up i{
+  padding-right: 15px;
+  color: #3e446d;
+}
 
 .references{
   font-family: 'Montserrat',  sans-serif;
@@ -233,24 +241,73 @@
   font-weight: 400;
   font-style: normal;
 }
+.first-list a{
+  background-color: #050c42;
+  border: 0;
+  border-radius: 0 0 0 0!important;
+  padding-left: 50px;
+  color: #8289bc
+}
 
-
-
-.v-list-item--active {
-  border-left: 2px solid #6633ff!important;
-  background-color: #252b64!important;
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.42857;
+  background-color: #6633ff;
+  border: 5px solid #312278;
 }
 
 
-.v-list-item--active i{
-  color: #6633ff!important;
+.first-list > a:focus{
+  border-left: 2px solid #6633ff;
+  background-color: #1e2555;
+  color: white;
 }
+
+#custom-badge{
+  margin-left: 15px;
+  color: #fff;
+}
+.first-list > a:hover{
+  background-color: #1e2555;
+  color: white
+}
+
+
+
+.first-list > a:focus > i{
+  color: #6633ff;
+}
+
+.first-list i{
+  padding-right: 15px;
+  color: #3e446d;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 #color-list{
   color: #8289bc!important;
 }
-.v-list-item--active #color-list{
-  color: #ffffff!important;
+
+.list-wrapper{
+  margin: 0;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  width: 300px!important;
 }
 
 #styled-list-group {
@@ -258,7 +315,21 @@
   font-size: 12px;
   font-weight: 300;
   font-style: normal;
-  margin-top: auto;
+  flex-shrink: 0;
+}
+
+#styled-list-group a{
+  background-color: #050c42;
+  border: 0;
+  border-radius: 0 0 0 0!important;
+  padding-left: 50px;
+  text-decoration: underline;
+  color: #8289bc
+}
+
+#styled-list-group > a:focus{
+  background-color: #1e2555;
+  color: white;
 }
 
 
@@ -274,10 +345,12 @@
  */
 
 .sidebar {
-  top: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 100; /* Behind the navbar */
+  background-color: #050c42;
+  border: 1px solid black; 
+  border-radius:  0 50px 50px 0;
+  height: 100vh!important;
+  width: 330px;
+  z-index: 100;
   padding: 0;
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
 }
@@ -287,39 +360,7 @@
   border-bottom-right-radius: 50px;
 }
 
-.sidebar-sticky {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 48px; /* Height of navbar */
-  height: calc(100vh - 48px);
-  padding-top: .5rem;
-  overflow-x: hidden;
-  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-}
 
-.sidebar .nav-link {
-  font-weight: 500;
-  color: #333;
-}
-
-.sidebar .nav-link .feather {
-  margin-right: 4px;
-  color: #999;
-}
-
-.sidebar .nav-link.active {
-  color: #007bff;
-}
-
-.sidebar .nav-link:hover .feather,
-.sidebar .nav-link.active .feather {
-  color: inherit;
-}
-
-.sidebar-heading {
-  font-size: .75rem;
-  text-transform: uppercase;
-}
 
 /*
  * Navbar
@@ -380,3 +421,4 @@
   width:100%;
   position:absolute;
   }
+
