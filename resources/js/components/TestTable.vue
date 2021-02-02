@@ -33,21 +33,30 @@
     <template>
         <v-card flat tile elevation="0" class="mt-3">
             <v-row class="ml-5 mr-6 flex-nowrap">
-                <v-col class="mt-2" cols="auto">
-                    <p class="legend">
-                        <v-icon color="#d93030">mdi-radiobox-marked</v-icon>Актуальные
-                    </p>
-                </v-col>
-                <v-col class="mt-2" cols="auto">
-                    <p class="legend">
-                        <v-icon color="#6633ff">mdi-radiobox-marked</v-icon>В работе
-                    </p>
-                </v-col>
-                <v-col class="mt-2" cols="auto">
-                    <p class="legend">
-                        <v-icon color="#458e3c">mdi-radiobox-marked</v-icon>Готово
-                    </p>
-                </v-col>
+                <v-checkbox
+                    class="check--box"
+                    v-model="actual"
+                    color="#d93030"
+                    label="Актуальные"
+                    off-icon="far fa-square"
+                    on-icon="fas fa-square"
+                ></v-checkbox>
+                <v-checkbox
+                    class="check--box"
+                    v-model="inWork"
+                    color="#6633ff"
+                    label="В работе"
+                    off-icon="far fa-square"
+                    on-icon="fas fa-square"
+                ></v-checkbox>
+                <v-checkbox
+                    class="check--box"
+                    v-model="ready"
+                    color="#458e3c"
+                    label="В работе"
+                    off-icon="far fa-square"
+                    on-icon="fas fa-square"
+                ></v-checkbox>
                 <v-spacer></v-spacer>
                 <v-col cols="auto">
                     <v-text-field placeholder="Название рубежа" v-model="search" label="все" outlined dense color="#6633ff"></v-text-field>
@@ -253,6 +262,11 @@
 <script>
 export default {
     data: () => ({
+        // checkbox
+        actual: true,
+        inWork: true,
+        ready: true,
+        //checkbox
         myLoadVariable: true,
         toggle_none: 0,
         dialog: false,
@@ -516,3 +530,13 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+.check--box /deep/ label {
+    font-family: 'Montserrat',  sans-serif;
+    font-size: 12px!important;
+    font-weight: 500;
+    font-style: normal;
+    margin-bottom: 0;
+}
+</style>
