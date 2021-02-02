@@ -34,7 +34,7 @@
         <v-card flat tile elevation="0" class="mt-3">
             <v-row class="ml-5 mr-6 flex-nowrap">
                 <v-checkbox
-                    class="check--box"
+                    class="check--box ml-4"
                     v-model="actual"
                     color="#d93030"
                     label="Актуальные"
@@ -198,18 +198,18 @@
         <v-row dense class="ml-7 mr-8">
             <v-col cols="3" v-for="item in laravelData" :key="item.key" class="content-between">
                 <v-card class="styled_card" outlined>
-                    <v-card-text class="d-flex">
+                    <v-card-text class="d-flex" style="white-space: nowrap; padding-top: 35px; padding-left: 35px; padding-right: 35px; padding-bottom: 0px;">
                         {{item.evice_bound_neme}}
-                        <v-icon v-if="item.type_ad === 'error'" style="margin-left: auto" color="#d93030">mdi-bookmark</v-icon>
-                        <v-icon v-if="item.type_ad === 'inWork'" color="#6633ff">mdi-bookmark</v-icon>
-                        <v-icon v-if="item.type_ad === 'complete'" color="#458e3c">mdi-bookmark</v-icon>
+                        <v-icon v-if="item.type_ad === 'error'"  style="margin-left: auto" color="#d93030">mdi-bookmark</v-icon>
+                        <v-icon v-if="item.type_ad === 'inWork'" style="margin-left: auto" color="#6633ff">mdi-bookmark</v-icon>
+                        <v-icon v-if="item.type_ad === 'complete'" style="margin-left: auto" color="#458e3c">mdi-bookmark</v-icon>
                     </v-card-text>
-                    <v-card-text v-card-text class="d-flex justify-center">
-                        <div class="d-flex justify-center errors-collum" style="width: 360px!important; ">
+                    <v-card-text class="d-flex justify-center" style="padding-top: 13px; padding-left: 35px; padding-right: 35px; padding-bottom: 0px;">
+                        <div class="justify-center text-center errors-collum" style="width: 270px">
                             <v-icon color="#d93030">{{item.icon}}</v-icon>{{item.errors}}
                         </div>
                     </v-card-text>
-                    <v-card-text>
+                    <v-card-text style="padding-top: 13px; padding-left: 35px; padding-right: 35px; padding-bottom: 0px;">
                         <div v-if="item.type_ad === 'error'">
                             <div class="d-flex  datatable-subheader">дата и время обращения</div>
                             <!--ПЕРЕНОС ТЕКСТА-->
@@ -222,30 +222,29 @@
                         </div>
                         <div v-if="item.type_ad === 'complete'">
                             <v-row>
-                                <div class="ml-3">
+                                <div class="ml-3 mt-3 mb-3">
                                     <div class="d-flex datatable-subheader">дата и время окончания работ</div>
                                     <!--ПЕРЕНОС ТЕКСТА-->
                                     <div class="d-flex table-text">{{item.data}}</div>
                                 </div>
-                                <v-btn class="ml-auto mt-3 mr-3 border-copy-button" v-if="item.type_ad === 'complete'" elevation="0" small text>
+                                <v-btn class="ml-auto mt-4 mr-3 border-copy-button" v-if="item.type_ad === 'complete'" elevation="0" small text>
                                     Отчет
                                 </v-btn>
                             </v-row>
                         </div>
-                    </v-card-text>
-                    <v-card-text class="d-flex">
+                    </v-card-text >
+                    <v-card-text class="d-flex" style="padding-top: 13px; padding-left: 35px; padding-right: 35px; padding-bottom: 0px;">
                         <v-row>
                             <div class="ml-3">
                                 <div class="d-flex datatable-subheader">серийный номер устройств</div>
                                 <!--ПЕРЕНОС ТЕКСТА-->
                                 <div class="d-flex table-text">{{item.serialNumber}}</div>
                             </div>
-                            <div class="ml-auto mr-3">
-                                <v-btn elevation="0" class="add_button white--text" color="#6633ff">
+                            <div class="ml-auto mr-3 mt-1">
+                                <v-btn elevation="0" class="add_button white--text" style="width: 36px; min-width: 36px;" color="#6633ff">
                                     <v-icon>mdi-chevron-right</v-icon>
                                 </v-btn>
-
-                                <v-btn elevation="0" v-if="item.type_ad === 'complete'" class="del_button white--text" color="#458e3c">
+                                <v-btn elevation="0" v-if="item.type_ad === 'complete'" class="del_button white--text" style="width: 36px; min-width: 36px;" color="#458e3c">
                                     <v-icon>mdi-close</v-icon>
                                 </v-btn>
                             </div>
