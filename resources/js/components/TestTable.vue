@@ -1,5 +1,11 @@
 <template>
-    <div id="container"></div>
+    <div>
+        <div id="container">
+        </div>
+        <div>
+            <button v-on:click="onUpdate()">ffffffffffffff</button>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -28,7 +34,7 @@ export default {
             dragItemId: null,
             rectCoordsY: 0,
             colorRect: "",
-            
+            stage: null
         };
     },
     methods: {
@@ -40,25 +46,26 @@ export default {
             }
             return color;
         },
-        
-        
+
+        onUpdate(){
+            this.stage =new Konva.Stage({
+                container: "container",
+                width: 1000,
+                height: 500
+            });
+        },
 
         onStart() {
-            var width = window.innerWidth;
-            var height = window.innerHeight;
+            var width = 1000;
+            var height = 500;
 
-            var stage = new Konva.Stage({
-                container: "container",
-                width: width,
-                height: height
-            });
 
             var layer = new Konva.Layer();
 
-            stage.add(layer);
+            this.stage.add(layer);
 
             var tempLayer = new Konva.Layer();
-            stage.add(tempLayer);
+            this.stage.add(tempLayer);
 
             var path;
             var rectungle;
@@ -96,7 +103,7 @@ export default {
             }
             layer.draw();
 
-            stage.on("dragstart", function(e) {
+            this.stage.on("dragstart", function(e) {
                 e.target.moveTo(tempLayer);
                 this.colorRect = e.target.fill();
                 //console.log(e.target);
@@ -104,8 +111,8 @@ export default {
             });
 
             var previousShape;
-            stage.on("dragmove", function(evt) {
-                var pos = stage.getPointerPosition();
+            this.stage.on("dragmove", function(evt) {
+                var pos = this.stage.getPointerPosition();
                 var shape = layer.getIntersection(pos);
                 if (previousShape && shape) {
                     if (previousShape !== shape) {
@@ -166,8 +173,8 @@ export default {
                     previousShape = undefined;
                 }
             });
-            stage.on("dragend", function(e) {
-                var pos = stage.getPointerPosition();
+            this.stage.on("dragend", function(e) {
+                var pos = this.stage.getPointerPosition();
                 var shape = layer.getIntersection(pos);
                 if (shape) {
                     previousShape.fire(
@@ -186,47 +193,31 @@ export default {
                 tempLayer.draw();
             });
 
-            stage.on("dragenter", function(e) {
+            this.stage.on("dragenter", function(e) {
                 e.target.fill("red");
                 layer.draw();
             });
 
-            stage.on("dragleave", function(e) {
+            this.stage.on("dragleave", function(e) {
                 e.target.fill("blue");
                 layer.draw();
             });
 
-            stage.on("dragover", function(e) {
+            this.stage.on("dragover", function(e) {
                 layer.draw();
             });
 
-            stage.on("drop", function(e) {
+            this.stage.on("drop", function(e) {
                 e.target.fill(this.colorRect);
                 e.target.moveTo(tempLayer);
                 this.colorRect = "";
                 layer.draw();
             });
-
-            
         }
-        // handleDragStart(e) {
-        //     e.target.fill("black");
-        //     //const elem = this.$refs.second;
-        //     //elem.
-        //     //console.log(elem);
-        // },
-        // handleDragEnd(e) {
-        //     e.target.fill("green");
-        //     console.log(e.target._id);
-        // },
-        // handleDragOver(e) {
-        //     // e.target.fill("red");
-        // }
+
     },
-    // beboreMount() {
-    //     this.onStart()
-    // }
     mounted() {
+        this.onUpdate();
         this.onStart();
     }
 };
