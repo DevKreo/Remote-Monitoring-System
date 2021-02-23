@@ -1,9 +1,8 @@
 <template>
     <div>
-        <div id="container">
-        </div>
+        <div id="container"></div>
         <div>
-            <button v-on:click="onUpdate()">ffffffffffffff</button>
+            <button v-on:click="onStart()">ffffffffffffff</button>
         </div>
     </div>
 </template>
@@ -33,8 +32,7 @@ export default {
             ],
             dragItemId: null,
             rectCoordsY: 0,
-            colorRect: "",
-            stage: null
+            colorRect: ""
         };
     },
     methods: {
@@ -47,25 +45,21 @@ export default {
             return color;
         },
 
-        onUpdate(){
-            this.stage =new Konva.Stage({
-                container: "container",
-                width: 1000,
-                height: 500
-            });
-        },
+        onUpdate() {},
 
         onStart() {
-            var width = 1000;
-            var height = 500;
-
-
+            var stage = new Konva.Stage({
+                x: 705,
+                container: "container",
+                width: window.innerWidth,
+                height: 500
+            });
             var layer = new Konva.Layer();
 
-            this.stage.add(layer);
+            stage.add(layer);
 
             var tempLayer = new Konva.Layer();
-            this.stage.add(tempLayer);
+            stage.add(tempLayer);
 
             var path;
             var rectungle;
@@ -73,7 +67,7 @@ export default {
             for (var i = 0; i < this.list.length; i++) {
                 path = new Konva.Path({
                     x: 240,
-                    y: 40,
+                    y: 90,
                     fill: "blue",
                     data: this.list[i],
                     numPoints: 10,
@@ -83,27 +77,72 @@ export default {
                     shadowOffsetY: 1
                 });
                 layer.add(path);
+            }
+            layer.draw();
+            for (var i = 0; i < 2; i++) {
                 rectungle = new Konva.Rect({
-                    x: 50,
-                    y: 25 + i * 25,
-                    width: 10,
-                    height: 10,
+                    cornerRadius: 5,
+                    x: 240 + i * 100,
+                    y: 55,
+                    width: 25,
+                    height: 25,
                     fill: this.getRandomColor(),
                     draggable: true
                 });
                 layer.add(rectungle);
                 text = new Konva.Text({
-                    x: 75,
-                    y: 25 + i * 25,
+                    x: 270 + i * 100,
+                    y: 62,
                     draggable: false,
                     fill: "black",
                     text: "Запись №" + (i + 1)
                 });
                 layer.add(text);
             }
+            for (var i = 0; i < 3; i++) {
+                rectungle = new Konva.Rect({
+                    cornerRadius: 5,
+                    x: 240 + i * 100,
+                    y: 5,
+                    width: 25,
+                    height: 25,
+                    fill: this.getRandomColor(),
+                    draggable: true
+                });
+                layer.add(rectungle);
+                text = new Konva.Text({
+                    x: 270 + i * 100,
+                    y: 12,
+                    draggable: false,
+                    fill: "black",
+                    text: "Запись №" + (i + 1)
+                });
+                layer.add(text);
+            }
+            rectungle = new Konva.Rect({
+                cornerRadius: 5,
+                x: 440,
+                y: 55,
+                width: 25,
+                height: 25,
+                fill: "black",
+                draggable: true
+            });
+            layer.add(rectungle);
+
+            text = new Konva.Text({
+                x: 470,
+                y: 55,
+                draggable: false,
+                fill: "black",
+                text: "Очистить",
+                //listening: this.onStart()
+            });
+            layer.add(text);
+
             layer.draw();
 
-            this.stage.on("dragstart", function(e) {
+            stage.on("dragstart", function(e) {
                 e.target.moveTo(tempLayer);
                 this.colorRect = e.target.fill();
                 //console.log(e.target);
@@ -111,8 +150,8 @@ export default {
             });
 
             var previousShape;
-            this.stage.on("dragmove", function(evt) {
-                var pos = this.stage.getPointerPosition();
+            stage.on("dragmove", function(evt) {
+                var pos = stage.getPointerPosition();
                 var shape = layer.getIntersection(pos);
                 if (previousShape && shape) {
                     if (previousShape !== shape) {
@@ -173,8 +212,8 @@ export default {
                     previousShape = undefined;
                 }
             });
-            this.stage.on("dragend", function(e) {
-                var pos = this.stage.getPointerPosition();
+            stage.on("dragend", function(e) {
+                var pos = stage.getPointerPosition();
                 var shape = layer.getIntersection(pos);
                 if (shape) {
                     previousShape.fire(
@@ -193,31 +232,29 @@ export default {
                 tempLayer.draw();
             });
 
-            this.stage.on("dragenter", function(e) {
+            stage.on("dragenter", function(e) {
                 e.target.fill("red");
                 layer.draw();
             });
 
-            this.stage.on("dragleave", function(e) {
+            stage.on("dragleave", function(e) {
                 e.target.fill("blue");
                 layer.draw();
             });
 
-            this.stage.on("dragover", function(e) {
+            stage.on("dragover", function(e) {
                 layer.draw();
             });
 
-            this.stage.on("drop", function(e) {
+            stage.on("drop", function(e) {
                 e.target.fill(this.colorRect);
                 e.target.moveTo(tempLayer);
                 this.colorRect = "";
                 layer.draw();
             });
         }
-
     },
     mounted() {
-        this.onUpdate();
         this.onStart();
     }
 };
@@ -227,5 +264,8 @@ export default {
 body {
     margin: 0;
     padding: 0;
+}
+
+.konvajs-content {
 }
 </style>
